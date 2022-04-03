@@ -1,42 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shelter</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <link rel="stylesheet" href="/shelter/pages/main/styles/style.css">
-</head>
-<body>
-  <header>
-    <div class="header">
-      <div class="logo">
-        <div class="logo__title">
-          <a>Cozy House</a>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <link rel="stylesheet" href="/shelter/pages/main/styles/style.css" />
+  </head>
+  <body>
+    <div class="start-screen">
+      <header>
+        <div class="header">
+          <div class="logo">
+            <div class="logo__title">
+              <a>Cozy House</a>
+            </div>
+            <div class="logo__subtitle">
+              <a>Shelter for pets in Boston</a>
+            </div>
+          </div>
+          <nav>
+            <ul class="menu">
+              <li class="menu__item">
+                <a href="#" class="menu__link__active">About the shelter</a>
+              </li>
+              <li class="menu__item">
+                <a href="#" class="menu__link">Our pets</a>
+              </li>
+              <li class="menu__item">
+                <a href="#" class="menu__link">Help the shelter</a>
+              </li>
+              <li class="menu__item">
+                <a href="#" class="menu__link">Contacts</a>
+              </li>
+            </ul>
+          </nav>
         </div>
-        <div class="logo__subtitle">
-          <a>Shelter for pets in Boston</a>
+      </header>
+      <section>
+        <div class="start-screen__content">
+          <div class="content"> 
+            <h1 class="heading item">
+              Not only people
+               need a house
+              </h1>
+            <div class="subHeading item">
+              <p>We offer to give a chance to a little and nice puppy with an extremely
+                 wide and open heart. He or she will love you more than anybody else in the world, you will see!</p>
+            </div>
+            <div class="margin-top">
+              <button class="button__primary button"><div class="button__text">Make a friend</div></button>
+            </div>
+          </div>
+          <img class="start-screen__puppy"
+            src="../../assets/images/start-screen-puppy.png"
+            alt="puppy"
+          />
+        </div>
+      </section>
+    </div>
+    <section>
+      <div class="about">
+        <div class="about__content">
+          <article class="about__article">
+            <div class="about__heading about__item">
+              About the shelter "Cozy House"
+            </div>
+            <div class="about__subHeading about__item">
+              Currently we have 121 dogs and 342 cats on our hands and statistics show that only
+               20% of them will find a family. The others will continue to live with us and will
+                be waiting for a lucky chance to become dearly loved.
+            </div>
+            <div class="about__subHeading">
+              We feed our wards with the best food and make sure that they do not get sick, feel
+               comfortable (including psychologically) and well. We are supported by 87 volunteers
+                and 28 employees of various skill levels. About 12% of the animals are taken by the
+                 shelter staff. Taking care of the animals, they become attached to the pets and
+                  would hardly ever leave them alone.
+            </div>
+          </article>
+          <img
+            class="about__pets"
+            src="../../assets/images/about-pets.png"
+            alt="about pets">
         </div>
       </div>
-      <nav>
-        <ul class="menu">
-          <li class="menu__item">
-            <a href="#" class="menu__link__active">About the shelter</a>
-          </li>
-          <li class="menu__item">
-            <a href="#" class="menu__link">Our pets</a>
-          </li>
-          <li class="menu__item">
-            <a href="#" class="menu__link">Help the shelter</a>
-          </li>
-          <li class="menu__item">
-            <a href="#" class="menu__link">Contacts</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-</body>
+    </section>
+  </body>
 </html>

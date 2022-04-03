@@ -1,13 +1,160 @@
 @import './_variables.scss';
 
-*{
-  margin: 0;
-  padding: 0;
-  background-color: $dark-3xl;
+html {
+  font-size: 10px;
 }
 
-html {
-  font-size: 10px
+.start-screen {
+  overflow: hidden;
+  width: 100%;
+  height: 908px;
+  background: url($start-screen-background-url) center / cover no-repeat;
+  -moz-background: url($start-screen-background-url) center / cover no-repeat;
+
+  &__content {
+    position: relative;
+    vertical-align: bottom;
+    max-width: 1200px;
+    min-height: 788px;
+    margin: 0 auto;
+  }
+  &__puppy {
+    position: absolute;
+    max-width: 60%;
+    right: 0px;
+    bottom: 0px;
+  }
+
+  
+}
+
+.content {
+  position: absolute;
+  top: 28.5%;
+
+  .item {
+    margin-bottom: 3.9%;
+  }
+}
+
+.heading {
+  position: relative;
+
+  margin:0;
+  max-width: 30%;
+  height: 114px;
+
+  font-family: 'Georgia';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 4.4rem;
+  line-height: 130%;
+
+  color: $light-xl;
+}
+.subHeading {
+  //margin-top: 9%;
+  position: relative;
+  max-width: 43%;
+  height: 72px;
+
+  /* paragraph-l */
+  font-family: 'Arial';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 160%;
+
+  color: $dark-s;
+}
+
+.button{
+  height: 52px;
+  width: 207px;
+  border-radius: 100px;
+  border-color: $primary;
+  border-width: 3px;
+  align-items: center;
+
+  &__primary {
+    background-color: $primary;
+  }
+
+  &__text {
+    /* Make a friend */
+    position: static;
+    left: 21.74%;
+    right: 21.74%;
+    top: 28.85%;
+    bottom: 28.85%;
+
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 130%;
+    /* identical to box height, or 22px */
+
+    letter-spacing: 0.06em;
+
+    color: #292929;
+  }
+}
+
+.about {
+  max-width: $content-width;
+  height: $content-width/2.04;
+  background-color: $light-xl;
+  margin: 0 auto;
+  position: relative;
+  &__content {
+    position: absolute;
+    margin: 0 auto;
+    top: 13.6%;
+    width: 100%;
+    height: 70%;
+  }
+  &__article {
+    position: absolute;
+    max-width: 45.8%;
+    top: 3.6%;
+    right: 4.6%;
+  }
+  &__item {
+    margin-bottom: 4.5%;
+  }
+  &__pets {
+    max-width: 25%;
+    position: relative;
+    left: 14.6%;
+  }
+  &__heading {
+    max-width: 55%;
+    //height: 90px;
+    left: 0px;
+    top: 0px;
+    /* h3 */
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 130%;
+
+    letter-spacing: 0.06em;
+  }
+  &__subHeading{
+    /* Subheading */
+    max-width: 78%;
+    //height: 96px;
+    left: 0px;
+    top: 115px;
+    /* paragraph-l */
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 160%;
+  }
 }
 
 .header{
@@ -67,7 +214,7 @@ html {
     align-items: center;
 
     &__item {
-      margin-left: 35px;
+      margin-left: 3.5rem;
     }
     &__link {
       color: $dark-s;
@@ -92,7 +239,6 @@ html {
         font-size: 1.5rem;
         line-height: 160%;
         /* identical to box height, or 24px */
-
 
         padding-bottom: 0.35rem;
         border-bottom: 0.35rem solid $primary;
