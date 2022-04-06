@@ -3,6 +3,7 @@ html {
 }
 
 .start-screen {
+  position: relative;
   overflow: hidden;
   width: 100%;
   height: 908px;
@@ -20,24 +21,25 @@ html {
 
 .start-screen__puppy {
   position: absolute;
-  max-width: 60%;
+  max-width: 94vh;
   right: 0px;
   bottom: 0px;
 }
 
-.content {
+.start-screen__article {
   position: absolute;
-  top: 28.5%;
+  top: 28.3%;
+  width: 460px;
+  height: 322px;
 }
 
-.content .item {
-  margin-bottom: 3.9%;
+.start-screen__article .item {
+  margin-bottom: 9.2%;
 }
 
-.heading {
+.start-screen__article .heading {
   position: relative;
-  margin: 0;
-  max-width: 30%;
+  margin-top: 0;
   height: 114px;
   font-family: 'Georgia';
   font-style: normal;
@@ -47,9 +49,8 @@ html {
   color: #FFFFFF;
 }
 
-.subHeading {
+.start-screen__article .subHeading {
   position: relative;
-  max-width: 43%;
   height: 72px;
   /* paragraph-l */
   font-family: 'Arial';
@@ -69,9 +70,11 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
 }
 
 .button__primary {
+  position: absolute;
   background-color: #F1CDB3;
 }
 
@@ -164,7 +167,7 @@ html {
       -ms-flex-align: center;
           align-items: center;
   margin: 0 auto;
-  margin-top: 60px;
+  margin-top: 5vw;
 }
 
 .logo__title {
@@ -238,5 +241,45 @@ html {
   /* identical to box height, or 24px */
   padding-bottom: 0.35rem;
   border-bottom: 0.35rem solid #F1CDB3;
+}
+
+@media (max-width: 1280px) {
+  .start-screen {
+    height: 1165px;
+  }
+  .start-screen__article {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    top: 5.7%;
+  }
+  .start-screen__puppy {
+    max-width: 77vh;
+  }
+  .start-screen__content {
+    height: 1070px;
+  }
+  .start-screen__puppy {
+    bottom: 0;
+  }
+  .heading {
+    position: relative;
+    height: 114px;
+  }
+  .subHeading {
+    position: relative;
+  }
+  .button {
+    margin-left: auto;
+  }
+  .button__primary {
+    left: calc(50% - 207px/2 - 0.5px);
+  }
+  .header {
+    width: 92.1875%;
+    margin-top: 30px;
+  }
 }
 /*# sourceMappingURL=style.css.map */
