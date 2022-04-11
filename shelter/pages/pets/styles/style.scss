@@ -1,0 +1,483 @@
+@import '../../../assets/styles/variables';
+
+html {
+  font-size: 10px;
+}
+
+.header-container {
+  position: relative;
+  overflow: hidden;
+
+  width: 100%;
+  height: 120px;
+
+  background-color: $light-xl;
+  -moz-background-color: $light-xl;
+
+  padding: 0;
+}
+
+.header{
+  max-width: 1200px;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.logo{
+  position: relative;
+  width: 190px;
+  height: 60px;
+  //justify-content: flex-start;
+
+  &__title{
+    position: absolute;
+    color: $dark-l;
+
+    width: 100%;
+    height: 35px;
+
+    /* logo_title */
+    font-family:'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3.2rem;
+    line-height: 110%;
+
+    letter-spacing: 0.06em;
+  }
+  
+  &__subtitle{
+    position: absolute;
+
+    left: 4px;
+    top: calc(50% - 15px/2 + 22.5px);
+    //margin-left: 0.04rem;
+
+    /* logo_subtitle */
+    font-family:'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.3rem;
+    line-height: 1.5rem;
+
+    letter-spacing: 0.13rem;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+
+    color: $dark-3xl;
+  }
+}
+.logo:hover{
+  cursor: pointer;
+}
+
+.menu {
+  //margin-left: auto;
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    align-items: center;
+
+    &__item {
+      margin-left: 3.5rem;
+    }
+    &__link {
+      color: $dark-l;
+      text-decoration: none;
+
+      /* paragraph-l */
+      font-family: 'Arial';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 1.5rem;
+      line-height: 160%;
+      /* identical to box height, or 24px */
+
+      &__active {
+        color: $dark-3xl;
+        text-decoration: none;
+
+        /* paragraph-l */
+        font-family: 'Arial';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.5rem;
+        line-height: 160%;
+        /* identical to box height, or 24px */
+
+        padding-bottom: 0.35rem;
+        border-bottom: 0.35rem solid $primary;
+      }
+    }
+
+    &__link:hover{
+      color: $dark-3xl;
+    }
+}
+.pets {
+  position: relative;
+  height: 1342px;
+  background-color: $light-l;
+
+  &__content {
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    top: 80px;
+    width: 1200px;
+    height: 1162px;
+  }
+  
+  &__slider {
+    position: absolute;
+    top: 150px;
+
+    max-width: 1200px;
+
+    display: grid;
+    grid-template-columns: 105px 990px 105px;
+
+    .left-arrow {
+      justify-self: start;
+      align-self: center;
+    }
+    .right-arrow {
+      justify-self: end;
+      align-self: center;
+    }
+  }
+}
+
+.cards__container {
+  position: relative;
+  top: 150px;
+
+  display: grid;
+  grid-template-columns: 270px 270px 270px 270px;
+  grid-column-gap: 40px;
+  grid-row-gap: 30px;
+
+  height: 900px;
+
+  .card {
+    position: relative;
+    width: 270px;
+    height: 435px;
+
+    background-color: $light-s;
+
+    &__img {
+    }
+
+    &__name {
+      position: absolute;
+      width: 100%;
+      height: 23px;
+      top: 300px;
+
+      display: flex;
+      justify-content: center;
+  
+      /* pets-card-title */
+
+      font-family: 'Georgia';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 23px;
+
+      /* identical to box height */
+
+      letter-spacing: 0.06em;
+
+      /* color-dark-l */
+
+      color: $dark-l;
+
+    }
+
+    &__button {
+    position: absolute;
+    width: 187px;
+    height: 52px;
+    left: 41.5px;
+    top: 353px;
+    }
+    
+  }
+}
+.card:hover{
+  cursor: pointer;
+  background-color: $light-xl;
+  .card__button{
+    cursor: pointer;
+    background-color: $primary-light;
+  }
+}
+
+.heading {
+  /* Heading */
+  position: absolute;
+  top: 0px;
+
+  /* h3 */
+  font-family: 'Georgia';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 3.5rem;
+  line-height: 130%;
+  /* or 45px */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.06em;
+
+  /* color-dark-l */
+
+  color: $dark-l;
+}
+
+.button{
+  height: 52px;
+  width: 207px;
+
+  background-color: transparent;
+
+  border-radius: 100px;
+  border: 2px solid $primary-light;
+  box-sizing: border-box;
+
+
+  align-items: center;
+  position: relative;
+
+  &__primary {
+    position: absolute;
+    background-color: $primary;
+    border: 2px solid $primary;
+  }
+  &__primary:hover {
+    cursor: pointer;
+    background-color: $primary-light;
+    border: 2px solid $primary-light;
+  }
+
+  &__secondary {
+
+  }
+  &__slider {
+    position: absolute;
+    bottom: 0;
+
+    width: 261px;
+    height: 52px;
+  }
+
+  &__arrow {
+  /* button_arrow */
+
+  /* Auto layout */
+  //display: flex;
+  //flex-direction: column;
+  //align-items: center;
+  //padding: 23px;
+
+  //position: absolute;
+  width: 52px;
+  height: 52px;
+
+  /* color-primary */
+  border: 2px solid $primary;
+  background-color: transparent;
+  box-sizing: border-box;
+  border-radius: 100px;
+  }
+  &__arrow:hover {
+    cursor: pointer;
+    background-color: $primary-light;
+    border: 2px solid $primary-light;
+  }
+
+  &__text {
+    /* Make a friend */
+    position: static;
+    left: 21.74%;
+    right: 21.74%;
+    top: 28.85%;
+    bottom: 28.85%;
+
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 130%;
+    /* identical to box height, or 22px */
+
+    letter-spacing: 0.06em;
+
+    color: #292929;
+  }
+}
+
+.navigation {
+  position: absolute;
+  height: 52px;
+
+  bottom: 0;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 52px;
+  grid-gap: 20px;
+
+  .button__paginator {
+    width: 52px;
+    height: 52px;
+
+    /* color-primary */
+    border: 2px solid $primary;
+    background-color: transparent;
+    box-sizing: border-box;
+    border-radius: 100px;
+
+    .paginator__text {
+      /* h4 */
+      font-family: 'Georgia';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 2rem;
+      line-height: 115%;
+      /* identical to box height, or 23px */
+
+      display: flex;
+      justify-content: center;
+      letter-spacing: 0.06em;
+
+      /* color-dark-3xl */
+      color: $dark-3xl;
+    }
+  }
+  .active {
+    background-color: $primary;
+  }
+  .default:hover {
+    cursor: pointer;
+    background-color: $primary;
+  }
+  .disabled {
+    border-color: $dark-s;
+    color: $dark-s !important;
+  }
+}
+.footer {
+  position: relative;
+  height: 350px;
+  
+  margin: 0;
+  
+  background: url($start-screen-background-url) center / cover no-repeat;
+    -moz-background: url($start-screen-background-url) center / cover no-repeat;
+  
+    &__content {
+      max-width: 1200px;
+      height: 310px;
+  
+      position: relative;
+      top: 40px;
+      margin: 0 auto;
+  
+      display: grid;
+      grid-template-columns: 280px 302px 300px;
+      justify-content: space-between;
+  
+    }
+  
+    &__contacts {
+      position: relative;
+      top: 16px;
+  
+      height: 234px;
+  
+      display: grid;
+      align-content: space-between;
+      align-items: center;
+  
+      .contact {
+        display: grid;
+        grid-template-columns: 40px 1fr;
+        grid-gap: 20px;
+  
+        align-items: center;
+      }
+      .contact:hover{
+        cursor: pointer;
+      }
+  
+    }
+  
+    &__locations {
+      position: relative;
+      top: 16px;
+  
+      height: 234px;
+  
+      display: grid;
+      align-content: space-between;
+      align-items: center;
+  
+      .location {
+        display: grid;
+        grid-template-columns: 22px 1fr;
+        grid-gap: 20px;
+  
+        align-items: center;
+      }
+    }
+  
+    &__puppy {
+      
+    }
+  
+    &__subText {
+    text-decoration: none;
+    /* h4 */
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 115%;
+    /* identical to box height, or 23px */
+  
+    letter-spacing: 0.06em;
+  
+    /* color-primary */
+  
+    color: $primary;
+  
+    }
+  }
+  
+  .title {
+    /* Title */
+    /* h3 */
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3.5rem;
+    line-height: 130%;
+    /* or 45px */
+  
+    letter-spacing: 0.06em;
+  
+    /* color-light-xl */
+  
+    color: $light-xl;
+  }
