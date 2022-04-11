@@ -24,7 +24,7 @@ html {
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  margin-top: 60px;
+  margin-top: 30px;
 }
 
 .logo{
@@ -117,15 +117,12 @@ html {
     }
 
     &__link:hover{
-      color: $light-s;
+      color: $dark-3xl;
     }
 }
 .pets {
   position: relative;
-
-
-  height: 877px;
-
+  height: 1342px;
   background-color: $light-l;
 
   &__content {
@@ -134,8 +131,8 @@ html {
     display: flex;
     justify-content: center;
     top: 80px;
-    max-width: 1200px;
-    height: 697px;
+    width: 1200px;
+    height: 1162px;
   }
   
   &__slider {
@@ -159,9 +156,15 @@ html {
 }
 
 .cards__container {
+  position: relative;
+  top: 150px;
+
   display: grid;
-  grid-template-columns: 270px 270px 270px;
-  grid-gap: 90px;
+  grid-template-columns: 270px 270px 270px 270px;
+  grid-column-gap: 40px;
+  grid-row-gap: 30px;
+
+  height: 900px;
 
   .card {
     position: relative;
@@ -241,3 +244,240 @@ html {
 
   color: $dark-l;
 }
+
+.button{
+  height: 52px;
+  width: 207px;
+
+  background-color: transparent;
+
+  border-radius: 100px;
+  border: 2px solid $primary-light;
+  box-sizing: border-box;
+
+
+  align-items: center;
+  position: relative;
+
+  &__primary {
+    position: absolute;
+    background-color: $primary;
+    border: 2px solid $primary;
+  }
+  &__primary:hover {
+    cursor: pointer;
+    background-color: $primary-light;
+    border: 2px solid $primary-light;
+  }
+
+  &__secondary {
+
+  }
+  &__slider {
+    position: absolute;
+    bottom: 0;
+
+    width: 261px;
+    height: 52px;
+  }
+
+  &__arrow {
+  /* button_arrow */
+
+  /* Auto layout */
+  //display: flex;
+  //flex-direction: column;
+  //align-items: center;
+  //padding: 23px;
+
+  //position: absolute;
+  width: 52px;
+  height: 52px;
+
+  /* color-primary */
+  border: 2px solid $primary;
+  background-color: transparent;
+  box-sizing: border-box;
+  border-radius: 100px;
+  }
+  &__arrow:hover {
+    cursor: pointer;
+    background-color: $primary-light;
+    border: 2px solid $primary-light;
+  }
+
+  &__text {
+    /* Make a friend */
+    position: static;
+    left: 21.74%;
+    right: 21.74%;
+    top: 28.85%;
+    bottom: 28.85%;
+
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 130%;
+    /* identical to box height, or 22px */
+
+    letter-spacing: 0.06em;
+
+    color: #292929;
+  }
+}
+
+.navigation {
+  position: absolute;
+  height: 52px;
+
+  bottom: 0;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 52px;
+  grid-gap: 20px;
+
+  .button__paginator {
+    width: 52px;
+    height: 52px;
+
+    /* color-primary */
+    border: 2px solid $primary;
+    background-color: transparent;
+    box-sizing: border-box;
+    border-radius: 100px;
+
+    .paginator__text {
+      /* h4 */
+      font-family: 'Georgia';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 2rem;
+      line-height: 115%;
+      /* identical to box height, or 23px */
+
+      display: flex;
+      justify-content: center;
+      letter-spacing: 0.06em;
+
+      /* color-dark-3xl */
+      color: $dark-3xl;
+    }
+  }
+  .active {
+    background-color: $primary;
+  }
+  .default:hover {
+    cursor: pointer;
+    background-color: $primary;
+  }
+  .disabled {
+    border-color: $dark-s;
+    color: $dark-s !important;
+  }
+}
+.footer {
+  position: relative;
+  height: 350px;
+  
+  margin: 0;
+  
+  background: url($start-screen-background-url) center / cover no-repeat;
+    -moz-background: url($start-screen-background-url) center / cover no-repeat;
+  
+    &__content {
+      max-width: 1200px;
+      height: 310px;
+  
+      position: relative;
+      top: 40px;
+      margin: 0 auto;
+  
+      display: grid;
+      grid-template-columns: 280px 302px 300px;
+      justify-content: space-between;
+  
+    }
+  
+    &__contacts {
+      position: relative;
+      top: 16px;
+  
+      height: 234px;
+  
+      display: grid;
+      align-content: space-between;
+      align-items: center;
+  
+      .contact {
+        display: grid;
+        grid-template-columns: 40px 1fr;
+        grid-gap: 20px;
+  
+        align-items: center;
+      }
+      .contact:hover{
+        cursor: pointer;
+      }
+  
+    }
+  
+    &__locations {
+      position: relative;
+      top: 16px;
+  
+      height: 234px;
+  
+      display: grid;
+      align-content: space-between;
+      align-items: center;
+  
+      .location {
+        display: grid;
+        grid-template-columns: 22px 1fr;
+        grid-gap: 20px;
+  
+        align-items: center;
+      }
+    }
+  
+    &__puppy {
+      
+    }
+  
+    &__subText {
+    text-decoration: none;
+    /* h4 */
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 115%;
+    /* identical to box height, or 23px */
+  
+    letter-spacing: 0.06em;
+  
+    /* color-primary */
+  
+    color: $primary;
+  
+    }
+  }
+  
+  .title {
+    /* Title */
+    /* h3 */
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3.5rem;
+    line-height: 130%;
+    /* or 45px */
+  
+    letter-spacing: 0.06em;
+  
+    /* color-light-xl */
+  
+    color: $light-xl;
+  }

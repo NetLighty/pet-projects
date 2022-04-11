@@ -12,11 +12,10 @@
     <link rel="stylesheet" href="./styles/style.css"/>
 </head>
 <body>
-  
   <header>
     <div class="header-container">
       <div class="header">
-        <div class="logo">
+        <div onclick="document.location='../main/index.html'" class="logo">
           <div class="logo__title">
             <a>Cozy House</a>
           </div>
@@ -27,13 +26,13 @@
         <nav>
           <ul class="menu">
             <li class="menu__item">
-              <a href="#about" class="menu__link__active">About the shelter</a>
+              <a href="../main/index.html" class="menu__link">About the shelter</a>
             </li>
             <li class="menu__item">
-              <a href="../pets/index.html" class="menu__link">Our pets</a>
+              <a href="##" class="menu__link__active">Our pets</a>
             </li>
             <li class="menu__item">
-              <a href="#help" class="menu__link">Help the shelter</a>
+              <a href="../main/index.html#help" class="menu__link">Help the shelter</a>
             </li>
             <li class="menu__item">
               <a href="#contacts" class="menu__link">Contacts</a>
@@ -49,10 +48,6 @@
         <div class="heading">
           Our friends who<br> are looking for a house
         </div>
-        <div class="pets__slider">
-            <button class="button__arrow button left-arrow">
-              <img src="../../assets/icons/Arrow.svg" alt="arrow">
-            </button>
             <div class="cards__container">
               <div class="card">
                 <img class="card__img" src="../../assets/images/pets-katrine.png" alt="katrine">
@@ -69,14 +64,82 @@
                 <div class="card__name">Woody</div>
                 <button class="card__button button"><div class="button__text">Learn more</div></button> 
               </div>
-            </div>
-            <button class="button__arrow button right-arrow">
-              <img src="../../assets/icons/right-Arrow.svg" alt="arrow">
-            </button>
-        </div>
-        <button onclick="document.location='../pets/index.html'" class="button__primary button__slider button"><div class="button__text">Get to know the rest</div></button>
+              <div class="card">
+                <img class="card__img" src="../../assets/images/pets-sophia.png" alt="Sophia">
+                <div class="card__name">Sophia</div>
+                <button class="card__button button"><div class="button__text">Learn more</div></button> 
+              </div>
+              <div class="card">
+                <img class="card__img" src="../../assets/images/pets-timmy.png" alt="Timmy">
+                <div class="card__name">Timmy</div>
+                <button class="card__button button"><div class="button__text">Learn more</div></button> 
+              </div>
+              <div class="card">
+                <img class="card__img" src="../../assets/images/pets-charly.png" alt="Charly">
+                <div class="card__name">Charly</div>
+                <button class="card__button button"><div class="button__text">Learn more</div></button> 
+              </div>
+              <div class="card">
+                <img class="card__img" src="../../assets/images/pets-scarlett.png" alt="Scarlett">
+                <div class="card__name">Scarlett</div>
+                <button class="card__button button"><div class="button__text">Learn more</div></button> 
+              </div>
+              <div class="card">
+                <img class="card__img" src="../../assets/images/pets-freddie.png" alt="Freddie">
+                <div class="card__name">Freddie</div>
+                <button class="card__button button"><div class="button__text">Learn more</div></button> 
+              </div>
+      </div>
+      <div class="navigation">
+        <button class="button__paginator disabled">
+          <span class="paginator__text disabled"><<</span>
+        </button>
+        <button class="button__paginator disabled">
+          <span class="paginator__text disabled"><</span>
+        </button>
+        <button class="button__paginator active">
+          <span class="paginator__text">1</span>
+        </button>
+        <button class="button__paginator default">
+          <span class="paginator__text">></span>
+        </button>
+        <button class="button__paginator default">
+          <span class="paginator__text">>></span>
+        </button>
       </div>
     </div>
   </section>
+  <footer>
+    <div id="contacts" class="footer">
+      <div class="footer__content">
+        <div class="footer__contacts">
+          <span class="title">For questions<br> and suggestions</span>
+          <div onclick="document.location='mailto:ask@htmlbook.ru'" class="contact">
+            <div class="icon"><img src="../../assets/icons/mail.svg"></div>
+            <span class="footer__subText">email@shelter.com</span>
+          </div>
+          <div onclick="document.location='tel:+13 674 567 75 54'" class="contact">
+            <div class="icon"><img src="../../assets/icons/phone.svg"></div>
+            <span class="footer__subText">+13 674 567 75 54</span>
+          </div>
+        </div>
+        <div class="footer__locations">
+          <span class="title">We are waiting<br> for your visit</span>
+          <div class="location">
+            <div class="icon"><a href="https://goo.gl/maps/mFXgyaMd7Ey2AoS6A" target="_blank"><img src="../../assets/icons/pin.svg"></a></div>
+            <a href="https://goo.gl/maps/mFXgyaMd7Ey2AoS6A" target="_blank" class="footer__subText">1 Central Street, Boston<br> (entrance from the store)</a>
+          </div>
+          <div class="location">
+            <div class="icon"><a href="https://goo.gl/maps/mFXgyaMd7Ey2AoS6A" target="_blank"><img src="../../assets/icons/pin.svg"></a></div>
+            <a href="https://goo.gl/maps/mFXgyaMd7Ey2AoS6A" target="_blank" class="footer__subText">18 South Park, London </a>
+          </div>
+        </div>
+        <div class="footer__puppy">
+          <img src="../../assets/images/footer-puppy.png" alt="footer puppy">
+        </div>  
+        <img>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
