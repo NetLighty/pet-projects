@@ -9,6 +9,7 @@ html {
   height: 908px;
   background: url("../../../assets/images/start-screen-gradient-background.png") center/cover no-repeat;
   -moz-background: url("../../../assets/images/start-screen-gradient-background.png") center/cover no-repeat;
+  padding: 0;
 }
 
 .start-screen__content {
@@ -23,7 +24,7 @@ html {
   position: absolute;
   max-width: 94vh;
   right: 0px;
-  bottom: 0px;
+  bottom: -2px;
 }
 
 .start-screen__article {
@@ -251,6 +252,10 @@ html {
       -ms-flex-align: center;
           align-items: center;
   color: #FFFFFF;
+}
+
+.logo:hover {
+  cursor: pointer;
 }
 
 .menu {
@@ -566,6 +571,7 @@ html {
 
 .credit-card__number {
   white-space: nowrap;
+  text-decoration: none;
   /* 8380 2880 8028 8791 7435 */
   /* h4 */
   font-family: 'Georgia';
@@ -680,6 +686,10 @@ html {
           align-items: center;
 }
 
+.footer__contacts .contact:hover {
+  cursor: pointer;
+}
+
 .footer__locations {
   position: relative;
   top: 16px;
@@ -705,6 +715,7 @@ html {
 }
 
 .footer__subText {
+  text-decoration: none;
   /* h4 */
   font-family: 'Georgia';
   font-style: normal;

@@ -1,0 +1,243 @@
+@import '../../../assets/styles/variables';
+
+html {
+  font-size: 10px;
+}
+
+.header-container {
+  position: relative;
+  overflow: hidden;
+
+  width: 100%;
+  height: 120px;
+
+  background-color: $light-xl;
+  -moz-background-color: $light-xl;
+
+  padding: 0;
+}
+
+.header{
+  max-width: 1200px;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 60px;
+}
+
+.logo{
+  position: relative;
+  width: 190px;
+  height: 60px;
+  //justify-content: flex-start;
+
+  &__title{
+    position: absolute;
+    color: $dark-l;
+
+    width: 100%;
+    height: 35px;
+
+    /* logo_title */
+    font-family:'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3.2rem;
+    line-height: 110%;
+
+    letter-spacing: 0.06em;
+  }
+  
+  &__subtitle{
+    position: absolute;
+
+    left: 4px;
+    top: calc(50% - 15px/2 + 22.5px);
+    //margin-left: 0.04rem;
+
+    /* logo_subtitle */
+    font-family:'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.3rem;
+    line-height: 1.5rem;
+
+    letter-spacing: 0.13rem;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+
+    color: $dark-3xl;
+  }
+}
+.logo:hover{
+  cursor: pointer;
+}
+
+.menu {
+  //margin-left: auto;
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    align-items: center;
+
+    &__item {
+      margin-left: 3.5rem;
+    }
+    &__link {
+      color: $dark-l;
+      text-decoration: none;
+
+      /* paragraph-l */
+      font-family: 'Arial';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 1.5rem;
+      line-height: 160%;
+      /* identical to box height, or 24px */
+
+      &__active {
+        color: $dark-3xl;
+        text-decoration: none;
+
+        /* paragraph-l */
+        font-family: 'Arial';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.5rem;
+        line-height: 160%;
+        /* identical to box height, or 24px */
+
+        padding-bottom: 0.35rem;
+        border-bottom: 0.35rem solid $primary;
+      }
+    }
+
+    &__link:hover{
+      color: $light-s;
+    }
+}
+.pets {
+  position: relative;
+
+
+  height: 877px;
+
+  background-color: $light-l;
+
+  &__content {
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    top: 80px;
+    max-width: 1200px;
+    height: 697px;
+  }
+  
+  &__slider {
+    position: absolute;
+    top: 150px;
+
+    max-width: 1200px;
+
+    display: grid;
+    grid-template-columns: 105px 990px 105px;
+
+    .left-arrow {
+      justify-self: start;
+      align-self: center;
+    }
+    .right-arrow {
+      justify-self: end;
+      align-self: center;
+    }
+  }
+}
+
+.cards__container {
+  display: grid;
+  grid-template-columns: 270px 270px 270px;
+  grid-gap: 90px;
+
+  .card {
+    position: relative;
+    width: 270px;
+    height: 435px;
+
+    background-color: $light-s;
+
+    &__img {
+    }
+
+    &__name {
+      position: absolute;
+      width: 100%;
+      height: 23px;
+      top: 300px;
+
+      display: flex;
+      justify-content: center;
+  
+      /* pets-card-title */
+
+      font-family: 'Georgia';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 23px;
+
+      /* identical to box height */
+
+      letter-spacing: 0.06em;
+
+      /* color-dark-l */
+
+      color: $dark-l;
+
+    }
+
+    &__button {
+    position: absolute;
+    width: 187px;
+    height: 52px;
+    left: 41.5px;
+    top: 353px;
+    }
+    
+  }
+}
+.card:hover{
+  cursor: pointer;
+  background-color: $light-xl;
+  .card__button{
+    cursor: pointer;
+    background-color: $primary-light;
+  }
+}
+
+.heading {
+  /* Heading */
+  position: absolute;
+  top: 0px;
+
+  /* h3 */
+  font-family: 'Georgia';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 3.5rem;
+  line-height: 130%;
+  /* or 45px */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.06em;
+
+  /* color-dark-l */
+
+  color: $dark-l;
+}

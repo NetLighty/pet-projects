@@ -1,4 +1,4 @@
-@import './_variables.scss';
+@import '../../../assets/styles/variables';
 
 html {
   font-size: 10px;
@@ -7,10 +7,14 @@ html {
 .start-screen {
   position: relative;
   overflow: hidden;
+
   width: 100%;
   height: 908px;
+
   background: url($start-screen-background-url) center / cover no-repeat;
   -moz-background: url($start-screen-background-url) center / cover no-repeat;
+
+  padding: 0;
 
   &__content {
     position: relative;
@@ -23,7 +27,7 @@ html {
     position: absolute;
     max-width: 94vh;
     right: 0px;
-    bottom: 0px;
+    bottom: -2px;
   }
   &__article {
     position: absolute;
@@ -266,6 +270,9 @@ html {
 
     color: $light-xl;
   }
+}
+.logo:hover{
+  cursor: pointer;
 }
 
 .menu {
@@ -571,6 +578,8 @@ border-radius: 9px;
 
 &__number {
   white-space: nowrap;
+  
+  text-decoration: none;
     /* 8380 2880 8028 8791 7435 */
   /* h4 */
   font-family: 'Georgia';
@@ -674,6 +683,9 @@ background: url($start-screen-background-url) center / cover no-repeat;
 
       align-items: center;
     }
+    .contact:hover{
+      cursor: pointer;
+    }
 
   }
 
@@ -694,7 +706,6 @@ background: url($start-screen-background-url) center / cover no-repeat;
 
       align-items: center;
     }
-
   }
 
   &__puppy {
@@ -702,6 +713,7 @@ background: url($start-screen-background-url) center / cover no-repeat;
   }
 
   &__subText {
+  text-decoration: none;
   /* h4 */
   font-family: 'Georgia';
   font-style: normal;

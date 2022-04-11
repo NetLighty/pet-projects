@@ -9,7 +9,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
     />
-    <link rel="stylesheet" href="/shelter/pages/main/styles/style.css" />
+    <link rel="stylesheet" href="/shelter/pages/main/styles/style.css"/>
   </head>
   <body>
     <div class="start-screen">
@@ -29,7 +29,7 @@
                 <a href="#about" class="menu__link__active">About the shelter</a>
               </li>
               <li class="menu__item">
-                <a href="#pets" class="menu__link">Our pets</a>
+                <a href="../pets/index.html" class="menu__link">Our pets</a>
               </li>
               <li class="menu__item">
                 <a href="#help" class="menu__link">Help the shelter</a>
@@ -54,12 +54,14 @@
                    in the world, you will see!
                 </span>
               </div>
-                <button class="button__primary button"><div onclick="document.location='#pets'" class="button__text">Make a friend</div></button>
+                <button onclick="document.location='#pets'" class="button__primary button"><div class="button__text">Make a friend</div></button>
           </div>
-          <img class="start-screen__puppy"
+          <div class="start-screen__puppy"> 
+            <img
             src="../../assets/images/start-screen-puppy.png"
             alt="puppy"
           />
+          </div>
         </div>
       </section>
     </div>
@@ -121,7 +123,7 @@
                 <img src="../../assets/icons/right-Arrow.svg" alt="arrow">
               </button>
           </div>
-          <button class="button__primary button__slider button"><div class="button__text">Get to know the rest</div></button>
+          <button onclick="document.location='../pets/index.html'" class="button__primary button__slider button"><div class="button__text">Get to know the rest</div></button>
         </div>
       </div>
     </section>
@@ -185,8 +187,7 @@
             </div>
             <div class="credit-card">
               <img src="../../assets/icons/credit-card.svg" alt="credit-card icon">
-              <span class="credit-card__number">8380 2880 8028 8791 7435</span>
-                  
+              <a href="##" class="credit-card__number">8380 2880 8028 8791 7435</a>   
             </div>
             <span class="legal-information">Legal information and lorem ipsum dolor sit amet, consectetur<br> adipiscing elit.
                Maecenas a ipsum at libero sagittis dignissim sed ac<br> diam.
@@ -197,15 +198,15 @@
       </div>
     </section>
     <footer>
-      <div class="footer">
+      <div id="contacts" class="footer">
         <div class="footer__content">
           <div class="footer__contacts">
             <span class="title">For questions<br> and suggestions</span>
-            <div class="contact">
+            <div onclick="document.location='mailto:ask@htmlbook.ru'" class="contact">
               <div class="icon"><img src="../../assets/icons/mail.svg"></div>
               <span class="footer__subText">email@shelter.com</span>
             </div>
-            <div class="contact">
+            <div onclick="document.location='tel:+13 674 567 75 54'" class="contact">
               <div class="icon"><img src="../../assets/icons/phone.svg"></div>
               <span class="footer__subText">+13 674 567 75 54</span>
             </div>
@@ -213,12 +214,12 @@
           <div class="footer__locations">
             <span class="title">We are waiting<br> for your visit</span>
             <div class="location">
-              <div class="icon"><img src="../../assets/icons/pin.svg"></div>
-              <span class="footer__subText">1 Central Street, Boston<br> (entrance from the store)</span>
+              <div class="icon"><a href="https://goo.gl/maps/mFXgyaMd7Ey2AoS6A" target="_blank"><img src="../../assets/icons/pin.svg"></a></div>
+              <a href="https://goo.gl/maps/mFXgyaMd7Ey2AoS6A" target="_blank" class="footer__subText">1 Central Street, Boston<br> (entrance from the store)</a>
             </div>
             <div class="location">
-              <div class="icon"><img src="../../assets/icons/pin.svg"></div>
-              <span class="footer__subText">18 South Park, London </span>
+              <div class="icon"><a href="https://goo.gl/maps/mFXgyaMd7Ey2AoS6A" target="_blank"><img src="../../assets/icons/pin.svg"></a></div>
+              <a href="https://goo.gl/maps/mFXgyaMd7Ey2AoS6A" target="_blank" class="footer__subText">18 South Park, London </a>
             </div>
           </div>
           <div class="footer__puppy">
