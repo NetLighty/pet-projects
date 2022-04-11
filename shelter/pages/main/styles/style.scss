@@ -34,7 +34,8 @@ html {
   .item {
     margin-bottom: 9.2%;
   }
-  .heading {
+
+  .start-screen__heading {
     position: relative;
     margin-top: 0;
   
@@ -49,21 +50,23 @@ html {
   
     color: $light-xl;
   }
-  .subHeading {
-    //margin-top: 9%;
-    position: relative;
-    //max-width: 43%;
-    height: 72px;
-  
+  .start-screen__subHeading {
+      /* Subheading */
     /* paragraph-l */
     font-family: 'Arial';
     font-style: normal;
     font-weight: 400;
-    font-size: 15px;
+    font-size: 1.5rem;
     line-height: 160%;
-  
+    /* or 24px */
+
+    display: flex;
+    align-items: center;
+
+    /* color-dark-s */
+
     color: $dark-s;
-  }
+    }
   }
 }
 
@@ -77,7 +80,7 @@ html {
   background-color: transparent;
 
   border-radius: 100px;
-  border: 2px solid $primary;
+  border: 2px solid $primary-light;
   box-sizing: border-box;
 
 
@@ -87,6 +90,12 @@ html {
   &__primary {
     position: absolute;
     background-color: $primary;
+    border: 2px solid $primary;
+  }
+  &__primary:hover {
+    cursor: pointer;
+    background-color: $primary-light;
+    border: 2px solid $primary-light;
   }
 
   &__secondary {
@@ -101,9 +110,9 @@ html {
   }
 
   &__arrow {
-    /* button_arrow */
+  /* button_arrow */
 
-/* Auto layout */
+  /* Auto layout */
   //display: flex;
   //flex-direction: column;
   //align-items: center;
@@ -114,11 +123,15 @@ html {
   height: 52px;
 
   /* color-primary */
-
-  border: 2px solid #F1CDB3;
+  border: 2px solid $primary;
   background-color: transparent;
   box-sizing: border-box;
   border-radius: 100px;
+  }
+  &__arrow:hover {
+    cursor: pointer;
+    background-color: $primary-light;
+    border: 2px solid $primary-light;
   }
 
   &__text {
@@ -293,77 +306,53 @@ html {
         border-bottom: 0.35rem solid $primary;
       }
     }
+
+    &__link:hover{
+      color: $light-s;
+    }
 }
 
 .pets {
-position: relative;
-
-
-height: 877px;
-
-background-color: $light-l;
-
-&__content {
   position: relative;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  top: 80px;
-  max-width: 1200px;
-  height: 697px;
-}
-&__heading {
-/* Heading */
 
 
-position: absolute;
-width: 400px;
-height: 90px;
-left: 400px;
-top: 0px;
+  height: 877px;
 
-/* h3 */
+  background-color: $light-l;
 
-font-family: 'Georgia';
-font-style: normal;
-font-weight: 400;
-font-size: 35px;
-line-height: 130%;
-/* or 45px */
-
-display: flex;
-align-items: center;
-text-align: center;
-letter-spacing: 0.06em;
-
-/* color-dark-l */
-
-color: $dark-l;
-}
-
-&__slider {
-  position: absolute;
-  top: 150px;
-
-  max-width: 1200px;
-
-  display: grid;
-  grid-template-columns: 105px 990px 105px;
-
-  .left-arrow {
-    justify-self: start;
-    align-self: center;
+  &__content {
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    top: 80px;
+    max-width: 1200px;
+    height: 697px;
   }
-  .right-arrow {
-    justify-self: end;
-    align-self: center;
+  
+  &__slider {
+    position: absolute;
+    top: 150px;
+
+    max-width: 1200px;
+
+    display: grid;
+    grid-template-columns: 105px 990px 105px;
+
+    .left-arrow {
+      justify-self: start;
+      align-self: center;
+    }
+    .right-arrow {
+      justify-self: end;
+      align-self: center;
+    }
   }
-}
 }
 
 .cards__container {
   display: grid;
-  grid-template-columns: repeat(3, 270px);
+  grid-template-columns: 270px 270px 270px;
   grid-gap: 90px;
 
   .card {
@@ -410,6 +399,15 @@ color: $dark-l;
     left: 41.5px;
     top: 353px;
     }
+    
+  }
+}
+.card:hover{
+  cursor: pointer;
+  background-color: $light-xl;
+  .card__button{
+    cursor: pointer;
+    background-color: $primary-light;
   }
 }
 
@@ -419,15 +417,323 @@ color: $dark-l;
   height: 611px;
   left: 0%;
   right: 0%;
-  top: 2373px;
 
   /* color-light-xl */
   background: $light-xl;
 
   &__content {
+    position: relative;
+    top: 80px;
+
     max-width: 1200px;
     height: 431px;
+    
+    display: flex;
+    justify-content: center;
+
+    margin: 0 auto;
   }
+
+  &__list {
+    position: absolute;
+    top: 150px;
+
+    width: 1026px;
+
+    justify-content: center;
+    //align-content: center;
+   // justify-items: center;
+    //align-items: center;
+    .first-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-column-gap: 120px;
+    }
+
+    .second-row {
+      position: relative;
+      top: 55px;
+      margin: 0 auto;
+
+      width: 856px;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-column-gap: 120px;
+
+      
+    }
+
+    .item {
+      display: grid;
+      grid-gap: 30px;
+      justify-items: center;
+    }
+  }
+}
+
+.heading {
+  /* Heading */
+  position: absolute;
+  top: 0px;
+
+  /* h3 */
+  font-family: 'Georgia';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 3.5rem;
+  line-height: 130%;
+  /* or 45px */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.06em;
+
+  /* color-dark-l */
+
+  color: $dark-l;
+}
+.subHeading {
+  /* h5 */
+  font-family: 'Georgia';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 110%;
+  /* identical to box height, or 17px */
+
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.06em;
+
+  /* color-dark-l */
+  color: $dark-l;
+}
+
+.text {
+/* Text */
+white-space: nowrap;
+
+/* h4 */
+font-family: 'Georgia';
+font-style: normal;
+font-weight: 400;
+font-size: 2rem;
+line-height: 115%;
+/* identical to box height, or 23px */
+
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: 0.06em;
+
+/* color-dark-l */
+
+color: $dark-l;
+}
+.legal-information {
+/* donation-description */
+font-family: 'Arial';
+font-style: italic;
+font-weight: 400;
+font-size: 1.2rem;
+line-height: 18px;
+/* or 150% */
+
+display: flex;
+align-items: center;
+
+/* color-dark-m */
+
+color: $dark-m
+}
+
+.credit-card {
+  /* Credit card */
+/* Auto layout */
+display: grid;
+grid-template-columns: 30px 1fr;
+grid-gap: 15px;
+
+align-items: center;
+
+position: relative;
+
+box-sizing: border-box;
+padding: 10px 15px;
+width: 349px;
+height: 43px;
+
+/* color-primary */
+background: $primary;
+border-radius: 9px;
+
+&__number {
+  white-space: nowrap;
+    /* 8380 2880 8028 8791 7435 */
+  /* h4 */
+  font-family: 'Georgia';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 115%;
+  /* identical to box height, or 23px */
+
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.06em;
+
+  /* color-dark-l */
+
+  color: $dark-l;
+}
+}
+
+.donation {
+  height: 462px;
+  background-color: $light-l;
+
+  &__content {
+    position: relative;
+    width: 915px;
+
+    top: 80px;
+
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 505px 380px;
+    grid-gap: 30px;
+    align-items: center;
+  }
+  &__article {
+    display: grid;
+    grid-gap: 20px;
+  }
+  &__heading {
+    position: relative;
+    width: 300px;
+    height: 90px;
+    /* h3 */
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3.5rem;
+    line-height: 130%;
+    /* or 45px */
+    letter-spacing: 0.06em;
+    /* color-dark-l */
+    color: $dark-l;
+  }
+  &__subHeading {
+    position: relative;
+    width: 307px;
+    height: 17px;
+
+  }
+}
+
+.footer {
+position: relative;
+height: 350px;
+
+margin: 0;
+
+background: url($start-screen-background-url) center / cover no-repeat;
+  -moz-background: url($start-screen-background-url) center / cover no-repeat;
+
+  &__content {
+    max-width: 1200px;
+    height: 310px;
+
+    position: relative;
+    top: 40px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 280px 302px 300px;
+    justify-content: space-between;
+
+  }
+
+  &__contacts {
+    position: relative;
+    top: 16px;
+
+    height: 234px;
+
+    display: grid;
+    align-content: space-between;
+    align-items: center;
+
+    .contact {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      grid-gap: 20px;
+
+      align-items: center;
+    }
+
+  }
+
+  &__locations {
+    position: relative;
+    top: 16px;
+
+    height: 234px;
+
+    display: grid;
+    align-content: space-between;
+    align-items: center;
+
+    .location {
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      grid-gap: 20px;
+
+      align-items: center;
+    }
+
+  }
+
+  &__puppy {
+    
+  }
+
+  &__subText {
+  /* h4 */
+  font-family: 'Georgia';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 115%;
+  /* identical to box height, or 23px */
+
+  letter-spacing: 0.06em;
+
+  /* color-primary */
+
+  color: $primary;
+
+  }
+}
+
+.title {
+  /* Title */
+  /* h3 */
+  font-family: 'Georgia';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 3.5rem;
+  line-height: 130%;
+  /* or 45px */
+
+  letter-spacing: 0.06em;
+
+  /* color-light-xl */
+
+  color: $light-xl;
 }
 
 

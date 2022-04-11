@@ -26,16 +26,16 @@
           <nav>
             <ul class="menu">
               <li class="menu__item">
-                <a href="#" class="menu__link__active">About the shelter</a>
+                <a href="#about" class="menu__link__active">About the shelter</a>
               </li>
               <li class="menu__item">
-                <a href="#" class="menu__link">Our pets</a>
+                <a href="#pets" class="menu__link">Our pets</a>
               </li>
               <li class="menu__item">
-                <a href="#" class="menu__link">Help the shelter</a>
+                <a href="#help" class="menu__link">Help the shelter</a>
               </li>
               <li class="menu__item">
-                <a href="#" class="menu__link">Contacts</a>
+                <a href="#contacts" class="menu__link">Contacts</a>
               </li>
             </ul>
           </nav>
@@ -44,15 +44,17 @@
       <section>
         <div class="start-screen__content">
             <div class="start-screen__article"> 
-              <h1 class="heading item">
+              <h1 class="start-screen__heading item">
                 Not only people <br> need a house
               </h1>
-              <div class="subHeading item">
-                <p>We offer to give a chance to a little and nice puppy with an extremely<br>
+              <div class="item">
+                <span class="start-screen__subHeading">
+                  We offer to give a chance to a little and nice puppy with an extremely<br>
                    wide and open heart. He or she will love you more than anybody else<br>
-                   in the world, you will see!</p>
+                   in the world, you will see!
+                </span>
               </div>
-                <button class="button__primary button"><div class="button__text">Make a friend</div></button>
+                <button class="button__primary button"><div onclick="document.location='#pets'" class="button__text">Make a friend</div></button>
           </div>
           <img class="start-screen__puppy"
             src="../../assets/images/start-screen-puppy.png"
@@ -62,11 +64,11 @@
       </section>
     </div>
     <section>
-      <div class="about">
+      <div id="about" class="about">
         <div class="about__content">
           <article class="about__article">
             <div class="about__heading about__item">
-              About the shelter "Cozy House"
+              About the shelter “Cozy House”
             </div>
             <div class="about__subHeading about__item">
               Currently we have 121 dogs and 342 cats on our hands and statistics show that only
@@ -89,9 +91,9 @@
       </div>
     </section>
     <section>
-      <div class="pets">
+      <div id="pets" class="pets">
         <div class="pets__content">
-          <div class="pets__heading">
+          <div class="heading">
             Our friends who<br> are looking for a house
           </div>
           <div class="pets__slider">
@@ -124,9 +126,107 @@
       </div>
     </section>
     <section>
-      <div class="help">
-        
+      <div id="help" class="help">
+        <div class="help__content">
+          <div class="heading">How you can help<br> our shelter</div>
+          <div class="help__list">
+            <div class="first-row">
+              <div class="item">
+                <img src="../../assets/icons/Vector.svg" alt="arrow">
+                <span class="text">Pet food</span>
+              </div>
+              <div class="item">
+                <img src="../../assets/icons/transportation.svg" alt="arrow">
+                <span class="text">Transportation</span>
+              </div>
+              <div class="item">
+                <img src="../../assets/icons/toys.svg" alt="arrow">
+                <span class="text">Toys</span>
+              </div>
+              <div class="item">
+                <img src="../../assets/icons/bowls-and-cups.svg" alt="arrow">
+                <span class="text">Bowls and cups</span>
+              </div>
+              <div class="item">
+                <img src="../../assets/icons/shampoos.svg" alt="arrow">
+                <span class="text">Shampos</span>
+              </div>
+            </div>
+            <div class="second-row">
+              <div class="item">
+                <img src="../../assets/icons/vitamins.svg" alt="arrow">
+                <span class="text">Vitamins</span>
+              </div>
+              <div class="item">
+                <img src="../../assets/icons/medicines.svg" alt="arrow">
+                <span class="text">Medicines</span>
+              </div>
+              <div class="item">
+                <img src="../../assets/icons/collars-or-leashes.svg" alt="arrow">
+                <span class="text">Collars / leashes</span>
+              </div>
+              <div class="item">
+                <img src="../../assets/icons/sleeping-area.svg" alt="arrow">
+                <span class="text">Sleeping areas</span>
+            </div>
+            </div>
+        </div>
+        </div>
       </div>
     </section>
+    <section>
+      <div class="donation">
+        <div class="donation__content">
+          <div class="donation-puppy"><img src="../../assets/images/donation-dog.png" alt="donation-dog"></div>
+          <div class="donation__article">
+            <span class="donation__heading">You can also make a donation</span>
+            <div class="donation__subheading">
+              <span class="subHeading">Name of the bank / Type of bank account</span>
+            </div>
+            <div class="credit-card">
+              <img src="../../assets/icons/credit-card.svg" alt="credit-card icon">
+              <span class="credit-card__number">8380 2880 8028 8791 7435</span>
+                  
+            </div>
+            <span class="legal-information">Legal information and lorem ipsum dolor sit amet, consectetur<br> adipiscing elit.
+               Maecenas a ipsum at libero sagittis dignissim sed ac<br> diam.
+                Praesent ultrices maximus tortor et vulputate. Interdum et<br>
+                 malesuada fames ac ante ipsum primis in faucibus.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="footer">
+        <div class="footer__content">
+          <div class="footer__contacts">
+            <span class="title">For questions<br> and suggestions</span>
+            <div class="contact">
+              <div class="icon"><img src="../../assets/icons/mail.svg"></div>
+              <span class="footer__subText">email@shelter.com</span>
+            </div>
+            <div class="contact">
+              <div class="icon"><img src="../../assets/icons/phone.svg"></div>
+              <span class="footer__subText">+13 674 567 75 54</span>
+            </div>
+          </div>
+          <div class="footer__locations">
+            <span class="title">We are waiting<br> for your visit</span>
+            <div class="location">
+              <div class="icon"><img src="../../assets/icons/pin.svg"></div>
+              <span class="footer__subText">1 Central Street, Boston<br> (entrance from the store)</span>
+            </div>
+            <div class="location">
+              <div class="icon"><img src="../../assets/icons/pin.svg"></div>
+              <span class="footer__subText">18 South Park, London </span>
+            </div>
+          </div>
+          <div class="footer__puppy">
+            <img src="../../assets/images/footer-puppy.png" alt="footer puppy">
+          </div>  
+          <img>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
