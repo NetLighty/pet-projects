@@ -210,7 +210,7 @@ html {
       -ms-flex-align: center;
           align-items: center;
   margin: 0 auto;
-  margin-top: 30px;
+  margin-top: 60px;
 }
 
 .logo {
@@ -589,6 +589,10 @@ html {
   letter-spacing: 0.06em;
   /* color-dark-l */
   color: #545454;
+}
+
+.credit-card:hover {
+  background-color: #FDDCC4;
 }
 
 .donation {
