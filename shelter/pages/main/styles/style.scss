@@ -412,6 +412,7 @@ html {
 .card:hover{
   cursor: pointer;
   background-color: $light-xl;
+  
   .card__button{
     cursor: pointer;
     background-color: $primary-light;
