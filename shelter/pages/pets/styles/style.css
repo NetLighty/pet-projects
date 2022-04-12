@@ -2,8 +2,13 @@ html {
   font-size: 10px;
 }
 
-.h1-hidden {
-  display: none;
+h1 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
 .header-container {
