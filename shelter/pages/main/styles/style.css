@@ -591,6 +591,10 @@ html {
   color: #545454;
 }
 
+.credit-card:hover {
+  background-color: #FDDCC4;
+}
+
 .donation {
   height: 462px;
   background-color: #F6F6F6;
