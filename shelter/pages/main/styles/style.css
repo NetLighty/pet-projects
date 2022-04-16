@@ -962,13 +962,22 @@ html {
 
 @media (min-width: 320px) and (max-width: 767.9px) {
   .start-screen {
-    height: 210vw;
+    height: 823px;
+  }
+  .start-screen__content {
+    top: 60px;
+    height: 673px;
+    width: 300px;
+    min-height: 0;
   }
   .start-screen__puppy {
-    width: 81vw;
-    height: 85vw;
+    left: auto;
+    right: 0;
+    width: 260px;
+    height: 271.77px;
   }
   .start-screen__article {
+    top: 0;
     width: 300px;
     height: 296px !important;
   }
@@ -977,9 +986,14 @@ html {
     text-align: center;
     font-size: 2.5rem !important;
     line-height: 3.25rem !important;
+    letter-spacing: 0.06em;
   }
   .start-screen__subHeading {
+    text-align: center;
     font-size: 1.5rem;
+  }
+  .br {
+    display: none;
   }
   .header {
     -webkit-box-sizing: border-box;
@@ -991,6 +1005,36 @@ html {
   }
   .menu {
     display: none;
+  }
+  .about {
+    height: 974px;
+  }
+  .about__content {
+    gap: 85px;
+    top: 42px;
+    width: 300px;
+  }
+  .about__pets {
+    bottom: 42px;
+    width: 260px;
+    height: 353.6px;
+  }
+  .about__heading {
+    margin: 0 auto;
+    margin-bottom: 25px;
+    width: 270px;
+    text-align: center;
+    font-size: 2.5rem;
+  }
+  .about__subHeading {
+    margin: 0 auto;
+    margin-bottom: 22px;
+    width: 270px;
+  }
+  .about__article {
+    text-align: justify;
+    height: 494px;
+    width: 300px;
   }
 }
 /*# sourceMappingURL=style.css.map */
