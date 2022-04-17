@@ -1017,5 +1017,68 @@ html {
     width: 300px;
   }
 }
+.pets{
+  height: 791px;
+  &__content{
+    height: 707px;
+    top: 42px;
+  }
+  &__slider{
+    top: 106px;
+    grid-template-columns:0px 270px 0px;
+    grid-gap: 0;
+    grid-row-gap: 20px;
+    width: 270px;
+  }
+  &__slider>*:nth-child(1){
+    left: 40px;
+    grid-row-start: 2;
+  }
+  &__slider>*:nth-child(3){
+    right: 40px;
+    display: grid;
+    justify-self: end;
+    justify-content: center;
+    grid-row-start: 2;
+    grid-column-start: 2;
+  }
+
+}
+.cards__container>*:nth-child(2){
+  display: none;
+}
+.heading{
+  font-size: 2.5rem;
+}
+
+.help{
+  height: 745px;
+  padding:0;
+&__heading{
+  position: relative;
+  top: 42px;
+  margin: 0 auto;
+  height: 64px;
+  width: 223px;
+  font-size: 2.5rem;
+}
+&__list{
+  position: relative;
+  padding-top: 0;
+  top: 83px;
+  grid-template-columns: 130px 130px;
+  grid-gap: 30px;
+
+  .icon{
+    width: 50px;
+    height: 50px;
+
+  }
+}
+}
+.text{
+  padding-top: 20px;
+  font-size: 1.5rem;
+}
 }
 
