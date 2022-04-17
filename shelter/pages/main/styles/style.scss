@@ -827,6 +827,7 @@ html {
     }
   
     &__slider {
+      width: 708px;
       position: absolute;
       top: 150px;
   
@@ -889,6 +890,12 @@ html {
       grid-gap: 60px;
       align-items: center;
     }
+    &__content>*:nth-child(1){
+      grid-row-start: 2;
+    }
+    &__content>*:nth-child(2){
+      grid-row-start:1
+    }
     &__article{
       width: 380px;
       justify-self: center;
@@ -897,13 +904,12 @@ html {
 
   .footer {
     height: 638px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 64px;
+    padding-right: 64px;
     &__content{
-      width: 675px;
       top: 30px;
       display: grid;
-      grid-template-columns: 315px 300px;
+      grid-template-columns: 279px 300px;
       grid-auto-columns: minmax(50px, auto);
       grid-column-gap: 60px;
       grid-row-gap: 63px;
@@ -938,8 +944,8 @@ html {
     }
   }
 }
-@media (min-width: 320px) and (max-width: 767.9px) {
 
+@media (min-width: 320px) and (max-width: 767.9px) {
 .start-screen{
   height: 823px;
   &__content{
@@ -1079,6 +1085,87 @@ html {
 .text{
   padding-top: 20px;
   font-size: 1.5rem;
+}
+.donation{
+  height: 542.2px;
+  &__heading{
+    font-size: 2.5rem;
+    width: 300px;
+    height: 64px;
+    text-align: center;
+  }
+  &__subHeading{
+    width: 273px;
+  }
+  &__content{
+    top: 42px;
+    width: 300px;
+    grid-template-columns: 300px;
+    grid-gap: 42px;
+    justify-items: center;
+  }
+  &__article{
+    height: 281px;
+    width: 300px;
+    justify-items: center;
+    grid-gap: 23px;
+  }
+  &__puppy{
+    width: 260px;
+    height: 135.2px;
+  }
+}
+.credit-card{
+  width: 281px;
+  &__number{
+    font-size: 1.5rem;
+  }
+}
+.legal-information{
+  width: 280px;
+  text-align: justify;
+}
+.subHeading{
+  width: 273px;
+  margin: 0 auto;
+  letter-spacing: normal;
+}
+.footer{
+  height: 809px;
+  padding: 0;
+  &__content{
+    width:300px;
+    grid-template-columns: 300px;
+    grid-gap: 40px;
+    justify-items: center;
+  }
+  &__contacts{
+    width: 278px;
+    height: 208px;
+    justify-items: center;
+  }
+  &__locations{
+    width: 300px;
+    height: 222px;
+    //justify-items: center;
+  }
+  &__locations>*:nth-child(1){
+    justify-self: center;
+  }
+  &__content>*:nth-child(3){
+    grid-column-start: auto;
+    grid-column-end: auto;
+  }
+  &__puppy{
+    width: 260px;
+    height: 269px;
+  }
+
+}
+.title{
+  width: 270px;
+  text-align: center;
+  font-size: 2.5rem;
 }
 }
 
