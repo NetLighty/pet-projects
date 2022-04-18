@@ -410,6 +410,7 @@ html {
   cursor: pointer;
   background-color: $light-xl;
   box-shadow: 0 2px 35px 14px rgba(0, 0, 0, 0.04);
+  transition: all .3s ease;
 
   .card__button {
     cursor: pointer;
@@ -848,7 +849,7 @@ html {
     }
   }
   .cards__container {
-    width: 580px;
+    //width: 580px;
     grid-template-columns: 270px 270px;
     grid-gap: 40px;
   }
@@ -908,6 +909,7 @@ html {
     padding-right: 64px;
     &__content{
       top: 30px;
+      width: 642px;
       display: grid;
       grid-template-columns: 279px 300px;
       grid-auto-columns: minmax(50px, auto);
@@ -915,6 +917,7 @@ html {
       grid-row-gap: 63px;
       
       justify-content: flex-start;
+      justify-self: center;
     }
     &__contacts{
       align-content: stretch;
@@ -945,7 +948,7 @@ html {
   }
 }
 
-@media (min-width: 320px) and (max-width: 767.9px) {
+@media (max-width: 767.9px) {
 .start-screen{
   height: 823px;
   &__content{

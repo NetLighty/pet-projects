@@ -406,6 +406,8 @@ html {
   background-color: #FFFFFF;
   -webkit-box-shadow: 0 2px 35px 14px rgba(0, 0, 0, 0.04);
           box-shadow: 0 2px 35px 14px rgba(0, 0, 0, 0.04);
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
 }
 
 .card:hover .card__button {
@@ -863,7 +865,6 @@ html {
         align-self: center;
   }
   .cards__container {
-    width: 580px;
     -ms-grid-columns: 270px 270px;
         grid-template-columns: 270px 270px;
     grid-gap: 40px;
@@ -929,6 +930,7 @@ html {
   }
   .footer__content {
     top: 30px;
+    width: 642px;
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 279px 300px;
@@ -939,6 +941,8 @@ html {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
+    -ms-grid-column-align: center;
+        justify-self: center;
   }
   .footer__contacts {
     -ms-flex-line-pack: stretch;
@@ -968,7 +972,7 @@ html {
   }
 }
 
-@media (min-width: 320px) and (max-width: 767.9px) {
+@media (max-width: 767.9px) {
   .start-screen {
     height: 823px;
   }

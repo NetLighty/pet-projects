@@ -250,6 +250,10 @@ h1 {
 .card:hover {
   cursor: pointer;
   background-color: #FFFFFF;
+  -webkit-box-shadow: 0 2px 35px 14px rgba(0, 0, 0, 0.04);
+          box-shadow: 0 2px 35px 14px rgba(0, 0, 0, 0.04);
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
 }
 
 .card:hover .card__button {
@@ -584,6 +588,7 @@ h1 {
   }
   .footer__content {
     top: 30px;
+    width: 642px;
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 279px 300px;
@@ -594,6 +599,8 @@ h1 {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
+    -ms-grid-column-align: center;
+        justify-self: center;
   }
   .footer__contacts {
     -ms-flex-line-pack: stretch;
@@ -623,7 +630,7 @@ h1 {
   }
 }
 
-@media (min-width: 320px) and (max-width: 767.9px) {
+@media (max-width: 767.9px) {
   .br {
     display: none;
   }
