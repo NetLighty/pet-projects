@@ -12,30 +12,37 @@ h1 {
   font: inherit;
   vertical-align: baseline;
 }
+.header{
+  position: sticky;
+  top: 0px;
+  z-index: 1;
 
-.header-container {
-  position: relative;
-  overflow: hidden;
-
-  width: 100%;
   height: 120px;
-
   background-color: $light-xl;
   -moz-background-color: $light-xl;
-
-  padding: 0;
 }
-
-.header{
+.header__content {
+  position: relative;
+  overflow: hidden;
+  padding-left: 30px;
+  padding-right: 30px;
   max-width: 1200px;
-  height: 60px;
-  display: flex;
+  height: 120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 184px 1fr;
   justify-content: space-between;
   align-items: center;
-  margin: 0 auto;
-  margin-top: 30px;
+  align-content: center;
+  justify-self: center;
+}
+.header__content>*:nth-child(2) {
+  justify-self: end;
 }
 
+.burger{
+  display: none;
+}
 .logo{
   position: relative;
   width: 190px;
@@ -134,11 +141,21 @@ h1 {
   height: 1342px;
   background-color: $light-l;
 
+  &__title{
+    width: 400px;
+    height: 90px;
+  }
+
   &__content {
     position: relative;
     margin: 0 auto;
-    display: flex;
+    display: grid;
+    //align-content: center;
+    grid-template-columns: 1fr;
+    grid-row-gap: 60px;
+    //justify-content: center;
     justify-content: center;
+    justify-items: center;
     top: 80px;
     width: 1200px;
     height: 1162px;
@@ -166,7 +183,6 @@ h1 {
 
 .cards__container {
   position: relative;
-  top: 150px;
 
   display: grid;
   grid-template-columns: 270px 270px 270px 270px;
@@ -225,6 +241,8 @@ h1 {
 .card:hover{
   cursor: pointer;
   background-color: $light-xl;
+  box-shadow: 0 2px 35px 14px rgba(0, 0, 0, 0.04);
+  transition: all .3s ease;
   .card__button{
     cursor: pointer;
     background-color: $primary-light;
@@ -233,7 +251,7 @@ h1 {
 
 .heading {
   /* Heading */
-  position: absolute;
+  position: relative;
   top: 0px;
 
   /* h3 */
@@ -336,8 +354,9 @@ h1 {
   }
 }
 
-.navigation {
-  position: absolute;
+.pagination {
+  position: relative;
+  width: 340px;
   height: 52px;
 
   bottom: 0;
@@ -389,104 +408,319 @@ h1 {
 .footer {
   position: relative;
   height: 350px;
-  
+
   margin: 0;
-  
+
   background: url($start-screen-background-url) center / cover no-repeat;
-    -moz-background: url($start-screen-background-url) center / cover no-repeat;
-  
-    &__content {
-      max-width: 1200px;
-      height: 310px;
-  
-      position: relative;
-      top: 40px;
-      margin: 0 auto;
-  
+  -moz-background: url($start-screen-background-url) center / cover no-repeat;
+
+  &__content {
+    max-width: 1200px;
+    height: 310px;
+
+    position: relative;
+    top: 40px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 280px 302px 300px;
+    justify-content: space-between;
+  }
+
+  &__contacts {
+    position: relative;
+    top: 16px;
+
+    height: 234px;
+
+    display: grid;
+    align-content: space-between;
+    align-items: center;
+
+    .contact {
       display: grid;
-      grid-template-columns: 280px 302px 300px;
-      justify-content: space-between;
-  
-    }
-  
-    &__contacts {
-      position: relative;
-      top: 16px;
-  
-      height: 234px;
-  
-      display: grid;
-      align-content: space-between;
+      grid-template-columns: 40px 1fr;
+      grid-gap: 20px;
+
       align-items: center;
-  
-      .contact {
-        display: grid;
-        grid-template-columns: 40px 1fr;
-        grid-gap: 20px;
-  
-        align-items: center;
-      }
-      .contact:hover{
-        cursor: pointer;
-      }
-  
     }
-  
-    &__locations {
-      position: relative;
-      top: 16px;
-  
-      height: 234px;
-  
+    .contact:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__locations {
+    position: relative;
+    top: 16px;
+
+    height: 234px;
+
+    display: grid;
+    align-content: space-between;
+    align-items: center;
+
+    .location {
       display: grid;
-      align-content: space-between;
+      grid-template-columns: 22px 1fr;
+      grid-gap: 20px;
+
       align-items: center;
-  
-      .location {
-        display: grid;
-        grid-template-columns: 22px 1fr;
-        grid-gap: 20px;
-  
-        align-items: center;
-      }
     }
-  
-    &__puppy {
-      
-    }
-  
-    &__subText {
+  }
+
+  &__puppy {
+  }
+
+  &__subText {
     text-decoration: none;
     /* h4 */
-    font-family: 'Georgia';
+    font-family: "Georgia";
     font-style: normal;
     font-weight: 400;
     font-size: 2rem;
     line-height: 115%;
     /* identical to box height, or 23px */
-  
+
     letter-spacing: 0.06em;
-  
+
     /* color-primary */
-  
+
     color: $primary;
-  
+  }
+}
+
+.title {
+  /* Title */
+  /* h3 */
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 3.5rem;
+  line-height: 130%;
+  /* or 45px */
+
+  letter-spacing: 0.06em;
+
+  /* color-light-xl */
+
+  color: $light-xl;
+}
+
+  @media (min-width: 768px) and (max-width: 1279.9px) {
+    .header{
+      //position: fixed;
+    }
+
+    .cards__container {
+      display: grid;
+      justify-self: center;
+      grid-template-columns: 270px 270px;
+      grid-column-gap: 40px;
+      grid-row-gap: 30px;
+    
+      height: 900px;
+    
+      .card {
+        position: relative;
+        width: 270px;
+        height: 435px;
+    
+        background-color: $light-s;
+    
+        &__img {
+        }
+    
+        &__name {
+          position: absolute;
+          width: 100%;
+          height: 23px;
+          top: 300px;
+          display: flex;
+          justify-content: center;
+          /* pets-card-title */
+          font-family: 'Georgia';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 23px;
+          /* identical to box height */
+          letter-spacing: 0.06em;
+          /* color-dark-l */
+          color: $dark-l;
+        }
+    
+        &__button {
+        position: absolute;
+        width: 187px;
+        height: 52px;
+        left: 41.5px;
+        top: 353px;
+        }
+        
+      }
+    }
+    .pets{
+      height: 1733px;
+      &__content{
+        top: 80px;
+        height: 1603px;
+        grid-template-rows: 90px 1365px 52px;
+        grid-row-gap: 30px;
+        width: 708px;
+      }
+    }
+    .cards__container>*:nth-child(7){
+      display: none;
+    }
+    .cards__container>*:nth-child(8){
+      display: none;
+    }
+    .pagination{
+      top: 10px;
+    }
+
+    .footer {
+      height: 638px;
+      padding-left: 64px;
+      padding-right: 64px;
+      &__content{
+        top: 30px;
+        width: 642px;
+        display: grid;
+        grid-template-columns: 279px 300px;
+        grid-auto-columns: minmax(50px, auto);
+        grid-column-gap: 60px;
+        grid-row-gap: 63px;
+        
+        justify-content: flex-start;
+        justify-self: center;
+      }
+      &__contacts{
+        align-content: stretch;
+        grid-row-gap: 40px;
+        top:0;
+      }
+      &__locations{
+        align-content: stretch;
+        grid-row-gap: 31px;
+        top: 0;
+      }
+      &__puppy {
+        width: 300px;
+      }
+      &__content>*:nth-child(1){
+        //margin-left: 18px;
+      }
+      &__content>*:nth-child(2){
+       // margin-right: 18px;
+      }
+      &__content>*:nth-child(3){
+        display: grid;
+        align-self: center;
+        justify-self: center;
+        grid-column-start: 1;
+        grid-column-end: 3;
+      }
     }
   }
-  
-  .title {
-    /* Title */
-    /* h3 */
-    font-family: 'Georgia';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 3.5rem;
-    line-height: 130%;
-    /* or 45px */
-  
-    letter-spacing: 0.06em;
-  
-    /* color-light-xl */
-  
-    color: $light-xl;
+
+  @media (max-width: 767.9px) {
+    .br{
+      display: none;
+    }
+    .header__content{
+      padding-left: 10px;
+      padding-right: 10px;
+      grid-template-columns: 1fr 0px 1fr;
+    }
+    .header__content>*:nth-child(3){
+      position: relative;
+      display: grid;
+      justify-self: end;
+      right: 46px;
+    }
+    .cards__container{
+      grid-template-columns: 270px;
+    }
+    .cards__container>*:nth-child(n){
+      display: none;
+    }
+    .cards__container>*:nth-child(-n+3){
+      display: block;
+    }
+    .menu{
+      display: none;
+    }
+    .burger{
+      display: inline;
+    }
+    .pets{
+      height: 1649px;
+      &__content{
+        top: 42px;
+        width: 300px;
+        height: 1565px;
+        grid-template-rows: 64px 1fr 52px;
+        grid-row-gap: 42px;
+      }
+      &__title{
+        width: 300px;
+        height: 64px;
+        text-align: center;
+        display: grid;
+        justify-self: center;
+      }
+    }
+    .pagination{
+      position: relative;
+      bottom: 0;
+      width: 300px;
+      grid-gap: 10px;
+    }
+    .heading{
+      font-size: 2.5rem;
+    }
+    .footer{
+      height: 809px;
+      padding: 0;
+      &__content{
+        width:300px;
+        height: 779px;
+        top: 30px;
+        grid-template-columns: 300px;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-gap: 40px;
+        justify-items: center;
+      }
+      &__contacts{
+        top: 0;
+        width: 278px;
+        height: 208px;
+        justify-items: center;
+      }
+      &__locations{
+        top: 0;
+        width: 300px;
+        height: 222px;
+        //justify-items: center;
+      }
+      &__locations>*:nth-child(1){
+        justify-self: center;
+      }
+      &__content>*:nth-child(3){
+        grid-column-start: auto;
+        grid-column-end: auto;
+      }
+      &__puppy{
+        display: grid;
+        align-self: end;
+        width: 260px;
+        height: 269px;
+      }
+    }
+    .title{
+      width: 270px;
+      text-align: center;
+      font-size: 2.5rem;
+    }
   }
