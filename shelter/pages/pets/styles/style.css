@@ -624,9 +624,22 @@ h1 {
 }
 
 @media (min-width: 320px) and (max-width: 767.9px) {
+  .br {
+    display: none;
+  }
   .header__content {
-    -ms-grid-columns: 1fr 1fr 1fr;
-        grid-template-columns: 1fr 1fr 1fr;
+    padding-left: 10px;
+    padding-right: 10px;
+    -ms-grid-columns: 1fr 0px 1fr;
+        grid-template-columns: 1fr 0px 1fr;
+  }
+  .header__content > *:nth-child(3) {
+    position: relative;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-column-align: end;
+        justify-self: end;
+    right: 46px;
   }
   .cards__container {
     -ms-grid-columns: 270px;
@@ -643,6 +656,83 @@ h1 {
   }
   .burger {
     display: inline;
+  }
+  .pets {
+    height: 1649px;
+  }
+  .pets__content {
+    top: 42px;
+    width: 300px;
+    height: 1565px;
+    -ms-grid-rows: 64px 1fr 52px;
+        grid-template-rows: 64px 1fr 52px;
+    grid-row-gap: 42px;
+  }
+  .pets__title {
+    width: 300px;
+    height: 64px;
+    text-align: center;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-column-align: center;
+        justify-self: center;
+  }
+  .pagination {
+    position: relative;
+    bottom: 0;
+    width: 300px;
+    grid-gap: 10px;
+  }
+  .heading {
+    font-size: 2.5rem;
+  }
+  .footer {
+    height: 809px;
+    padding: 0;
+  }
+  .footer__content {
+    width: 300px;
+    height: 779px;
+    top: 30px;
+    -ms-grid-columns: 300px;
+        grid-template-columns: 300px;
+    -ms-grid-rows: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 40px;
+    justify-items: center;
+  }
+  .footer__contacts {
+    top: 0;
+    width: 278px;
+    height: 208px;
+    justify-items: center;
+  }
+  .footer__locations {
+    top: 0;
+    width: 300px;
+    height: 222px;
+  }
+  .footer__locations > *:nth-child(1) {
+    -ms-grid-column-align: center;
+        justify-self: center;
+  }
+  .footer__content > *:nth-child(3) {
+    -ms-grid-column: auto;
+        grid-column-start: auto;
+    grid-column-end: auto;
+  }
+  .footer__puppy {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-row-align: end;
+        align-self: end;
+    width: 260px;
+    height: 269px;
+  }
+  .title {
+    width: 270px;
+    text-align: center;
+    font-size: 2.5rem;
   }
 }
 /*# sourceMappingURL=style.css.map */
