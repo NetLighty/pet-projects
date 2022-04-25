@@ -1,178 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-    />
-    <link rel="stylesheet" href="./styles/style.css"/>
+  <title>Our pets</title>
+  <script src="./script.js" async></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+  <link rel="stylesheet" href="./styles/style.css" />
 </head>
+
 <body>
   <header class="header">
     <div class="header__content">
-        <div onclick="document.location='../main/index.html'" class="logo">
-          <div class="logo__title">
-            <h1>Cozy House</h1>
-          </div>
-          <div class="logo__subtitle">
-            <a>Shelter for pets in Boston</a>
-          </div>
+      <div onclick="document.location='../main/index.html'" class="logo">
+        <div class="logo__title">
+          <h1>Cozy House</h1>
         </div>
-        <nav>
-          <ul class="menu">
-            <li class="menu__item">
-              <a href="../main/index.html" class="menu__link">About the shelter</a>
-            </li>
-            <li class="menu__item">
-              <a href="##" class="menu__link__active">Our pets</a>
-            </li>
-            <li class="menu__item">
-              <a href="../main/index.html#help" class="menu__link">Help the shelter</a>
-            </li>
-            <li class="menu__item">
-              <a href="#contacts" class="menu__link">Contacts</a>
-            </li>
-          </ul>
-        </nav>
-        <img class="burger" src="../../assets/icons/Burger-dark.svg" alt="burger-menu">
+        <div class="logo__subtitle">
+          <a>Shelter for pets in Boston</a>
+        </div>
       </div>
+      <nav>
+        <ul class="menu">
+          <li class="menu__item">
+            <a href="../main/index.html" class="menu__link">About the shelter</a>
+          </li>
+          <li class="menu__item">
+            <a href="##" class="menu__link__active">Our pets</a>
+          </li>
+          <li class="menu__item">
+            <a href="../main/index.html#help" class="menu__link">Help the shelter</a>
+          </li>
+          <li class="menu__item">
+            <a href="#contacts" class="menu__link">Contacts</a>
+          </li>
+        </ul>
+      </nav>
+      <img class="burger-icon" src="../../assets/icons/Burger-dark.svg" alt="burger-icon">
+    </div>
   </header>
+  <div class="burger-menu"></div>
   <section>
     <div id="pets" class="pets">
       <div class="pets__content">
         <div class="pets__title heading">
           Our friends who<br> are looking for a house
         </div>
-            <div class="cards__container">
-                <div class="card">
-                  <img class="card__img" src="../../assets/images/pets-katrine.png" alt="katrine">
-                  <div class="card__name">Katrine</div>
-                  <button class="card__button button"><div class="button__text">Learn more</div></button> 
-                </div>
-                <div class="card">
-                  <img class="card__img" src="../../assets/images/pets-jennifer.png" alt="jennifer">
-                  <div class="card__name">Jennifer</div>
-                  <button class="card__button button"><div class="button__text">Learn more</div></button> 
-                </div>
-                <div class="card">
-                  <img class="card__img" src="../../assets/images/pets-woody.png" alt="Woody">
-                  <div class="card__name">Woody</div>
-                  <button class="card__button button"><div class="button__text">Learn more</div></button> 
-                </div>
-                <div class="card">
-                  <img class="card__img" src="../../assets/images/pets-sophia.png" alt="Sophia">
-                  <div class="card__name">Sophia</div>
-                  <button class="card__button button"><div class="button__text">Learn more</div></button> 
-                </div>
-                <div class="card">
-                  <img class="card__img" src="../../assets/images/pets-timmy.png" alt="Timmy">
-                  <div class="card__name">Timmy</div>
-                  <button class="card__button button"><div class="button__text">Learn more</div></button> 
-                </div>
-                <div class="card">
-                  <img class="card__img" src="../../assets/images/pets-charly.png" alt="Charly">
-                  <div class="card__name">Charly</div>
-                  <button class="card__button button"><div class="button__text">Learn more</div></button> 
-                </div>
-                <div class="card">
-                  <img class="card__img" src="../../assets/images/pets-scarlett.png" alt="Scarlett">
-                  <div class="card__name">Scarlett</div>
-                  <button class="card__button button"><div class="button__text">Learn more</div></button> 
-                </div>
-                <div class="card">
-                  <img class="card__img" src="../../assets/images/pets-freddie.png" alt="Freddie">
-                  <div class="card__name">Freddie</div>
-                  <button class="card__button button"><div class="button__text">Learn more</div></button> 
-                </div>
-              </div>
+        <div class="cards__wrapper">
+          <div class="cards__container" id="cards__container">
+            <div class="cards__page" id="page-left"></div>
+                <div class="cards__page" id="page-center"></div>
+                <div class="cards__page" id="page-right"></div>
+            <!-- <div class="card">
+                    <img class="card__img" src="../../assets/images/pets-katrine.png" alt="katrine">
+                    <div class="card__name">Katrine</div>
+                    <button class="card__button button"><div class="button__text">Learn more</div></button> 
+                  </div>
+                  <div class="card">
+                    <img class="card__img" src="../../assets/images/pets-jennifer.png" alt="jennifer">
+                    <div class="card__name">Jennifer</div>
+                    <button class="card__button button"><div class="button__text">Learn more</div></button> 
+                  </div>
+                  <div class="card">
+                    <img class="card__img" src="../../assets/images/pets-woody.png" alt="Woody">
+                    <div class="card__name">Woody</div>
+                    <button class="card__button button"><div class="button__text">Learn more</div></button> 
+                  </div>
+                  <div class="card">
+                    <img class="card__img" src="../../assets/images/pets-sophia.png" alt="Sophia">
+                    <div class="card__name">Sophia</div>
+                    <button class="card__button button"><div class="button__text">Learn more</div></button> 
+                  </div>
+                  <div class="card">
+                    <img class="card__img" src="../../assets/images/pets-timmy.png" alt="Timmy">
+                    <div class="card__name">Timmy</div>
+                    <button class="card__button button"><div class="button__text">Learn more</div></button> 
+                  </div>
+                  <div class="card">
+                    <img class="card__img" src="../../assets/images/pets-charly.png" alt="Charly">
+                    <div class="card__name">Charly</div>
+                    <button class="card__button button"><div class="button__text">Learn more</div></button> 
+                  </div>
+                  <div class="card">
+                    <img class="card__img" src="../../assets/images/pets-scarlett.png" alt="Scarlett">
+                    <div class="card__name">Scarlett</div>
+                    <button class="card__button button"><div class="button__text">Learn more</div></button> 
+                  </div>
+                  <div class="card">
+                    <img class="card__img" src="../../assets/images/pets-freddie.png" alt="Freddie">
+                    <div class="card__name">Freddie</div>
+                    <button class="card__button button"><div class="button__text">Learn more</div></button> 
+                  </div>
+                </div> -->
+          </div>
+        </div>
         <div class="pagination">
-                <button class="button__paginator disabled">
-                  <span class="paginator__text disabled"><<</span>
-                </button>
-                <button class="button__paginator disabled">
-                  <span class="paginator__text disabled"><</span>
-                </button>
-                <button class="button__paginator active">
-                  <span class="paginator__text">1</span>
-                </button>
-                <button class="button__paginator default">
-                  <span class="paginator__text">></span>
-                </button>
-                <button class="button__paginator default">
-                  <span class="paginator__text">>></span>
-                </button>
+          <button class="button__paginator disabled" id="double-left-arrow">
+            <span class="paginator__text">
+              << </span>
+          </button>
+          <button class="button__paginator disabled" id="single-left-arrow">
+            <span class="paginator__text">
+              < </span>
+          </button>
+          <button class="button__paginator active" id="page-button">
+            <span class="paginator__text" id="page-number">1</span>
+          </button>
+          <button class="button__paginator default" id="single-right-arrow">
+            <span class="paginator__text">></span>
+          </button>
+          <button class="button__paginator default" id="double-right-arrow">
+            <span class="paginator__text">>></span>
+          </button>
         </div>
       </div>
-    </div>
   </section>
   <footer>
     <div id="contacts" class="footer">
       <div class="footer__content">
         <div class="footer__contacts">
-          <span class="title"
-            >For questions<br class="br"/>
-            and suggestions</span
-          >
-          <div
-            onclick="document.location='mailto:email@shelter.com'"
-            class="contact"
-          >
+          <span class="title">For questions<br class="br" />
+            and suggestions</span>
+          <div onclick="document.location='mailto:email@shelter.com'" class="contact">
             <div class="icon"><img src="../../assets/icons/mail.svg" /></div>
             <span class="footer__subText">email@shelter.com</span>
           </div>
-          <div
-            onclick="document.location='tel:+13 674 567 75 54'"
-            class="contact"
-          >
+          <div onclick="document.location='tel:+13 674 567 75 54'" class="contact">
             <div class="icon"><img src="../../assets/icons/phone.svg" /></div>
             <span class="footer__subText">+13 674 567 75 54</span>
           </div>
         </div>
         <div class="footer__locations">
-          <span class="title"
-            >We are waiting<br class="br"/>
-            for your visit</span
-          >
+          <span class="title">We are waiting<br class="br" />
+            for your visit</span>
           <div class="location">
             <div class="icon">
-              <a href="https://goo.gl/maps/mFXgyaMd7Ey2AoS6A" target="_blank"
-                ><img src="../../assets/icons/pin.svg"
-              /></a>
+              <a href="https://goo.gl/maps/mFXgyaMd7Ey2AoS6A" target="_blank"><img
+                  src="../../assets/icons/pin.svg" /></a>
             </div>
-            <a
-              href="https://goo.gl/maps/mFXgyaMd7Ey2AoS6A"
-              target="_blank"
-              class="footer__subText"
-              >1 Central Street, Boston<br />
-              (entrance from the store)</a
-            >
+            <a href="https://goo.gl/maps/mFXgyaMd7Ey2AoS6A" target="_blank" class="footer__subText">1 Central Street,
+              Boston<br />
+              (entrance from the store)</a>
           </div>
           <div class="location">
             <div class="icon">
-              <a href="https://goo.gl/maps/mFXgyaMd7Ey2AoS6A" target="_blank"
-                ><img src="../../assets/icons/pin.svg"
-              /></a>
+              <a href="https://goo.gl/maps/mFXgyaMd7Ey2AoS6A" target="_blank"><img
+                  src="../../assets/icons/pin.svg" /></a>
             </div>
-            <a
-              href="https://goo.gl/maps/mFXgyaMd7Ey2AoS6A"
-              target="_blank"
-              class="footer__subText"
-              >18 South Park, London
+            <a href="https://goo.gl/maps/mFXgyaMd7Ey2AoS6A" target="_blank" class="footer__subText">18 South Park,
+              London
             </a>
           </div>
         </div>
-          <img
-            class="footer__puppy"
-            src="../../assets/images/footer-puppy.png"
-            alt="footer puppy"
-          />
+        <img class="footer__puppy" src="../../assets/images/footer-puppy.png" alt="footer puppy" />
         <img />
       </div>
     </div>
   </footer>
 </body>
+
 </html>

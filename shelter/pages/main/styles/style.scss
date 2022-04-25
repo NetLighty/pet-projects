@@ -3,6 +3,48 @@
 html {
   font-size: 10px;
 }
+.view{
+  overflow-x: hidden;
+}
+.burger-menu{
+  position: fixed;
+  display: grid;
+  right: -100%;
+  grid-template-rows: 90px 1fr;
+  z-index: 1;
+  transform: translateX(100%);
+  right: 0;
+  top: 0;
+  width: 320px;
+  height: 100vh;
+  background-color: $dark-3xl;
+
+  .logo{
+    margin-left: 10px;
+    margin-top: 29px;
+  }
+  .navigation{
+    display: grid;
+    justify-self: center;
+    position: absolute;
+    top: 30vh;
+
+    .menu{
+      margin: 0;
+      display: grid;
+      justify-items: center;
+      grid-template-rows: 1fr;
+      grid-gap: 40px;
+      align-self: center;
+    }
+    .menu > li{
+      margin: 0;
+    }
+    .menu >* a{
+      font-size: 3.2rem;
+    }
+  }
+}
 
 .start-screen {
   position: relative;
@@ -268,11 +310,11 @@ html {
 .logo:hover {
   cursor: pointer;
 }
-.burger {
+.burger-icon {
   display: none;
 }
 
-.menu {
+.menu{
   //margin-left: auto;
   list-style: none;
   padding-left: 0;
@@ -352,10 +394,38 @@ html {
     }
   }
 }
+.transition-left{
+  animation: move-left 1.5s forwards;
+}
+.transition-right{
+  animation: move-right 1.5s forwards; 
+}
+@keyframes move-right {
+  from{left: -1080px}
+  to{left: -2160px}
+}
+@keyframes move-left {
+  from{left: -1080px}
+  to{left: 0px;}
+}
+
+.cards__wrapper{
+  width: 990px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.cards{
+display: grid;
+grid-template-columns: 270px 270px 270px;
+grid-gap: 90px;
+}
 
 .cards__container {
+  position: relative;
+  left: -1080px;
   display: grid;
-  grid-template-columns: 270px 270px 270px;
+  grid-template-columns: repeat(3, 990px);
   grid-gap: 90px;
 
   .card {
@@ -735,6 +805,7 @@ html {
 }
 
 @media (max-width: 1279.9px) {
+
   .start-screen {
     //width: 768px;
     height: 1165px;
@@ -848,12 +919,30 @@ html {
       }
     }
   }
+  @keyframes move-right {
+    from{left: -680px}
+    to{left: -1360px}
+  }
+  @keyframes move-left {
+    from{left: -680px}
+    to{left: 0px;}
+  }
+  .cards__wrapper{
+    height: 470px;
+    width: 590px;
+  }
   .cards__container {
-    //width: 580px;
-    grid-template-columns: 270px 270px;
+    width: 580px;
+    left: -680px;
+    grid-template-columns: repeat(3, 590px);
+    //grid-gap: 40px;
+  }
+  .cards{
+    width: 580px;
+    grid-template-columns: 270px 270px 0px;
     grid-gap: 40px;
   }
-  .cards__container>*:nth-child(3){
+  .cards>*:nth-child(3){
     display: none;
   }
   .heading {
@@ -949,6 +1038,70 @@ html {
 }
 
 @media (max-width: 767.9px) {
+.shading{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  background: rgba(41, 41, 41, 0.6);
+}
+.overflow-hidden{
+  overflow-y: hidden;
+}
+.burger-menu.active{
+  display: grid;
+}
+.burger-menu.slide-in{
+  animation: slide-in 0.5s forwards;
+}
+.burger-menu.slide-out{
+  animation: slide-out 0.5s forwards;
+}
+
+@keyframes slide-in {
+  100% { transform: translateX(0%); }
+}
+@keyframes slide-out {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(100%); }
+}
+
+.burger-icon{
+  z-index: 2;
+  animation: show 1.7s;
+  cursor: pointer;
+}
+.burger-icon.active{
+  position: absolute;
+  right: 55px;
+  //animation: show 1.7s;
+  transform: rotate(90deg);
+  transition: rotate 0.3s ease;
+}
+.burger-icon.unactive:active{
+  animation: hidden 1.7s;
+}
+.burger-icon.active:active{
+  animation: hidden 1.7s;
+}
+
+.logo.hidden{
+  animation: hidden 0.7s forwards;
+}
+.logo.show{
+  animation: show 0.7s forwards;
+}
+@keyframes hidden {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+@keyframes show{
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
 .start-screen{
   height: 823px;
   &__content{
@@ -990,7 +1143,7 @@ html {
   box-sizing: border-box;
   padding-right: 43px;
 }
-.burger {
+.burger-icon {
   display: inline;
 }
 .menu{
@@ -1035,6 +1188,7 @@ html {
   &__slider{
     top: 106px;
     grid-template-columns:0px 270px 0px;
+    grid-template-rows: 435px;
     grid-gap: 0;
     grid-row-gap: 20px;
     width: 270px;
@@ -1053,7 +1207,30 @@ html {
   }
 
 }
-.cards__container>*:nth-child(2){
+@keyframes move-right {
+  from{left: -360px}
+  to{left: -720px}
+}
+@keyframes move-left {
+  from{left: -360px}
+  to{left: 0px;}
+}
+.cards__wrapper{
+  height: 470px;
+  width: 270px;
+}
+.cards__container {
+  width: 270px;
+  left: -360px;
+  grid-template-columns: repeat(3, 270px);
+  //grid-gap: 40px;
+}
+.cards{
+  width: 270px;
+  grid-template-columns: 270px 0px 0px;
+  grid-gap: 0px;
+}
+.cards>*:nth-child(2){
   display: none;
 }
 .heading{

@@ -40,7 +40,7 @@ h1 {
   justify-self: end;
 }
 
-.burger{
+.burger-icon{
   display: none;
 }
 .logo{
@@ -180,14 +180,51 @@ h1 {
     }
   }
 }
-
+.transition-left{
+  animation: move-left 1.1s forwards;
+}
+.transition-start{
+  animation: move-start 0.7s forwards;
+}
+.transition-end{
+  animation: move-end 0.7s forwards;
+}
+.transition-right{
+  animation: move-right 1.1s forwards; 
+}
+@keyframes move-end {
+  from{left: -1300px}
+  to{left: -2600px}
+}
+@keyframes move-start {
+  from{left: -1300px}
+  to{left: 40px;}
+}
+@keyframes move-right {
+  from{left: -1300px}
+  to{left: -2600px}
+}
+@keyframes move-left {
+  from{left: -1300px}
+  to{left: 40px;}
+}
+.cards__wrapper{
+width: 1280px;
+overflow: hidden;
+}
+.cards__page{
+display: grid;
+grid-template-columns: 270px 270px 270px 270px;
+grid-column-gap: 40px;
+grid-row-gap: 30px;
+}
 .cards__container {
   position: relative;
+  left: -1280px;
 
   display: grid;
-  grid-template-columns: 270px 270px 270px 270px;
+  grid-template-columns: repeat(3, 1280px);
   grid-column-gap: 40px;
-  grid-row-gap: 30px;
 
   height: 900px;
 
@@ -401,7 +438,10 @@ h1 {
     background-color: $primary;
   }
   .disabled {
-    border-color: $dark-s;
+    border-color: $dark-s !important;
+    color: $dark-s !important;
+  }
+  .disabled>:nth-child(1) {
     color: $dark-s !important;
   }
 }
@@ -651,7 +691,7 @@ h1 {
     .menu{
       display: none;
     }
-    .burger{
+    .burger-icon{
       display: inline;
     }
     .pets{
