@@ -198,14 +198,120 @@ h1 {
       align-self: center;
 }
 
-.cards__container {
-  position: relative;
+.transition-left {
+  -webkit-animation: move-left 1.1s forwards;
+          animation: move-left 1.1s forwards;
+}
+
+.transition-start {
+  -webkit-animation: move-start 0.7s forwards;
+          animation: move-start 0.7s forwards;
+}
+
+.transition-end {
+  -webkit-animation: move-end 0.7s forwards;
+          animation: move-end 0.7s forwards;
+}
+
+.transition-right {
+  -webkit-animation: move-right 1.1s forwards;
+          animation: move-right 1.1s forwards;
+}
+
+@-webkit-keyframes move-end {
+  from {
+    left: -1300px;
+  }
+  to {
+    left: -2600px;
+  }
+}
+
+@keyframes move-end {
+  from {
+    left: -1300px;
+  }
+  to {
+    left: -2600px;
+  }
+}
+
+@-webkit-keyframes move-start {
+  from {
+    left: -1300px;
+  }
+  to {
+    left: 40px;
+  }
+}
+
+@keyframes move-start {
+  from {
+    left: -1300px;
+  }
+  to {
+    left: 40px;
+  }
+}
+
+@-webkit-keyframes move-right {
+  from {
+    left: -1300px;
+  }
+  to {
+    left: -2600px;
+  }
+}
+
+@keyframes move-right {
+  from {
+    left: -1300px;
+  }
+  to {
+    left: -2600px;
+  }
+}
+
+@-webkit-keyframes move-left {
+  from {
+    left: -1300px;
+  }
+  to {
+    left: 40px;
+  }
+}
+
+@keyframes move-left {
+  from {
+    left: -1300px;
+  }
+  to {
+    left: 40px;
+  }
+}
+
+.cards__wrapper {
+  width: 1280px;
+  overflow: hidden;
+}
+
+.cards__page {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 270px 270px 270px 270px;
       grid-template-columns: 270px 270px 270px 270px;
   grid-column-gap: 40px;
   grid-row-gap: 30px;
+}
+
+.cards__container {
+  position: relative;
+  left: -1280px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1280px)[3];
+      grid-template-columns: repeat(3, 1280px);
+  grid-column-gap: 40px;
   height: 900px;
 }
 
@@ -407,7 +513,11 @@ h1 {
 }
 
 .pagination .disabled {
-  border-color: #CDCDCD;
+  border-color: #CDCDCD !important;
+  color: #CDCDCD !important;
+}
+
+.pagination .disabled > :nth-child(1) {
   color: #CDCDCD !important;
 }
 
