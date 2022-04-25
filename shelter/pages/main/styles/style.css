@@ -2,6 +2,61 @@ html {
   font-size: 10px;
 }
 
+.view {
+  overflow-x: hidden;
+}
+
+.burger-menu {
+  position: fixed;
+  display: -ms-grid;
+  display: grid;
+  right: -100%;
+  -ms-grid-rows: 90px 1fr;
+      grid-template-rows: 90px 1fr;
+  z-index: 1;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  right: 0;
+  top: 0;
+  width: 320px;
+  height: 100vh;
+  background-color: #292929;
+}
+
+.burger-menu .logo {
+  margin-left: 10px;
+  margin-top: 29px;
+}
+
+.burger-menu .navigation {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  position: absolute;
+  top: 30vh;
+}
+
+.burger-menu .navigation .menu {
+  margin: 0;
+  display: -ms-grid;
+  display: grid;
+  justify-items: center;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  grid-gap: 40px;
+  -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.burger-menu .navigation .menu > li {
+  margin: 0;
+}
+
+.burger-menu .navigation .menu > * a {
+  font-size: 3.2rem;
+}
+
 .start-screen {
   position: relative;
   overflow: hidden;
@@ -254,7 +309,7 @@ html {
   cursor: pointer;
 }
 
-.burger {
+.burger-icon {
   display: none;
 }
 
@@ -349,7 +404,15 @@ html {
       align-self: center;
 }
 
+.cards__wrapper {
+  width: 270px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
 .cards__container {
+  position: relative;
+  left: -370px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 270px 270px 270px;
@@ -973,6 +1036,124 @@ html {
 }
 
 @media (max-width: 767.9px) {
+  .shading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    background: rgba(41, 41, 41, 0.6);
+  }
+  .overflow-hidden {
+    overflow-y: hidden;
+  }
+  .burger-menu.active {
+    display: -ms-grid;
+    display: grid;
+  }
+  .burger-menu.slide-in {
+    -webkit-animation: slide-in 0.5s forwards;
+            animation: slide-in 0.5s forwards;
+  }
+  .burger-menu.slide-out {
+    -webkit-animation: slide-out 0.5s forwards;
+            animation: slide-out 0.5s forwards;
+  }
+  @-webkit-keyframes slide-in {
+    100% {
+      -webkit-transform: translateX(0%);
+              transform: translateX(0%);
+    }
+  }
+  @keyframes slide-in {
+    100% {
+      -webkit-transform: translateX(0%);
+              transform: translateX(0%);
+    }
+  }
+  @-webkit-keyframes slide-out {
+    0% {
+      -webkit-transform: translateX(0%);
+              transform: translateX(0%);
+    }
+    100% {
+      -webkit-transform: translateX(100%);
+              transform: translateX(100%);
+    }
+  }
+  @keyframes slide-out {
+    0% {
+      -webkit-transform: translateX(0%);
+              transform: translateX(0%);
+    }
+    100% {
+      -webkit-transform: translateX(100%);
+              transform: translateX(100%);
+    }
+  }
+  .burger-icon {
+    z-index: 2;
+    -webkit-animation: show 1.7s;
+            animation: show 1.7s;
+    cursor: pointer;
+  }
+  .burger-icon.active {
+    position: absolute;
+    right: 55px;
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+    -webkit-transition: rotate 0.3s ease;
+    transition: rotate 0.3s ease;
+  }
+  .burger-icon.unactive:active {
+    -webkit-animation: hidden 1.7s;
+            animation: hidden 1.7s;
+  }
+  .burger-icon.active:active {
+    -webkit-animation: hidden 1.7s;
+            animation: hidden 1.7s;
+  }
+  .logo.hidden {
+    -webkit-animation: hidden 0.7s forwards;
+            animation: hidden 0.7s forwards;
+  }
+  .logo.show {
+    -webkit-animation: show 0.7s forwards;
+            animation: show 0.7s forwards;
+  }
+  @-webkit-keyframes hidden {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes hidden {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @-webkit-keyframes show {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes show {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
   .start-screen {
     height: 823px;
   }
@@ -1012,7 +1193,7 @@ html {
             box-sizing: border-box;
     padding-right: 43px;
   }
-  .burger {
+  .burger-icon {
     display: inline;
   }
   .menu {

@@ -3,6 +3,48 @@
 html {
   font-size: 10px;
 }
+.view{
+  overflow-x: hidden;
+}
+.burger-menu{
+  position: fixed;
+  display: grid;
+  right: -100%;
+  grid-template-rows: 90px 1fr;
+  z-index: 1;
+  transform: translateX(100%);
+  right: 0;
+  top: 0;
+  width: 320px;
+  height: 100vh;
+  background-color: $dark-3xl;
+
+  .logo{
+    margin-left: 10px;
+    margin-top: 29px;
+  }
+  .navigation{
+    display: grid;
+    justify-self: center;
+    position: absolute;
+    top: 30vh;
+
+    .menu{
+      margin: 0;
+      display: grid;
+      justify-items: center;
+      grid-template-rows: 1fr;
+      grid-gap: 40px;
+      align-self: center;
+    }
+    .menu > li{
+      margin: 0;
+    }
+    .menu >* a{
+      font-size: 3.2rem;
+    }
+  }
+}
 
 .start-screen {
   position: relative;
@@ -268,11 +310,11 @@ html {
 .logo:hover {
   cursor: pointer;
 }
-.burger {
+.burger-icon {
   display: none;
 }
 
-.menu {
+.menu{
   //margin-left: auto;
   list-style: none;
   padding-left: 0;
@@ -353,7 +395,14 @@ html {
   }
 }
 
+.cards__wrapper{
+  width: 270px;
+  margin: 0 auto;
+  overflow: hidden;
+}
 .cards__container {
+  position: relative;
+  left: -370px;
   display: grid;
   grid-template-columns: 270px 270px 270px;
   grid-gap: 90px;
@@ -949,6 +998,70 @@ html {
 }
 
 @media (max-width: 767.9px) {
+.shading{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  background: rgba(41, 41, 41, 0.6);
+}
+.overflow-hidden{
+  overflow-y: hidden;
+}
+.burger-menu.active{
+  display: grid;
+}
+.burger-menu.slide-in{
+  animation: slide-in 0.5s forwards;
+}
+.burger-menu.slide-out{
+  animation: slide-out 0.5s forwards;
+}
+
+@keyframes slide-in {
+  100% { transform: translateX(0%); }
+}
+@keyframes slide-out {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(100%); }
+}
+
+.burger-icon{
+  z-index: 2;
+  animation: show 1.7s;
+  cursor: pointer;
+}
+.burger-icon.active{
+  position: absolute;
+  right: 55px;
+  //animation: show 1.7s;
+  transform: rotate(90deg);
+  transition: rotate 0.3s ease;
+}
+.burger-icon.unactive:active{
+  animation: hidden 1.7s;
+}
+.burger-icon.active:active{
+  animation: hidden 1.7s;
+}
+
+.logo.hidden{
+  animation: hidden 0.7s forwards;
+}
+.logo.show{
+  animation: show 0.7s forwards;
+}
+@keyframes hidden {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+@keyframes show{
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
 .start-screen{
   height: 823px;
   &__content{
@@ -990,7 +1103,7 @@ html {
   box-sizing: border-box;
   padding-right: 43px;
 }
-.burger {
+.burger-icon {
   display: inline;
 }
 .menu{
