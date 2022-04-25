@@ -50,7 +50,7 @@ h1 {
       justify-self: end;
 }
 
-.burger {
+.burger-icon {
   display: none;
 }
 
@@ -661,7 +661,7 @@ h1 {
   .menu {
     display: none;
   }
-  .burger {
+  .burger-icon {
     display: inline;
   }
   .pets {
