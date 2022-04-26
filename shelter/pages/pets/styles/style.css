@@ -1150,8 +1150,8 @@ body {
     right: 55px;
     -webkit-transform: rotate(90deg);
             transform: rotate(90deg);
-    -webkit-transition: rotate 0.3s ease;
-    transition: rotate 0.3s ease;
+    -webkit-transition: all 0.7s ease;
+    transition: all 0.7s ease;
   }
   .burger-icon.unactive:active {
     -webkit-animation: hidden 1.7s;

@@ -35,7 +35,8 @@ html {
 
 .modal {
   position: absolute;
-  top: 10%;
+  top: 50%;
+  margin-top: -276px;
   z-index: 7;
   width: 952px;
   height: 552px;
@@ -114,6 +115,14 @@ html {
   display: -ms-grid;
   display: grid;
   grid-row-gap: 11px;
+}
+
+.modal__window:hover + .modal-close-button {
+  background-color: transparent !important;
+}
+
+.modal-container:hover .modal-close-button {
+  background-color: #FDDCC4;
 }
 
 .list-item {
@@ -1021,7 +1030,8 @@ html {
 
 @media (max-width: 1279.9px) {
   .modal {
-    top: 15vh;
+    top: 50%;
+    margin-top: -201px;
     width: 682px;
     height: 402px;
   }
@@ -1317,7 +1327,8 @@ html {
 
 @media (max-width: 767.9px) {
   .modal {
-    top: 15vh;
+    top: 50%;
+    margin-top: -196.5px;
     width: 271px;
     height: 393px;
   }
@@ -1424,8 +1435,8 @@ html {
     right: 55px;
     -webkit-transform: rotate(90deg);
             transform: rotate(90deg);
-    -webkit-transition: rotate 0.3s ease;
-    transition: rotate 0.3s ease;
+    -webkit-transition: all 0.7s ease;
+    transition: all 0.7s ease;
   }
   .burger-icon.unactive:active {
     -webkit-animation: hidden 1.7s;
