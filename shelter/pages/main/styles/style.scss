@@ -9,6 +9,15 @@ html {
 .overflow-hidden{
   overflow-y: hidden;
 }
+.shading-modal{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 6;
+  background: rgba(41, 41, 41, 0.6);
+}
 .modal-container{
   display: grid;
   align-items: center;
@@ -16,13 +25,18 @@ html {
 
   opacity: 0;
   visibility: hidden;
-  transition: all 0.8s ease 0s;
+  transition: all 0.8s ease;
 
   position: fixed;
-  z-index: 7;
+  z-index: 6;
   width: 100%;
   height: 100%;
   background-color: rgba(41, 41, 41, 0.6);
+}
+.modal-container:hover{
+  .modal-close-button{
+    background-color: $primary;
+  }
 }
 .modal-container.open{
   opacity: 1;
@@ -37,6 +51,8 @@ html {
   height: 552px;
 
   &__window{
+    position: absolute;
+    z-index: 7;
     display: grid;
     grid-template-columns: 500px 1fr;
     grid-column-gap: 32px;
@@ -47,6 +63,9 @@ html {
     left: 0;
     background-color: $light-s;
     border-radius: 9px;
+  }
+  &__window:hover ~ .modal-close-button{
+   background-color: transparent;
   }
   &__paragraph{
     
@@ -102,14 +121,9 @@ html {
     grid-row-gap: 11px;
   }
 }
- .modal__window:hover + .modal-close-button{
-  background-color: transparent !important;
-}
-.modal-container:hover{
- .modal-close-button{
-  background-color: #FDDCC4;
+ .modal__window:hover ~ button{
+   background-color: transparent !important;
  }
-}
 .list-item{
   display: grid;
   grid-template-columns: 4px 1fr;
@@ -118,7 +132,7 @@ html {
 }
 .modal-close-button{
   position: relative;
-  top: 0;
+  top: -100%;
   left: 93.7%;
 }
 /* <div class="modal">
@@ -1287,6 +1301,10 @@ grid-gap: 90px;
   right: 55px;
   //animation: show 1.7s;
   transform: rotate(90deg);
+  transition: all 0.7s ease;
+}
+.burger-icon.unactive{
+  transform: rotate(0deg);
   transition: all 0.7s ease;
 }
 .burger-icon.unactive:active{
