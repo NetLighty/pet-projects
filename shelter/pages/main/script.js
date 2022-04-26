@@ -143,9 +143,11 @@ const pets=[
 ]
 
 //modal
+const modalShading= document.getElementById('shading-modal')
 const showModal = (name) =>{
   console.log(name)
   document.body.classList.add('overflow-hidden')
+  modalShading.classList.add('shading-modal')
   const pet=pets.filter(pet=>{
     if(pet.name===name) return true
   })[0]
@@ -167,8 +169,7 @@ const showModal = (name) =>{
     let modal= document.createElement('div')
       modal.className= 'modal-container'
       modal.innerHTML = `<div class='modal'>
-        <button class="modal-close-button button__arrow"><img src="../../assets/icons/chrest.svg"></button>
-        <div class="modal__window">
+      <div class="modal__window">
           <img class="modal__img" src=${img} alt=${name}>
           <div class="modal__content">
             <span class="modal__title">${name}</span>
@@ -184,7 +185,9 @@ const showModal = (name) =>{
             </div>
           </div>
         </div>
-      </div>`
+        <button class="modal-close-button button__arrow"><img src="../../assets/icons/chrest.svg"></button>
+        </div>
+      `
       modal.addEventListener('click', closeModal)
   
       return modal
