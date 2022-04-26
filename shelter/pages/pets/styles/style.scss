@@ -954,7 +954,7 @@ grid-row-gap: 30px;
       right: 55px;
       //animation: show 1.7s;
       transform: rotate(90deg);
-      transition: rotate 0.3s ease;
+      transition: all 0.7s ease;
     }
     .burger-icon.unactive:active{
       animation: hidden 1.7s;
