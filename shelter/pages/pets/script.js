@@ -1,3 +1,43 @@
+// mobile-menu
+const burgerIcon= document.querySelector('.burger-icon')
+if(burgerIcon){
+  const burgerMenu= document.querySelector('.burger-menu')
+  const mainLogo= document.getElementById('main-logo')
+  const burgerLogo= document.getElementById('burger-logo')
+  const shading= document.getElementById('shading')
+  shading.addEventListener('click', function(e){
+    let event = new Event('click')
+    burgerIcon.dispatchEvent(event)
+  })
+
+  burgerIcon.addEventListener('click', function(e){
+    document.body.classList.toggle('overflow-hidden')
+    burgerMenu.classList.toggle('active')
+    shading.classList.toggle('shading')
+    isOpen= burgerMenu.classList.contains('slide-in')
+    if(!isOpen){
+      burgerMenu.classList.remove('slide-out')
+      burgerIcon.classList.remove('unactive')
+      mainLogo.classList.remove('show')
+      burgerLogo.classList.remove('hidden')
+      burgerMenu.classList.add('slide-in')
+      burgerIcon.classList.add('active')
+      mainLogo.classList.add('hidden')
+      burgerLogo.classList.add('show')
+    }
+    else{
+      burgerMenu.classList.remove('slide-in')
+      burgerIcon.classList.remove('active')
+      mainLogo.classList.remove('hidden')
+      burgerLogo.classList.remove('show')
+      burgerMenu.classList.add('slide-out')
+      burgerIcon.classList.add('unactive')
+      mainLogo.classList.add('show')
+      burgerLogo.classList.add('hidden')
+    }
+  }) 
+}
+
 const pets=[
   {
     "name": "Jennifer",
@@ -89,6 +129,54 @@ const pets=[
   }
 ]
 
+//modal
+const showModal = (name) =>{
+  console.log(name)
+  document.body.classList.add('overflow-hidden')
+  const pet=pets.filter(pet=>{
+    if(pet.name===name) return true
+  })[0]
+  console.log(pet)
+  const modal=createModal(pet.img, pet.name, pet.type, pet.breed, pet.description,
+    pet.age, pet.inoculations, pet.diseases, pet.parasites)
+  document.body.prepend(modal)
+  modal.classList.add('open')
+  }
+  const closeModal= (e)=>{
+    console.log(e.target)
+    if(!e.target.closest('.modal__window')){
+    document.body.classList.remove('overflow-hidden')
+    document.querySelector('.modal-container').remove()
+    }
+
+  }
+  function createModal(img, name, type, breed, description, age, inoculations, diseases, parasites){
+    let modal= document.createElement('div')
+      modal.className= 'modal-container'
+      modal.innerHTML = `<div class='modal'>
+        <button class="modal-close-button button__arrow"><img src="../../assets/icons/chrest.svg"></button>
+        <div class="modal__window">
+          <img class="modal__img" src=${img} alt=${name}>
+          <div class="modal__content">
+            <span class="modal__title">${name}</span>
+            <span class="modal__subtitle">${type} - ${breed}</span>
+            <div class="modal__paragraph">
+              <span class="modal__text">${description}</span>
+            </div>
+            <div class="modal__list">
+              <div class="list-item"><img src="../../assets/icons/dot.svg"><span class="modal__text"><b>Age:</b> ${age}</span></div>
+              <div class="list-item"><img src="../../assets/icons/dot.svg"><span class="modal__text"><b>Inoculations:</b> ${inoculations}</span></div>
+              <div class="list-item"><img src="../../assets/icons/dot.svg"><span class="modal__text"><b>Diseases:</b> ${diseases}</span></div>
+              <div class="list-item"><img src="../../assets/icons/dot.svg"><span class="modal__text"><b>Parasites:</b> ${parasites}</span></div>
+            </div>
+          </div>
+        </div>
+      </div>`
+      modal.addEventListener('click', closeModal)
+  
+      return modal
+  }
+
 // html elements
 function createCard(img, name){
   let petCard= document.createElement('div')
@@ -102,6 +190,7 @@ function createCard(img, name){
     <button class="card__button button">
     <div class="button__text">Learn more</div>
     </button>`
+    petCard.setAttribute('onclick',`showModal('${name}')`)
 
     return petCard
 }
@@ -117,7 +206,8 @@ function createpage(number){
 
    //pagination---------//
 //main variables
-const screenWidth= window.screen.width
+console.log(document.documentElement.clientWidth)
+const screenWidth= document.documentElement.clientWidth
 
 let numberOfPages=6
 let currentPage=1
@@ -173,8 +263,8 @@ const moveRight= () =>{
    singleLeftArrow.classList.add('default')
    doubleLeftArrow.classList.add('default')
 
-   singleLeftArrow.removeEventListener('click', moveRight)
-   doubleLeftArrow.removeEventListener('click', moveToEnd)
+   singleLeftArrow.removeEventListener('click', moveLeft)
+   doubleLeftArrow.removeEventListener('click', moveToStart)
 
    if(currentPage+1===numberOfPages){
      singleRightArrow.removeEventListener('click', moveRight)
@@ -329,12 +419,44 @@ if(screenWidth>=1280){
   console.log(allPagesCards)
  }
 if(screenWidth<1280 && screenWidth>=768){
-  const cardsOnPage=6
-  const allPagesCards=8
+  numberOfPages=8
+  let allElements=[]
+  let copyPets= pets
+  for(let i=0; i<6; i++){
+    let shaffledPets= copyPets.sort(()=> Math.random()-0.5)
+    shaffledPets.forEach(el=>{
+    allElements.push(createCard(el.img, el.name))
+    //document.getElementById(`${i+1}-page`).append(createCard(el.img, el.name))
+  })
+  }
+  for(let i=0; i<numberOfPages; i++){
+    let page=[]
+    for(let j=0; j<6; j++){
+      page.push(allElements[i*6+j])
+    }
+    allPagesCards.push(page)
+  }
+  console.log(allPagesCards)
 }
 if(screenWidth<768){
-  const cardsonPage=3
-  const allPagesCards= 16
+  numberOfPages= 16
+  let allElements=[]
+  let copyPets= pets
+  for(let i=0; i<6; i++){
+    let shaffledPets= copyPets.sort(()=> Math.random()-0.5)
+    shaffledPets.forEach(el=>{
+    allElements.push(createCard(el.img, el.name))
+    //document.getElementById(`${i+1}-page`).append(createCard(el.img, el.name))
+  })
+  }
+  for(let i=0; i<numberOfPages; i++){
+    let page=[]
+    for(let j=0; j<3; j++){
+      page.push(allElements[i*3+j])
+    }
+    allPagesCards.push(page)
+  }
+  console.log(allPagesCards)
 }
 
 //start initialization

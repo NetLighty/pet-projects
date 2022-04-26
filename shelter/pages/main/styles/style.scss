@@ -6,6 +6,132 @@ html {
 .view{
   overflow-x: hidden;
 }
+.overflow-hidden{
+  overflow-y: hidden;
+}
+.modal-container{
+  display: grid;
+  align-items: center;
+  justify-items: center;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.8s ease 0s;
+
+  position: fixed;
+  z-index: 7;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(41, 41, 41, 0.6);
+}
+.modal-container.open{
+  opacity: 1;
+  visibility: visible;
+}
+.modal{
+  position: absolute;
+  top: 10%;
+  z-index: 7;
+  width: 952px;
+  height: 552px;
+
+  &__window{
+    display: grid;
+    grid-template-columns: 500px 1fr;
+    grid-column-gap: 32px;
+    position: relative;
+    width: 900px;
+    height: 500px;
+    bottom: 0;
+    left: 0;
+    background-color: $light-s;
+    border-radius: 9px;
+  }
+  &__paragraph{
+    
+  }
+  &__img{
+    width: 500px;
+    height: 500px;
+  }
+  &__content{
+    position: relative;
+    top: 50px;
+    width: 351px;
+    height: 362px;
+    display: grid;
+    grid-template-columns: 351px;
+    grid-template-rows: 56px 65px 141px 102px;
+  }
+  &__title{
+    /* h3 */
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3.5rem;
+    line-height: 130%;
+    /* or 45px */
+    letter-spacing: 0.06em;
+    color: #000000;
+  }
+  &__subtitle{
+    /* h4 */
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 115%;
+    /* identical to box height, or 23px */
+    letter-spacing: 0.06em;
+    color: #000000;
+  }
+  &__text{
+    /* h5 */
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 110%;
+    /* or 17px */
+    letter-spacing: 0.06em;
+    color: #000000;
+  }
+  &__list{
+    display: grid;
+    grid-row-gap: 11px;
+  }
+}
+.list-item{
+  display: grid;
+  grid-template-columns: 4px 1fr;
+  grid-column-gap: 10px;
+  align-items: center;
+}
+.modal-close-button{
+  position: relative;
+  top: 0;
+  left: 93.7%;
+}
+/* <div class="modal">
+      <button class="modal-close-button button__arrow button"><img src="../../assets/icons/chrest.svg"></button>
+      <div class="modal__window">
+        <img class="modal__img" src="../../assets/images/pets-katrine.png">
+        <div class="modal__content">
+          <span class="modal__title"></span>
+          <span class="modal__subtitle"></span>
+          <div class="modal__paragraph">
+            <span class="modal__text"></span>
+          </div>
+          <div class="modal__list">
+            <div class="list-item"><img src="../../assets/icons/dot.svg"><span class="modal__text"></span></div>
+            <div class="list-item"><img src="../../assets/icons/dot.svg"><span class="modal__text"></span></div>
+            <div class="list-item"><img src="../../assets/icons/dot.svg"><span class="modal__text"></span></div>
+            <div class="list-item"><img src="../../assets/icons/dot.svg"><span class="modal__text"></span></div>
+          </div>
+        </div>
+      </div>
+    </div> */
+
 .burger-menu{
   position: fixed;
   display: grid;
@@ -805,6 +931,41 @@ grid-gap: 90px;
 }
 
 @media (max-width: 1279.9px) {
+  .modal{
+    top: 15vh;
+    width: 682px;
+    height: 402px;
+  
+    &__window{
+      grid-template-columns: 350px 1fr;
+      grid-column-gap: 11px;
+      width: 630px;
+      height: 350px;
+    }
+    &__img{
+      width: 350px;
+      height: 350px;
+    }
+    &__content{
+      top: 10px;
+      width: 260px;
+      height: 303px;
+      grid-template-columns: 1fr;
+      grid-template-rows: 56px 43px 118px 102px;
+    }
+    &__text{
+      font-size: 1.3rem;
+    }
+    &__list{
+      grid-row-gap: 11px;
+    }
+  }
+  .list-item{
+    grid-column-gap: 6px;
+  }
+  .modal-close-button{
+    left: 91.7%;
+  }
 
   .start-screen {
     //width: 768px;
@@ -1038,6 +1199,46 @@ grid-gap: 90px;
 }
 
 @media (max-width: 767.9px) {
+  .modal{
+    top: 15vh;
+    width: 271px;
+    height: 393px;
+  
+    &__window{
+      grid-template-columns: 220px;
+      grid-column-gap: 11px;
+      justify-content: center;
+      width: 240px;
+      height: 341px;
+    }
+    &__img{
+      display: none;
+      width: 350px;
+      height: 350px;
+    }
+    &__subtitle{
+      font-size: 1.7rem;
+    }
+    &__content{
+      top: 10px;
+      width: 220px;
+      height: 321px;
+      grid-template-columns: 1fr;
+      grid-template-rows: 56px 40px 127px 102px;
+    }
+    &__text{
+      font-size: 1.3rem;
+    }
+    &__list{
+      grid-row-gap: 6px;
+    }
+  }
+  .list-item{
+    grid-column-gap: 6px;
+  }
+  .modal-close-button{
+    left: 91.7%;
+  }
 .shading{
   position: absolute;
   top: 0;
@@ -1046,9 +1247,6 @@ grid-gap: 90px;
   height: 100vh;
   z-index: 1;
   background: rgba(41, 41, 41, 0.6);
-}
-.overflow-hidden{
-  overflow-y: hidden;
 }
 .burger-menu.active{
   display: grid;
