@@ -143,11 +143,9 @@ const pets=[
 ]
 
 //modal
-const modalShading= document.getElementById('shading-modal')
 const showModal = (name) =>{
   console.log(name)
   document.body.classList.add('overflow-hidden')
-  modalShading.classList.add('shading-modal')
   const pet=pets.filter(pet=>{
     if(pet.name===name) return true
   })[0]
