@@ -129,6 +129,54 @@ const pets=[
   }
 ]
 
+//modal
+const showModal = (name) =>{
+  console.log(name)
+  document.body.classList.add('overflow-hidden')
+  const pet=pets.filter(pet=>{
+    if(pet.name===name) return true
+  })[0]
+  console.log(pet)
+  const modal=createModal(pet.img, pet.name, pet.type, pet.breed, pet.description,
+    pet.age, pet.inoculations, pet.diseases, pet.parasites)
+  document.body.prepend(modal)
+  modal.classList.add('open')
+  }
+  const closeModal= (e)=>{
+    console.log(e.target)
+    if(!e.target.closest('.modal__window')){
+    document.body.classList.remove('overflow-hidden')
+    document.querySelector('.modal-container').remove()
+    }
+
+  }
+  function createModal(img, name, type, breed, description, age, inoculations, diseases, parasites){
+    let modal= document.createElement('div')
+      modal.className= 'modal-container'
+      modal.innerHTML = `<div class='modal'>
+        <button class="modal-close-button button__arrow"><img src="../../assets/icons/chrest.svg"></button>
+        <div class="modal__window">
+          <img class="modal__img" src=${img} alt=${name}>
+          <div class="modal__content">
+            <span class="modal__title">${name}</span>
+            <span class="modal__subtitle">${type} - ${breed}</span>
+            <div class="modal__paragraph">
+              <span class="modal__text">${description}</span>
+            </div>
+            <div class="modal__list">
+              <div class="list-item"><img src="../../assets/icons/dot.svg"><span class="modal__text"><b>Age:</b> ${age}</span></div>
+              <div class="list-item"><img src="../../assets/icons/dot.svg"><span class="modal__text"><b>Inoculations:</b> ${inoculations}</span></div>
+              <div class="list-item"><img src="../../assets/icons/dot.svg"><span class="modal__text"><b>Diseases:</b> ${diseases}</span></div>
+              <div class="list-item"><img src="../../assets/icons/dot.svg"><span class="modal__text"><b>Parasites:</b> ${parasites}</span></div>
+            </div>
+          </div>
+        </div>
+      </div>`
+      modal.addEventListener('click', closeModal)
+  
+      return modal
+  }
+
 // html elements
 function createCard(img, name){
   let petCard= document.createElement('div')
@@ -142,6 +190,7 @@ function createCard(img, name){
     <button class="card__button button">
     <div class="button__text">Learn more</div>
     </button>`
+    petCard.setAttribute('onclick',`showModal('${name}')`)
 
     return petCard
 }
