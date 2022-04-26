@@ -431,7 +431,16 @@ if(screenWidth>=1280){
  }
 if(screenWidth<1280 && screenWidth>=768){
   numberOfPages=8
-  let allElements=[]
+  for(let i=0; i<numberOfPages; i++){
+    let page=[]
+    let copyPets= pets
+    let shaffledPets= copyPets.sort(()=> Math.random()-0.5)
+    for(let j=0; j<6; j++){
+      page.push(createCard(shaffledPets[j].img, shaffledPets[j].name))
+    }
+    allPagesCards.push(page)
+  }
+  /* let allElements=[]
   let copyPets= pets
   for(let i=0; i<6; i++){
     let shaffledPets= copyPets.sort(()=> Math.random()-0.5)
@@ -447,27 +456,19 @@ if(screenWidth<1280 && screenWidth>=768){
     }
     allPagesCards.push(page)
   }
-  console.log(allPagesCards)
+  console.log(allPagesCards) */
 }
 if(screenWidth<768){
-  numberOfPages= 16
-  let allElements=[]
-  let copyPets= pets
-  for(let i=0; i<6; i++){
-    let shaffledPets= copyPets.sort(()=> Math.random()-0.5)
-    shaffledPets.forEach(el=>{
-    allElements.push(createCard(el.img, el.name))
-    //document.getElementById(`${i+1}-page`).append(createCard(el.img, el.name))
-  })
-  }
+  numberOfPages=16
   for(let i=0; i<numberOfPages; i++){
     let page=[]
+    let copyPets= pets
+    let shaffledPets= copyPets.sort(()=> Math.random()-0.5)
     for(let j=0; j<3; j++){
-      page.push(allElements[i*3+j])
+      page.push(createCard(shaffledPets[j].img, shaffledPets[j].name))
     }
     allPagesCards.push(page)
   }
-  console.log(allPagesCards)
 }
 
 //start initialization
