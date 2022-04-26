@@ -1,16 +1,21 @@
 // mobile-menu
 const burgerIcon= document.querySelector('.burger-icon')
+
 if(burgerIcon){
   const burgerMenu= document.querySelector('.burger-menu')
   const mainLogo= document.getElementById('main-logo')
   const burgerLogo= document.getElementById('burger-logo')
   const shading= document.getElementById('shading')
+  const aboutTheShelter= document.getElementById('about-the-shelter')
+  const helpTheShelter= document.getElementById('help-the-shelter')
+  const menuContacts= document.getElementById('menu-contacts')
+  const ourPets= document.getElementById('our-pets')
   shading.addEventListener('click', function(e){
     let event = new Event('click')
     burgerIcon.dispatchEvent(event)
   })
 
-  burgerIcon.addEventListener('click', function(e){
+  const toggleMenu= () =>{
     document.body.classList.toggle('overflow-hidden')
     burgerMenu.classList.toggle('active')
     shading.classList.toggle('shading')
@@ -35,7 +40,13 @@ if(burgerIcon){
       mainLogo.classList.add('show')
       burgerLogo.classList.add('hidden')
     }
-  }) 
+  }
+
+  ourPets.addEventListener('click', toggleMenu)
+  helpTheShelter.addEventListener('click', toggleMenu)
+  menuContacts.addEventListener('click', toggleMenu)
+  aboutTheShelter.addEventListener('click', toggleMenu)
+  burgerIcon.addEventListener('click', toggleMenu) 
 }
 
 const pets=[
