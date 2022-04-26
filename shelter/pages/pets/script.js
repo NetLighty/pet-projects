@@ -165,8 +165,7 @@ const showModal = (name) =>{
     let modal= document.createElement('div')
       modal.className= 'modal-container'
       modal.innerHTML = `<div class='modal'>
-        <button class="modal-close-button button__arrow"><img src="../../assets/icons/chrest.svg"></button>
-        <div class="modal__window">
+      <div class="modal__window">
           <img class="modal__img" src=${img} alt=${name}>
           <div class="modal__content">
             <span class="modal__title">${name}</span>
@@ -182,7 +181,9 @@ const showModal = (name) =>{
             </div>
           </div>
         </div>
-      </div>`
+        <button class="modal-close-button button__arrow"><img src="../../assets/icons/chrest.svg"></button>
+        </div>
+      `
       modal.addEventListener('click', closeModal)
   
       return modal

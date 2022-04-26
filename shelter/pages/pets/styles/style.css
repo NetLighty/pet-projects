@@ -37,6 +37,10 @@ body {
   background-color: rgba(41, 41, 41, 0.6);
 }
 
+.modal-container:hover .modal-close-button {
+  background-color: #F1CDB3;
+}
+
 .modal-container.open {
   opacity: 1;
   visibility: visible;
@@ -63,6 +67,10 @@ body {
   left: 0;
   background-color: #FAFAFA;
   border-radius: 9px;
+}
+
+.modal__window:hover ~ .modal-close-button {
+  background-color: transparent;
 }
 
 .modal__img {
@@ -125,6 +133,10 @@ body {
   grid-row-gap: 11px;
 }
 
+.modal__window:hover ~ button {
+  background-color: transparent !important;
+}
+
 .list-item {
   display: -ms-grid;
   display: grid;
@@ -138,7 +150,7 @@ body {
 
 .modal-close-button {
   position: relative;
-  top: 0;
+  top: -100%;
   left: 93.7%;
 }
 
@@ -1144,6 +1156,12 @@ body {
     -webkit-animation: show 1.7s;
             animation: show 1.7s;
     cursor: pointer;
+  }
+  .burger-icon.unactive {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    -webkit-transition: all 0.7s ease;
+    transition: all 0.7s ease;
   }
   .burger-icon.active {
     position: absolute;
