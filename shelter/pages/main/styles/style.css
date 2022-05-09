@@ -158,25 +158,6 @@ html {
   left: 93.7%;
 }
 
-/* <div class="modal">
-      <button class="modal-close-button button__arrow button"><img src="../../assets/icons/chrest.svg"></button>
-      <div class="modal__window">
-        <img class="modal__img" src="../../assets/images/pets-katrine.png">
-        <div class="modal__content">
-          <span class="modal__title"></span>
-          <span class="modal__subtitle"></span>
-          <div class="modal__paragraph">
-            <span class="modal__text"></span>
-          </div>
-          <div class="modal__list">
-            <div class="list-item"><img src="../../assets/icons/dot.svg"><span class="modal__text"></span></div>
-            <div class="list-item"><img src="../../assets/icons/dot.svg"><span class="modal__text"></span></div>
-            <div class="list-item"><img src="../../assets/icons/dot.svg"><span class="modal__text"></span></div>
-            <div class="list-item"><img src="../../assets/icons/dot.svg"><span class="modal__text"></span></div>
-          </div>
-        </div>
-      </div>
-    </div> */
 .burger-menu {
   position: fixed;
   display: -ms-grid;

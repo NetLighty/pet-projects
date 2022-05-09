@@ -49,7 +49,7 @@ if(burgerIcon){
   burgerIcon.addEventListener('click', toggleMenu) 
 }
 
-const pets=[
+let pets=[
   {
     "name": "Jennifer",
     "img": "../../assets/images/pets-jennifer.png",
@@ -432,14 +432,24 @@ if(screenWidth>=1280){
  }
 if(screenWidth<1280 && screenWidth>=768){
   numberOfPages=8
+  let allPets=[]
+  for(let i=0; i<6; i++){
+    let shaffledPets= pets.sort(()=> Math.random()-0.5).flat()//без flat() почему то не работает, без понятия в чем дело, надо бы разобраться
+    allPets.push(shaffledPets)
+  }
+  console.log(allPets)
+  allPets= allPets.flat().sort(()=> Math.random()-0.5)
+  console.log(allPets)
   for(let i=0; i<numberOfPages; i++){
+    let usedPetsNames=[]
     let page=[]
-    let copyPets= pets
-    let shaffledPets= copyPets.sort(()=> Math.random()-0.5)
-    for(let j=0; j<6; j++){
-      page.push(createCard(shaffledPets[j].img, shaffledPets[j].name))
-    }
-    allPagesCards.push(page)
+     for(let j=0; j<6; j++){
+       const uniquePet= allPets.filter(el => {if(usedPetsNames.includes(el.name)!==true) return true})[0]
+       usedPetsNames.push(uniquePet.name)
+       //allPets.splice(allPets.lastIndexOf(uniquePet), 1)
+       page.push(createCard(uniquePet.img, uniquePet.name))
+     }
+     allPagesCards.push(page)
   }
   /* let allElements=[]
   let copyPets= pets

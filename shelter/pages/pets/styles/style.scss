@@ -44,7 +44,8 @@ body {
 }
 .modal{
   position: absolute;
-  top: 10%;
+  top: 50%;
+  margin-top: -276px;
   z-index: 7;
   width: 952px;
   height: 552px;
@@ -704,7 +705,8 @@ grid-row-gap: 30px;
 
   @media (min-width: 768px) and (max-width: 1279.9px) {
     .modal{
-      top: 15vh;
+      top: 50%;
+      margin-top: -201px;
       width: 682px;
       height: 402px;
     
@@ -883,7 +885,8 @@ grid-row-gap: 30px;
 
   @media (max-width: 767.9px) {
     .modal{
-      top: 15vh;
+      top: 50%;
+      margin-top: -196.5px;
       width: 271px;
       height: 393px;
     
