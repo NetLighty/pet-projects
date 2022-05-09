@@ -4,12 +4,12 @@ html{
 }
 .main-container{
   position: relative;
-  width: 750px;
+  //width: 750px;
   display: grid;
-  grid-template-rows: 55px 220px 260px;
-  left: 50vw;
-  margin-left: -375px;
-  top: 50vh;
+  grid-template-rows: 60px 1fr 260px; 
+  grid-gap: 25px;
+  justify-content: center;
+  top: 42vh;
   margin-top: -280px;
 }
 .keyboard-tip{
@@ -24,6 +24,7 @@ html{
   height: 200px;
   box-sizing: border-box;
   border: 0px;
+  margin-bottom: 1px;
 
   background-color: #2d2c3e;
   color: whitesmoke;
@@ -38,6 +39,8 @@ html{
 }
 .keyboard-container{
   display: grid;
+  width: 750px;
+  justify-self: center;
   //top: 12%;
   //left: 50%;
   //margin-left: calc(-1095px/2);

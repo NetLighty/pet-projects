@@ -126,7 +126,7 @@ function createKeyboardTip(){
     let tip= document.createElement('span')
     tip.className= 'keyboard-tip'
     tip.id=`keyboard-tip`
-    tip.innerHTML = `Change language: Alt + Shift`
+    tip.innerHTML = `Keyboard made on Windows <br> Change language: Alt + Shift`
     return tip
 }
 const keyboardTip= createKeyboardTip()
