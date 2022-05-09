@@ -8,14 +8,97 @@ function mouseupListener(event){
 
 }
 function mousedownListener(event){
-   
+    const keyEvent= new KeyboardEvent('keydown', {
+        key: event.target.id,
+        code: event.target.id,
+        bubbles: true,
+        metaKey: true,
+        isComposing: true,
+        repeat: true,
+    })
+    console.log(keyEvent)
+    document.dispatchEvent(keyEvent)
 }
 function keyupListener(event){
-    
-}
-function keydownListener(event){
-      
-}
+    input.focus()
+    let keyCode= null
+    if(event.key) keyCode=event.code
+    if(event.screenX) keyCode= event.target.id
+    const key= document.getElementById(keyCode)
+    const altLeft= document.getElementById('AltLeft')
+    const altRight= document.getElementById('AltRight')
+    const shiftLeft= document.getElementById('ShiftLeft')
+    const shiftRight= document.getElementById('ShiftRight')
+    if(((keyCode==='ShiftLeft' || keyCode==='ShiftRight') &&
+    (altLeft.classList.contains('pressed') || altRight.classList.contains('pressed')))||
+    ((keyCode==='AltLeft' || keyCode==='AltRight') &&
+    (shiftLeft.classList.contains('pressed') || shiftRight.classList.contains('pressed')))) {
+        const currentLang=localStorage.getItem('lang')
+        if(currentLang){
+            if(currentLang==='eng'){
+                createKeys(allRussianKeysInformation)
+                localStorage.setItem('lang','rus')
+            }else{
+                createKeys(allKeysInformation)
+                localStorage.setItem('lang','eng')
+            }
+        }
+        else{
+            createKeys(allRussianKeysInformation)
+            localStorage.setItem('lang', 'rus')
+        }
+    }
+    if(key && keyCode!=='CapsLock') key.classList.remove('pressed')
+  }
+  function keydownListener(event){
+      const currentLang= localStorage.getItem('lang')
+      let keyCode= null
+      const isKeyboardEvent= event.target.id ? true : false
+      keyCode=event.code
+      console.log('keyboardEvent: '+isKeyboardEvent)
+      const key= document.getElementById(keyCode)
+      const shiftLeft= document.getElementById('ShiftLeft')
+      const shiftRight= document.getElementById('ShiftRight')
+      const caps= document.getElementById('CapsLock')
+      let isShiftPressed= false
+      let isCapsPressed=false
+      let isLowerCase= false
+      if(shiftLeft && shiftRight && (shiftLeft.classList.contains('pressed') || shiftRight.classList.contains('pressed'))){
+        isShiftPressed=true
+      }
+      if(caps && caps.classList.contains('pressed')){
+        isCapsPressed=true
+      }
+      if(isCapsPressed ^ isShiftPressed) isLowerCase=true
+      console.log(`isLowerCase: ${isCapsPressed^isShiftPressed}`)
+      let virtualKey= null
+      if(!currentLang || currentLang==='eng'){
+          virtualKey= allKeysInformation.filter(el=> el.id===keyCode)[0]
+      }else{
+          virtualKey= allRussianKeysInformation.filter(el=> el.id===keyCode)[0]
+      }
+      let textKey= null
+      let symbolKey= null
+      let functionalKey= null
+      let withRussianKey= null
+      let arrowKey=null
+      if(arrowKeyCodes.includes(keyCode)) arrowKey=virtualKey
+      if(withRussianCodes.includes(keyCode)) withRussianKey= virtualKey
+      if(symbolsKeysCodes.includes(keyCode)) symbolKey= virtualKey
+      if(textKeysCodes.includes(keyCode)) textKey= virtualKey
+      if(functionalKeysCodes.includes(keyCode)) functionalKey= virtualKey
+      if(withRussianKey || textKey || keyCode==='AltLeft' || keyCode==='AltRight' || keyCode==='Tab' || keyCode==='MetaLeft')event.preventDefault()
+    console.log(keyCode)
+    input.focus()
+    //if(textKey) input.value+= isShiftPressed ? textKey.text : textKey.text.toLowerCase()
+    if(keyCode==='CapsLock'){
+        console.log('isCapsPressed: '+isCapsPressed)
+        if(isCapsPressed) caps.classList.remove('pressed')
+        else caps.classList.add('pressed')
+    }else{
+        if(key) key.classList.add('pressed')
+    }
+  }
 
 
 //Page initialisation-------
@@ -102,6 +185,9 @@ else createKeys(allRussianKeysInformation)
 }
 
 initKeys()
+
+//
+
 
 //elements
 const input= document.getElementById('input')
