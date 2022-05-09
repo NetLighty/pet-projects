@@ -90,6 +90,15 @@ function keyupListener(event){
       if(withRussianKey || textKey || keyCode==='AltLeft' || keyCode==='AltRight' || keyCode==='Tab' || keyCode==='MetaLeft')event.preventDefault()
     console.log(keyCode)
     input.focus()
+    if(keyCode==='Space') insertAtCaret('input',  ' ')
+    if(keyCode==='Enter' && !isKeyboardEvent) insertAtCaret('input', `\n`)
+    if(keyCode==='Tab') insertAtCaret('input', '\t')
+    if(keyCode==='Backspace' && !isKeyboardEvent) backspaceAtCaret('input')
+    if(keyCode==='Delete' && !isKeyboardEvent) deleteAtCaret('input')
+    if(arrowKey!==null && !isKeyboardEvent) insertAtCaret('input', arrowKey.text)
+    if(symbolKey) isLowerCase ? insertAtCaret('input', symbolKey.subText) : insertAtCaret('input', symbolKey.text)
+    if(withRussianKey) isLowerCase ? insertAtCaret('input', withRussianKey.subText) : insertAtCaret('input', withRussianKey.text)
+    if(textKey) isLowerCase ? insertAtCaret('input', textKey.text) : insertAtCaret('input', textKey.text.toLowerCase())
     //if(textKey) input.value+= isShiftPressed ? textKey.text : textKey.text.toLowerCase()
     if(keyCode==='CapsLock'){
         console.log('isCapsPressed: '+isCapsPressed)
@@ -187,7 +196,45 @@ else createKeys(allRussianKeysInformation)
 initKeys()
 
 //
+function insertAtCaret(areaId, text) {
+    let txtarea = document.getElementById(areaId)
+    const scrollPos = txtarea.scrollTop
+    let caretPos = txtarea.selectionStart
 
+    const front = (txtarea.value).substring(0, caretPos)
+    const back = (txtarea.value).substring(txtarea.selectionEnd, txtarea.value.length)
+    txtarea.value = front + text + back
+    caretPos = caretPos + text.length
+    txtarea.selectionStart = caretPos
+    txtarea.selectionEnd = caretPos
+    txtarea.focus()
+    txtarea.scrollTop = scrollPos
+}
+function backspaceAtCaret(areaId){
+    let txtarea = document.getElementById(areaId)
+    const scrollPos = txtarea.scrollTop
+    let caretPos = txtarea.selectionStart
+    const front = (txtarea.value).substring(0, caretPos-1)
+    const back = (txtarea.value).substring(txtarea.selectionEnd, txtarea.value.length)
+    txtarea.value= front+back
+    caretPos = caretPos - 1
+    txtarea.selectionStart = caretPos
+    txtarea.selectionEnd = caretPos
+    txtarea.focus()
+    txtarea.scrollTop = scrollPos
+}
+function deleteAtCaret(areaId){
+    let txtarea = document.getElementById(areaId)
+    const scrollPos = txtarea.scrollTop
+    let caretPos = txtarea.selectionStart
+    const front = (txtarea.value).substring(0, caretPos)
+    const back = (txtarea.value).substring(txtarea.selectionEnd+1, txtarea.value.length)
+    txtarea.value= front+back
+    txtarea.selectionStart = caretPos
+    txtarea.selectionEnd = caretPos
+    txtarea.focus()
+    txtarea.scrollTop = scrollPos
+}
 
 //elements
 const input= document.getElementById('input')
