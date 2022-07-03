@@ -12,13 +12,13 @@ export interface ISources {
     sources: Array<ISource>;
 }
 
-interface IArcticleSource {
+export interface IArticleSource {
     id: string;
     name: string;
 }
 
 export interface IArticle {
-    source: IArcticleSource;
+    source: IArticleSource;
     author: string;
     title: string;
     description: string;
