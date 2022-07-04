@@ -1,9 +1,9 @@
-import { Callback, IHeadlines, IOptions } from '../../types/index';
+import { Callback, IOptions } from '../../types/index';
 
 class Loader {
     baseLink: string;
-    options: IHeadlines;
-    constructor(baseLink: string, options: IHeadlines) {
+    options: Record<string, string>;
+    constructor(baseLink: string, options: Record<string, string>) {
         this.baseLink = baseLink;
         this.options = options;
     }
@@ -29,11 +29,11 @@ class Loader {
 
     makeUrl(options: Record<string, string>, endpoint: string) {
         console.log(options);
-        const urlOptions: IHeadlines = { ...this.options, ...options };
+        const urlOptions: Record<string, string> = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 
         Object.keys(urlOptions).forEach((key) => {
-            url += `${key}=${urlOptions[key as keyof IHeadlines]}&`;
+            url += `${key}=${urlOptions[key as keyof Record<string, string>]}&`;
         });
 
         return url.slice(0, -1);
