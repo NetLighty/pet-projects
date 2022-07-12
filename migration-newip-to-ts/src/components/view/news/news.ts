@@ -1,4 +1,4 @@
-import { IArticle, INews } from '../../../types/index';
+import { IArticle } from '../../../types/index';
 import './news.css';
 
 class News {
