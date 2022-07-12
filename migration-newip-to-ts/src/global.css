@@ -14,12 +14,16 @@ header h1 {
 }
 
 footer {
-    height: 100px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 150px 150px;
+    grid-column-gap: 50px;
     align-items: center;
     justify-content: center;
 }
+
 footer .copyright {
+    grid-column-start: 1;
+    grid-column-end: 3;
     font-size: 14px;
     color: #333;
     text-align: center;
@@ -32,4 +36,11 @@ footer .copyright a:hover {
 }
 footer .copyright:before {
     content: '©';
+}
+footer .rsschool-logo{
+    position: relative;
+    width: 125px;
+}
+footer .github-logo{
+    width: 125px;
 }
