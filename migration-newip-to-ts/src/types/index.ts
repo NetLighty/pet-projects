@@ -8,6 +8,15 @@ interface ISource {
     country: string;
 }
 
+class Test {
+    name: string;
+    constructor(name: string) {
+        this.name = name;
+    }
+}
+let a: Test;
+console.log(a);
+
 export interface IHeadlines {
     apiKey: string;
     country: string;
