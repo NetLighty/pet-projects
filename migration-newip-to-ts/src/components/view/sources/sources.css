@@ -24,6 +24,9 @@
   left: 50%;
   transition: all 0.2s ease;
 }
+.source__arrow:hover{
+    cursor: pointer;
+}
 
 .up {
     transform: rotate(270deg);
