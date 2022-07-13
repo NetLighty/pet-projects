@@ -8,6 +8,11 @@ interface ISource {
     country: string;
 }
 
+enum Status {
+    ok = 'ok',
+    error = 'error',
+}
+
 export interface IHeadlines {
     apiKey: string;
     country: string;
@@ -19,17 +24,12 @@ export interface IHeadlines {
 }
 
 export interface ISources {
-    status: string;
+    status: Status;
     sources: Array<ISource>;
 }
 
-export interface IArticleSource {
-    id: string;
-    name: string;
-}
-
 export interface IArticle {
-    source: IArticleSource;
+    source: Pick<ISource, 'id' | 'name'>;
     author: string;
     title: string;
     description: string;
@@ -40,7 +40,7 @@ export interface IArticle {
 }
 
 export interface INews {
-    status: string;
+    status: Status;
     totalResults: number;
     articles: Array<IArticle>;
 }

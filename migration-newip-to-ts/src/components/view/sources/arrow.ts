@@ -1,5 +1,5 @@
 export class Arrow {
-    static arrowClickListener(): void {
+    private static arrowClickListener(): void {
         const arrow: Element | null = document.querySelector('.source__arrow');
         const sources: Element | null = document.querySelector('.sources');
         if (arrow === null || sources === null) throw new Error(`Arrow or sources or both doesn't exist`);
@@ -16,7 +16,7 @@ export class Arrow {
         }
     }
 
-    static createArrow(): void {
+    public static createArrow(): void {
         const arrow: Element = document.createElement('img');
         const sources: Element | null = document.querySelector('.sources');
         if (sources === null) throw new Error('sources is null');
