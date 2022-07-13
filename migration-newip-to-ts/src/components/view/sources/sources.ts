@@ -19,7 +19,10 @@ class Sources {
         });
 
         const sources: Element | null = document.querySelector('.sources');
-        if (sources !== null) sources.append(fragment);
+        if (sources === null) {
+            throw new Error('sources is null');
+        }
+        sources.append(fragment);
     }
 }
 
