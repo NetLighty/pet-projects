@@ -10,7 +10,7 @@ class App {
         this.view = new AppView();
     }
 
-    start() {
+    start(): void {
         const sources: Element | null = document.querySelector('.sources');
         if (sources === null) throw new Error('sources is null');
         sources.addEventListener('click', (e) => this.controller.getNews(e, (data: INews) => this.view.drawNews(data)));
