@@ -10,7 +10,7 @@ class News {
         if (newsItemTemp === null) {
             throw new Error('newsitemTemp is null');
         }
-        news.forEach((item: IArticle, idx: number) => {
+        news.forEach((item: IArticle, idx: number): void => {
             const newsClone: Node = newsItemTemp.content.cloneNode(true);
             if (idx % 2) {
                 const newsItem: Element | null = (<Element>newsClone).querySelector('.news__item');
