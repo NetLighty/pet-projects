@@ -44,3 +44,12 @@ footer .rsschool-logo{
 footer .github-logo{
     width: 125px;
 }
+footer a{
+    text-decoration: none;
+    text-align: center;
+    color: white;
+}
+footer .creation-date{
+    font-style: italic;
+    letter-spacing: 1px;
+}
