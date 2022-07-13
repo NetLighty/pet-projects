@@ -24,6 +24,11 @@
   left: 50%;
   transition: all 0.2s ease;
 }
+.source__arrow:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: all 0.2s ease;
+}
 
 .up {
     transform: rotate(270deg);
