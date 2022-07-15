@@ -1,0 +1,16 @@
+.header > .container {
+  display: grid;
+  grid-template-columns: 60px 1fr 60px;
+}
+.header > .container .logo {
+  /* background-image: url('../assets/icons/girl.png'); */
+  display: block;
+  width: 60px;
+  height: 60px;
+}
+.header > .container .cart {
+  /* background-image: url('../assets/icons/shopping-cart.png'); */
+  display: block;
+  width: 60px;
+  height: 60px;
+}/*# sourceMappingURL=header.css.map */
