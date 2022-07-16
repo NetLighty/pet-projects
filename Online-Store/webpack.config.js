@@ -73,6 +73,9 @@ const baseConfig = {
       patterns: [{ from: "./src/images", to: "images" }],
     }),
   ],
+  optimization: {
+    runtimeChunk: "single",
+  },
 };
 
 module.exports = ({ mode }) => {
