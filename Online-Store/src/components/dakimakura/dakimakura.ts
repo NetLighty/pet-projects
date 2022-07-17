@@ -11,7 +11,9 @@ export class Dakimakura {
     }" alt="daki-img">
     <div class="dakimakura__main-info">
       <a class="dakimakura__name">${info.name}</a>
-      <a class="dakimakura__price">${info.price}</a>
+      <a class="dakimakura__price">${
+        info.price
+      }<img src="./images/yen-sign.png" class="dakimakura__currency" alt="currency"></img></a>
     </div>
     <div class="dakimakura__description">
       <span class="attribute">Title: </span>

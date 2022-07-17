@@ -21,9 +21,18 @@
   }
   &__price {
     position: relative;
-    right: 1rem;
-    font-size: 1.7rem;
+    right: .3rem;
+    font-size: 1.8rem;
+    letter-spacing: .1rem;
     color: rgb(115,180,181)
+  }
+  &__currency{
+    position: relative;
+    right: 0;
+    width: 1.6rem;
+    height: 1.6rem;
+    margin-left: .5rem;
+    color: rgb(115,180,181);
   }
   &__main-info{
     position: relative;
