@@ -2,13 +2,34 @@ import { IDakimakura } from "../../types/index";
 import "./dakimakura.scss";
 
 export class Dakimakura {
+  static dakimakuraClickListener(id: string) {
+    const clickedDakimakura = document.getElementById(`${id}`);
+    const selectedBookmark =
+      clickedDakimakura?.querySelector(".bookmark_selected");
+    const notSelectedBookmark = clickedDakimakura?.querySelector(
+      ".bookmark_not-selected"
+    );
+    if (selectedBookmark?.classList.contains("selected")) {
+      selectedBookmark.classList.remove("selected");
+      notSelectedBookmark?.classList.add("selected");
+    } else {
+      selectedBookmark?.classList.add("selected");
+      notSelectedBookmark?.classList.remove("selected");
+    }
+  }
+
   static createDakimakura(info: IDakimakura): HTMLDivElement {
     const dakimakura = document.createElement("div");
     dakimakura.className = "dakimakura";
     dakimakura.id = `${info.name}`;
+    dakimakura.addEventListener("click", () =>
+      this.dakimakuraClickListener(info.name)
+    );
     dakimakura.innerHTML = `<img class="dakimakura__img" src="${
       info.imgSrc
     }" alt="daki-img">
+    <img src="./images/bookmark.png" class="bookmark bookmark_not-selected selected" alt="bookmark"></img>
+    <img src="./images/bookmark-choosen.png" class="bookmark bookmark_selected" alt="bookmark-choosen"></img>
     <div class="dakimakura__main-info">
       <a class="dakimakura__name">${info.name}</a>
       <a class="dakimakura__price">${

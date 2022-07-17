@@ -10,11 +10,12 @@
 
 @media(max-width: 1170px) {
   .items {
+    width: 685px;
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media(max-width: 600px) {
+@media(max-width: 740px) {
   .items {
     width: 90%;
     grid-template-columns: auto;
