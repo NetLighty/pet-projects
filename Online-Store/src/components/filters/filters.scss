@@ -14,7 +14,7 @@
     }
   }
 
- .filter button {
+ button {
     display: block;
     padding: 0.25rem 0px;
     text-transform: capitalize;
@@ -30,6 +30,10 @@
     cursor: pointer;
   }
 
+  .active {
+    border-color: #617d98;
+  }
+
   .materials {
     display: grid;
     grid-template-columns: 1fr;
@@ -37,8 +41,7 @@
     &__item {
       width: 150px;
       display: grid;
-      grid-template-columns: auto 1fr;
-      justify-items: end;
+      grid-template-columns: 1fr 20px;
 
       label {
         display: block;

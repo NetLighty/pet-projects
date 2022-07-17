@@ -1,0 +1,54 @@
+.dakimakura {
+  width: 240px;
+  box-shadow: 0px 0px 0px 5px white, 0px 0px 7.5px 5px rgba(0, 0, 0, 0.1);
+  //border: 0.2rem solid black;
+
+  &__img {
+    width: 100%;
+  }
+  &__title {
+    display: grid;
+    justify-self: center;
+    width: auto;
+    font-size: 2.4rem;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    margin: 0 auto;
+    color: #617d98;
+  }
+  &__price {
+    display: grid;
+    justify-self: end;
+    font-size: 1.7rem;
+  }
+  &__main-info{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    margin-bottom: .3rem;
+  }
+  &__description{
+    width: 80%;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    margin: 0 auto;
+    font-size: 1.7rem;
+
+    .attribute {
+      font-size: 1.7rem;
+    }
+
+    .value {
+      display: grid;
+      justify-self: center;
+      color: #617d98;
+      font-size: 1.8rem;
+    }
+  }
+}
+.dakimakura:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 0px 10px white, 0px 0px 15px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s linear;
+  transform: scale(1.01);
+}
