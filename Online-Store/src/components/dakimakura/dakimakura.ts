@@ -4,6 +4,7 @@ import "./dakimakura.scss";
 export class Dakimakura {
   static dakimakuraClickListener(id: string) {
     const clickedDakimakura = document.getElementById(`${id}`);
+    const counter = document.querySelector(".counter-number");
     const selectedBookmark =
       clickedDakimakura?.querySelector(".bookmark_selected");
     const notSelectedBookmark = clickedDakimakura?.querySelector(
@@ -12,9 +13,15 @@ export class Dakimakura {
     if (selectedBookmark?.classList.contains("selected")) {
       selectedBookmark.classList.remove("selected");
       notSelectedBookmark?.classList.add("selected");
+      window.localStorage.setItem(`${id}`, `not-selected`);
+      if (counter !== null)
+        counter.innerHTML = `${Number(counter?.innerHTML) - 1}`;
     } else {
       selectedBookmark?.classList.add("selected");
       notSelectedBookmark?.classList.remove("selected");
+      window.localStorage.setItem(`${id}`, `selected`);
+      if (counter !== null)
+        counter.innerHTML = `${Number(counter?.innerHTML) + 1}`;
     }
   }
 
@@ -48,23 +55,6 @@ export class Dakimakura {
     </div>`;
     return dakimakura;
   }
-  /* <div class="dakimakura">
-          <img class="dakimakura__img" src="./images/genshin-Jinn.jpg" alt="genshin-Jinn">
-          <div class="dakimakura__main-info">
-            <a class="dakimakura__title">Jinn</a>
-            <a class="dakimakura__price">1490 RUB</a>
-          </div>
-          <div class="dakimakura__description">
-            <span class="attribute">Title: </span>
-            <span class="value" id="title">Genshin Impact</span>
-            <span class="attribute">Gender: </span>
-            <span class="value" id="gender">Girl</span>
-            <span class="attribute">Colors: </span>
-            <span class="value" id="colors">White, Blue</span>
-            <span class="attribute">Popular: </span>
-            <span class="value" id="popular">Yes</span>
-          </div>
-        </div> */
 }
 
 export default Dakimakura;

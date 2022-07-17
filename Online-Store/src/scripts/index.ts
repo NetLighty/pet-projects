@@ -4,6 +4,7 @@ import Filter from "../components/filters/filters";
 import Dakimakura from "../components/dakimakura/dakimakura";
 import ItemsList from "../components/itemsList/itemsList";
 import dakimakuras from "../components/itemsList/itemsDB";
+import Cart from "../components/cart/cart";
 
 import "../global.scss";
 import "../components/itemsList/itemsList.scss";

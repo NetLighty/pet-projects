@@ -1,5 +1,6 @@
 import { IDakimakura } from "../../types/index";
 import Dakimakura from "../dakimakura/dakimakura";
+import Cart from "../cart/cart";
 
 export class ItemsList {
   items: IDakimakura[];
@@ -13,6 +14,7 @@ export class ItemsList {
       const dakimakura = Dakimakura.createDakimakura(item);
       itemsContainer?.append(dakimakura);
     });
+    Cart.setSelected(items);
   }
 }
 
