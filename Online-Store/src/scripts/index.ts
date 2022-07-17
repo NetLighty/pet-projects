@@ -1,7 +1,7 @@
 import Item from "./Item";
 import Header from "../components/header/header";
 import Filter from "../components/filters/filters";
-import Dakimakura from "../components/dalimakura/dakimakura";
+import Dakimakura from "../components/dakimakura/dakimakura";
 import "../global.scss";
 
 const item = new Item("dakimakura");
