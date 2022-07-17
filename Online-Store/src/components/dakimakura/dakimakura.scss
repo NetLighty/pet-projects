@@ -1,5 +1,7 @@
 .dakimakura {
-  width: 240px;
+  width: auto;
+  min-width: 260px;
+  max-width: 400px;
   box-shadow: 0px 0px 0px 5px white, 0px 0px 7.5px 5px rgba(0, 0, 0, 0.1);
   //border: 0.2rem solid black;
 
@@ -10,22 +12,24 @@
     display: grid;
     justify-self: center;
     width: auto;
-    font-size: 2.4rem;
+    font-size: 2.6rem;
     font-weight: 600;
     letter-spacing: 0.1rem;
     margin: 0 auto;
-    color: #617d98;
+    color: rgb(0,137,181);
   }
   &__price {
-    display: grid;
-    justify-self: end;
+    position: absolute;
+    right: 1rem;
     font-size: 1.7rem;
+    color: rgb(115,180,181)
   }
   &__main-info{
+    position: relative;
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
-    margin-bottom: .3rem;
+    margin-bottom: .6rem;
   }
   &__description{
     width: 80%;
@@ -36,12 +40,13 @@
 
     .attribute {
       font-size: 1.7rem;
+      color: rgb(0,107,151)
     }
 
     .value {
       display: grid;
       justify-self: center;
-      color: #617d98;
+      color: rgb(0,157,201);
       font-size: 1.8rem;
     }
   }
