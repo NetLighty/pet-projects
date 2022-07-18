@@ -40,6 +40,7 @@
     border-left: none;
     border-image: initial;
     border-bottom: 1px solid transparent;
+    margin-bottom: .2rem;
     letter-spacing: 0.1rem;
     color: rgb(25,126,252);
     cursor: pointer;
@@ -80,7 +81,7 @@
   .colors {
     display: grid;
     width: 200px;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(6, 1fr);
     justify-items: center;
     background-color: rgba(5,106,232, 0.5);
     border-radius: 10px;
@@ -112,8 +113,12 @@
       &_pink {
         background-color: pink;
       }
+      &_red {
+        background-color: red;
+      }
 
       svg {
+        display: none;
         width: 1rem;
         height: 1rem;
         color: white;
@@ -122,9 +127,6 @@
 
     .active >*:nth-child(1) {
       display: block;
-    }
-    .null >* :nth-child(1) {
-      display: none;
     }
   }
 }

@@ -26,6 +26,8 @@
     }
     .counter {
       position: absolute;
+      align-items: center;
+      justify-items: center;
       z-index: 1;
       top: 0;
       left: 0;
@@ -33,10 +35,12 @@
       height: 2.4rem;
     }
     .counter-number {
+      display: grid;
+      width: 100%;
+      height: 100%;
       position: absolute;
+      justify-items: center;
       z-index: 2;
-      top: 0.04rem;
-      left: 0.8rem;
       color: white;
       font-size: 1.7rem;
     }

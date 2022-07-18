@@ -1,7 +1,7 @@
 .dakimakura {
   position: relative;
   width: auto;
-  min-width: 275px;
+  min-width: 280px;
   max-width: 330px;
   min-height: 550px;
   box-shadow: 0px 0px 0px 5px white, 0px 0px 7.5px 5px rgba(0, 0, 0, 0.1);
@@ -27,7 +27,7 @@
     display: grid;
     justify-self: center;
     width: auto;
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     font-weight: 600;
     letter-spacing: 0.1rem;
     margin: 0 auto;
@@ -80,4 +80,7 @@
   box-shadow: 0px 0px 0px 10px white, 0px 0px 15px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.2s linear;
   transform: scale(1.01);
+}
+.hidden {
+  display: none;
 }

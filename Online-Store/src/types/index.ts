@@ -1,6 +1,6 @@
 export interface IDakimakura {
   imgSrc: string;
-  price: string;
+  price: number;
   name: string;
   title: string;
   gender: "Boy" | "Girl";

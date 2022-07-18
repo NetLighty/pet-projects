@@ -1,28 +1,91 @@
+import { IDakimakura } from "../../types/index";
 import dakimakuras from "../itemsList/itemsDB";
 import ItemsList from "../itemsList/itemsList";
 
+import "./sort.scss";
+
 export class Sort {
-  static allItems: NodeListOf<Element> =
-    document.querySelectorAll(".dakimakura");
-  static notHiddenItems = Array.from(Sort.allItems).filter(
-    (item) => !item.classList.contains(".hidden")
-  );
-  static sortByPrice(type: string) {
-    const sortedArray = Array.from(Sort.notHiddenItems).sort(function (a, b) {
+  static setEventListeners() {
+    const priceHighest = document.getElementById("highest");
+    const priceLowest = document.getElementById("lowest");
+    const nameAz = document.getElementById("A-Z");
+    const nameZa = document.getElementById("Z-A");
+    priceHighest?.addEventListener("click", () =>
+      this.sortByPriceHandler("highest")
+    );
+    priceLowest?.addEventListener("click", () =>
+      this.sortByPriceHandler("lowest")
+    );
+    nameAz?.addEventListener("click", () => this.sortByNameHandler("A-Z"));
+    nameZa?.addEventListener("click", () => this.sortByNameHandler("Z-A"));
+  }
+
+  static getNotHiddenItems() {
+    const allItems: Element[] = Array.from(
+      document.querySelectorAll(".dakimakura")
+    );
+    const notHiddenItems: Element[] = allItems.filter(
+      (item) => !item.classList.contains(".hidden")
+    );
+    return notHiddenItems;
+  }
+  static sortByPrice(items: IDakimakura[], type: string) {
+    return items.sort(function (a, b) {
+      if (type === "lowest") return a.price - b.price;
+      else return b.price - a.price;
+    });
+  }
+  static sortByName(items: IDakimakura[], type: string) {
+    const result: IDakimakura[] = [];
+    const itemNames: string[] = [];
+    items.forEach((el) => itemNames.push(el.name));
+    if (type === "A-Z")
+      itemNames.sort().forEach((item) =>
+        result.push(
+          dakimakuras.filter((el) => {
+            el.name === item;
+          })[0]
+        )
+      );
+    return result;
+  }
+  static sortByType(items: IDakimakura[], type: string) {
+    if (type === "highest" || type === "lowest")
+      return this.sortByPrice(items, type);
+    else return this.sortByName(items, type);
+  }
+  static sortByPriceHandler(type: string) {
+    const notHiddenItems = this.getNotHiddenItems();
+    window.localStorage.setItem("sort", type);
+    const sortedElements = notHiddenItems.sort(function (a, b) {
       const aPrice = dakimakuras.filter(
         (dakimakura) => dakimakura.name === a.id
       )[0].price;
       const bPrice = dakimakuras.filter(
         (dakimakura) => dakimakura.name === b.id
       )[0].price;
-      if (type === "fromLowestToHighest") return aPrice - bPrice;
+      if (type === "lowest") return aPrice - bPrice;
       else return bPrice - aPrice;
     });
-    console.log(sortedArray);
-    ItemsList.refreshItemsList(sortedArray);
+    ItemsList.displaySortedItems(sortedElements);
   }
-  static sortByName() {
-    return "";
+  static sortByNameHandler(type: string) {
+    const notHiddenItems = this.getNotHiddenItems();
+    window.localStorage.setItem("sort", type);
+    const notHiddenItemsNames: string[] = [];
+    notHiddenItems.forEach((item) => notHiddenItemsNames.push(item.id));
+    const notHiddenItemsNamesSorted =
+      type === "A-Z"
+        ? notHiddenItemsNames.sort()
+        : notHiddenItemsNames.sort().reverse();
+    console.log(notHiddenItemsNamesSorted);
+    const sortedElements: Element[] = [];
+    notHiddenItemsNamesSorted.forEach((itemName) => {
+      sortedElements.push(
+        notHiddenItems.filter((item) => item.id === itemName)[0]
+      );
+    });
+    ItemsList.displaySortedItems(sortedElements);
   }
 }
 

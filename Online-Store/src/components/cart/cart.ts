@@ -19,6 +19,14 @@ export class Cart {
       counter.innerHTML = `${selectedItemsId.length}`;
     return selectedItemsId;
   }
+
+  static sendAlert() {
+    const alert = document.querySelector(".over20-alert");
+    if (!alert?.classList.contains("active")) {
+      alert?.classList.add("active");
+      window.setTimeout(() => alert?.classList.remove("active"), 5000);
+    }
+  }
 }
 
 export default Cart;
