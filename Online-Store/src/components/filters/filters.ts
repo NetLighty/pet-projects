@@ -1,4 +1,5 @@
 import { IDakimakura } from "../../types/index";
+import FiltersController from "../controller/FiltersController";
 import dakimakuras, { colors } from "../itemsList/itemsDB";
 import ItemsList from "../itemsList/itemsList";
 import Sort from "../sort/sort";
@@ -7,9 +8,15 @@ import "./filters.scss";
 export class Filter {
   static setSelectedColors() {
     colors.forEach((color) => {
+      const colorButton = document.getElementById(color);
       if (window.localStorage.getItem(color) === "true")
-        document.getElementById(color)?.classList.add("active");
+        colorButton?.classList.add("active");
+      else colorButton?.classList.remove("active");
     });
+  }
+  static setResetListener() {
+    const reset = document.querySelector(".reset-button");
+    reset?.addEventListener("click", FiltersController.resetFilters);
   }
   static colorClickHandler = (e: Event, color: string) => {
     const colorButton = document.getElementById(color);

@@ -10,6 +10,7 @@ export class PageLoader {
     Sort.setEventListeners();
     Filter.setColorsEventListeners();
     Filter.setSelectedColors();
+    Filter.setResetListener();
     ItemsList.refreshItemsList();
   }
 }
