@@ -28,16 +28,18 @@ export class Filter {
       color,
       String(colorButton?.classList.contains("active"))
     );
-    //this.filterByColor();
     ItemsList.refreshItemsList();
     console.log(color);
   };
-  static allColorClickHandler() {
+  static setAllColorsTrue() {
     document.querySelectorAll(".color-btn").forEach((colorBtn) => {
       if (!colorBtn.classList.contains("active"))
         colorBtn.classList.add("active");
       window.localStorage.setItem(colorBtn.id, "true");
     });
+  }
+  static allColorClickHandler() {
+    Filter.setAllColorsTrue();
     ItemsList.refreshItemsList();
   }
   static setColorsEventListeners() {
@@ -172,6 +174,13 @@ export class Filter {
     const selectedMaterials = this.getSelectedMaterials();
     return items.filter((item) => {
       if (selectedMaterials.includes(item.material)) return true;
+    });
+  }
+  static setAllMaterialsTrue() {
+    document.querySelectorAll(".material-checkbox").forEach((checkbox) => {
+      if (!checkbox.classList.contains("active"))
+        checkbox.classList.add("active");
+      window.localStorage.setItem(checkbox.id, "true");
     });
   }
   //only popular

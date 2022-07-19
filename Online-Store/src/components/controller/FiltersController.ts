@@ -6,14 +6,11 @@ export class FiltersController {
   static resetFilters() {
     //gender
     //material
-    colors.forEach((color) => {
-      window.localStorage.removeItem(color);
-    });
-    materials.forEach((material) => {
-      window.localStorage.setItem(material, "true");
-    });
+    Filter.setAllColorsTrue();
+    Filter.setAllMaterialsTrue();
     window.localStorage.setItem("gender", "all-gender");
-    Filter.initializeFilters();
+    window.localStorage.setItem("only-popular", "false");
+    Filter.setSelected();
     ItemsList.refreshItemsList();
   }
 }

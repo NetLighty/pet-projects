@@ -4,6 +4,7 @@ import Cart from "../cart/cart";
 import Sort from "../sort/sort";
 import dakimakuras from "./itemsDB";
 import Filter from "../filters/filters";
+import Search from "../search/search";
 
 export class ItemsList {
   static itemsContainer = document.querySelector(".items");
@@ -50,8 +51,10 @@ export class ItemsList {
     this.clearItemsContainer();
     const itemsToFilter = items ? items : dakimakuras;
     const sortType = window.localStorage.getItem("sort");
+    //search
+    const filteredBySearchValue = Search.filterBySearchValue(itemsToFilter);
     //gender
-    const filteredByGender = Filter.filterItemsByGender(itemsToFilter);
+    const filteredByGender = Filter.filterItemsByGender(filteredBySearchValue);
     console.log(filteredByGender);
     //material
     const filteredByMaterial = Filter.filterItemsByMaterial(filteredByGender);
