@@ -28,7 +28,6 @@ export class Filter {
       color,
       String(colorButton?.classList.contains("active"))
     );
-    //this.filterByColor();
     ItemsList.refreshItemsList();
     console.log(color);
   };
