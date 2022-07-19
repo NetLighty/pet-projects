@@ -21,6 +21,18 @@ export class ItemsList {
     Cart.setSelected(patterns);
   }
 
+  static createNothingFoundMessage() {
+    const nothingFoundMessage = document.createElement("span");
+    nothingFoundMessage.className = "nothing-found";
+    nothingFoundMessage.innerHTML = "Sorry, nothing found";
+    return nothingFoundMessage;
+  }
+
+  static appendNothinFoundMessage() {
+    const nothingFoundMessage = this.createNothingFoundMessage();
+    document.querySelector(".items")?.append(nothingFoundMessage);
+  }
+
   static setHidden() {
     const items = dakimakuras;
     //filter by gender
@@ -64,6 +76,9 @@ export class ItemsList {
     console.log(filteredByPopular);
     //color
     const finallyFiltered = Filter.filterItemsByColor(filteredByPopular);
+    if (finallyFiltered.length === 0) {
+      this.appendNothinFoundMessage();
+    }
     if (sortType !== null) {
       const sorted = Sort.sortByType(finallyFiltered, sortType);
       this.fillPage(sorted);

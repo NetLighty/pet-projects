@@ -1,0 +1,42 @@
+footer {
+  display: grid;
+  grid-template-columns: 150px 150px;
+  grid-column-gap: 50px;
+  align-items: center;
+  justify-content: center;
+  margin-top: .7rem;
+}
+
+footer .copyright {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  font-size: 14px;
+  color: #333;
+  text-align: center;
+}
+footer .copyright a {
+  color: #444;
+}
+footer .copyright a:hover {
+  color: #555;
+}
+footer .copyright:before {
+  content: '©';
+}
+footer .rsschool-logo{
+  position: relative;
+  width: 125px;
+}
+footer .github-logo{
+  width: 125px;
+}
+footer a{
+  font-size: 2rem;
+  text-decoration: none;
+  text-align: center;
+  color: black;
+}
+footer .creation-date{
+  font-style: italic;
+  letter-spacing: 1px;
+}

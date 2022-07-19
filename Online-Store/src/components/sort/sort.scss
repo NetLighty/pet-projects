@@ -1,21 +1,9 @@
 .sort-section {
    display: grid;
    grid-template-columns: repeat(3, 1fr);
-   margin-bottom: .1rem;
+   margin-bottom: .7rem;
    justify-items: end;
  }
- .search-input {
-   height: 3.5rem;
-   padding: 0.5rem;
-   background: rgb(25,126,252, 0.1);
-   border-radius: 0.5rem;
-   border-color: transparent;
-   letter-spacing: 0.1rem;
-}
-.search-input:hover {
-   background: rgba(25,126,252, 0.2);
-   border-color: rgba(25,126,252, 0.2);
-}
 .sort {
   width: 200px;
   margin-bottom: .5rem;
