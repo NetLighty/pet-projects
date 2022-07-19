@@ -169,24 +169,52 @@ export class Filter {
   }
   static filterItemsByMaterial(items: IDakimakura[]) {
     const selectedMaterials = this.getSelectedMaterials();
-    console.log("////");
-    console.log(selectedMaterials);
     return items.filter((item) => {
       if (selectedMaterials.includes(item.material)) return true;
     });
+  }
+  //only popular
+  static onlyPopularClickHandler(event: Event) {
+    const onlyPopularBox = event.target as HTMLInputElement;
+    if (onlyPopularBox.checked)
+      window.localStorage.setItem("only-popular", "true");
+    else window.localStorage.setItem("only-popular", "false");
+    ItemsList.refreshItemsList();
+  }
+  static setOnlyPopularClickListener() {
+    document
+      .getElementById("only-popular")
+      ?.addEventListener("click", (e) => this.onlyPopularClickHandler(e));
+  }
+  static setOnlyPopular() {
+    const onlyPopular: HTMLInputElement = document.getElementById(
+      "only-popular"
+    ) as HTMLInputElement;
+    if (window.localStorage.getItem("only-popular") === "true")
+      onlyPopular.checked = true;
+    else onlyPopular.checked = false;
+  }
+  static filterByPopular(items: IDakimakura[]) {
+    const isOnlyPopularChecked = window.localStorage.getItem("only-popular");
+    if (isOnlyPopularChecked === "true")
+      return items.filter((items) => items.isPopular === "Yes");
+    else return items;
   }
   //common
   static setSelected() {
     this.setSelectedColors();
     this.setSelectedGender();
     this.setSelectedMaterials();
+    this.setOnlyPopular();
   }
   static setListeners() {
     this.setColorsEventListeners();
     this.setResetListener();
     this.setGendersClickListeners();
     this.setMaterialClickListeners();
+    this.setOnlyPopularClickListener();
   }
+  //main
   static initializeFilters() {
     this.setSelected();
     this.setListeners();

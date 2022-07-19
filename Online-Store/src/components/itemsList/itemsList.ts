@@ -56,8 +56,11 @@ export class ItemsList {
     //material
     const filteredByMaterial = Filter.filterItemsByMaterial(filteredByGender);
     console.log(filteredByMaterial);
+    //popular
+    const filteredByPopular = Filter.filterByPopular(filteredByMaterial);
+    console.log(filteredByPopular);
     //color
-    const finallyFiltered = Filter.filterItemsByColor(filteredByMaterial);
+    const finallyFiltered = Filter.filterItemsByColor(filteredByPopular);
     if (sortType !== null) {
       const sorted = Sort.sortByType(finallyFiltered, sortType);
       this.fillPage(sorted);
