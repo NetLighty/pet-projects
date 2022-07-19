@@ -2,6 +2,7 @@ import { IDakimakura } from "../../types/index";
 import FiltersController from "../controller/FiltersController";
 import dakimakuras, { colors, materials } from "../itemsList/itemsDB";
 import ItemsList from "../itemsList/itemsList";
+import Search from "../search/search";
 import Sort from "../sort/sort";
 import "./filters.scss";
 
