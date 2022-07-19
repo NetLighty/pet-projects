@@ -8,9 +8,7 @@ export class PageLoader {
   static loadPage() {
     //ItemsList.fillPage(dakimakuras);
     Sort.setEventListeners();
-    Filter.setColorsEventListeners();
-    Filter.setSelectedColors();
-    Filter.setResetListener();
+    Filter.initializeFilters();
     ItemsList.refreshItemsList();
   }
 }

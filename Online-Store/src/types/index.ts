@@ -3,7 +3,7 @@ export interface IDakimakura {
   price: number;
   name: string;
   title: string;
-  gender: "Boy" | "Girl";
+  gender: "boy" | "girl";
   colors: string[];
   material: string;
   isPopular: "Yes" | "No";

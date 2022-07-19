@@ -51,10 +51,13 @@ export class ItemsList {
     const items = dakimakuras;
     const sortType = window.localStorage.getItem("sort");
     //gender
+    const filteredByGender = Filter.filterItemsByGender(items);
+    console.log(filteredByGender);
     //material
+    const filteredByMaterial = Filter.filterItemsByMaterial(filteredByGender);
+    console.log(filteredByMaterial);
     //color
-    const finallyFiltered = Filter.filterItemsByColor(items);
-    console.log(finallyFiltered);
+    const finallyFiltered = Filter.filterItemsByColor(filteredByMaterial);
     if (sortType !== null) {
       const sorted = Sort.sortByType(finallyFiltered, sortType);
       this.fillPage(sorted);

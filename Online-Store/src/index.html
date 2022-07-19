@@ -28,41 +28,41 @@
       <div class="filters">
         <div class="content">
           <div class="reset">
-            <button class="reset-button">Reset all</button>
+            <button class="reset-button">Reset</button>
           </div>
           <div class="content__container">
             <div class="filter">
-              <h5 class="filter__title">Gender</h5>
-              <button type="button" name="gender" class="active">All</button>
-              <button type="button" name="gender" class="null">Girls</button>
-              <button type="button" name="gender" class="null">Boys</button>
+              <h5 class="filter__title">Gender</h5> 
+              <button type="button" name="gender" class="" id="all-gender">All</button>
+              <button type="button" name="gender" class="" id="girl">Girls</button>
+              <button type="button" name="gender" class="" id="boy">Boys</button>
             </div>
             <div class="filter">
               <h5 class="filter__title">Material</h5>
-              <button type="button" name="gender" class="active" id="material-all">All</button>
+              <button type="button" name="gender" class="" id="all-material">All</button>
               <div class="materials">
                 <div class="materials__item">
                   <label for="synthetic">synthetic</label>
-                  <input type="checkbox" name="synthetic" class="custom-checkbox active" id="synthetic"></input>
+                  <input type="checkbox" name="synthetic" class="custom-checkbox material-checkbox active" id="synthetic"></input>
                 </div>
                 <div class="materials__item">
                   <label for="cotton">cotton</label>
-                  <input type="checkbox" name="cotton" class="custom-checkbox null" id="cotton"></input>
+                  <input type="checkbox" name="cotton" class="custom-checkbox material-checkbox null" id="cotton"></input>
                 </div>
                 <div class="materials__item">
                   <label for="plush">plush</label>
-                  <input type="checkbox" name="plush" class="custom-checkbox null" id="plush"></input>
+                  <input type="checkbox" name="plush" class="custom-checkbox material-checkbox null" id="plush"></input>
                 </div>
                 <div class="materials__item">
                   <label for="linen">linen</label>
-                  <input type="checkbox" name="linen" class="custom-checkbox null" id="linen"></input>
+                  <input type="checkbox" name="linen" class="custom-checkbox material-checkbox null" id="linen"></input>
                 </div>
               </div>
             </div>
             <div class="filter">
               <div class="colors-top">
                 <h5 class="filter__title">Color</h5>
-                <button type="button" name="gender" class="active" id="color-all">All</button>
+                <button type="button" name="gender" class="active" id="all-color">All</button>
               </div>
               <div class="colors">
                 <button name="color" class="color-btn color-btn_white" id="white">
@@ -119,17 +119,20 @@
         </div>
       </div>
       <div>
-        <div class="sort">
-          <ul class="topmenu">
-            <li><span>Sort by</span>
-               <ul class="submenu">
-                  <li id="highest"><span>Price (Highest)</span></li>
-                  <li id="lowest"><span>Price (Lowest)</span></li>
-                  <li id="A-Z"><span>Name (A-Z)</span></li>
-                  <li id="Z-A"><span>Name (Z-A)</span></li>
-               </ul>
-            </li>
-         </ul>
+        <div class="sort-section">
+          <div class="sort">
+            <ul class="topmenu">
+              <li><span>Sort by</span>
+                 <ul class="submenu">
+                    <li id="highest"><span>Price (Highest)</span></li>
+                    <li id="lowest"><span>Price (Lowest)</span></li>
+                    <li id="A-Z"><span>Name (A-Z)</span></li>
+                    <li id="Z-A"><span>Name (Z-A)</span></li>
+                 </ul>
+              </li>
+           </ul>
+          </div>
+          <input type="text" name="text" placeholder="Search" class="search-input" value="">
         </div>
         <div class="items">
         </div>
