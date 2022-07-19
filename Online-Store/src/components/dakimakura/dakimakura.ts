@@ -4,7 +4,7 @@ import "./dakimakura.scss";
 
 export class Dakimakura {
   static dakimakuraClickListener(id: string) {
-    Cart.sendAlert();
+    //Cart.sendAlert();
     const clickedDakimakura = document.getElementById(`${id}`);
     const counter = document.querySelector(".counter-number");
     const selectedBookmark =

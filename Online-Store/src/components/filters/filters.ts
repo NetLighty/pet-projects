@@ -120,7 +120,10 @@ export class Filter {
   static getSelectedMaterials(): string[] {
     const selectedMaterials: string[] = [];
     materials.forEach((material) => {
-      if (window.localStorage.getItem(material) === "true")
+      if (
+        window.localStorage.getItem(material) === "true" ||
+        window.localStorage.getItem(material) === null
+      )
         selectedMaterials.push(material);
     });
     return selectedMaterials;
