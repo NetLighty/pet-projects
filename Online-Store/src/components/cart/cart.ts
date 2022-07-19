@@ -16,7 +16,7 @@ export class Cart {
     });
     const counter = document.querySelector(".counter-number");
     if (counter !== undefined && counter !== null)
-      counter.innerHTML = `${selectedItemsId.length}`;
+      counter.innerHTML = `${Number(window.localStorage.getItem("counter"))}`;
     return selectedItemsId;
   }
 

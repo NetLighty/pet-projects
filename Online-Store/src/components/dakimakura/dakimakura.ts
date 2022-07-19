@@ -7,6 +7,9 @@ export class Dakimakura {
     //Cart.sendAlert();
     const clickedDakimakura = document.getElementById(`${id}`);
     const counter = document.querySelector(".counter-number");
+    const localStorageCounter = window.localStorage.getItem("counter");
+    if (localStorageCounter === null)
+      window.localStorage.setItem("counter", "0");
     const selectedBookmark =
       clickedDakimakura?.querySelector(".bookmark_selected");
     const notSelectedBookmark = clickedDakimakura?.querySelector(
@@ -16,14 +19,22 @@ export class Dakimakura {
       selectedBookmark.classList.remove("selected");
       notSelectedBookmark?.classList.add("selected");
       window.localStorage.setItem(`${id}`, `not-selected`);
+      window.localStorage.setItem(
+        "counter",
+        String(Number(localStorageCounter) - 1)
+      );
       if (counter !== null)
-        counter.innerHTML = `${Number(counter?.innerHTML) - 1}`;
+        counter.innerHTML = `${Number(window.localStorage.getItem("counter"))}`;
     } else {
       selectedBookmark?.classList.add("selected");
       notSelectedBookmark?.classList.remove("selected");
       window.localStorage.setItem(`${id}`, `selected`);
+      window.localStorage.setItem(
+        "counter",
+        String(Number(localStorageCounter) + 1)
+      );
       if (counter !== null)
-        counter.innerHTML = `${Number(counter?.innerHTML) + 1}`;
+        counter.innerHTML = `${Number(window.localStorage.getItem("counter"))}`;
     }
   }
 
