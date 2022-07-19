@@ -1,18 +1,31 @@
 .filters {
+  position: relative;
+
+  .reset {
+    //width: 90px;
+    position: absolute;
+    top: .4rem;
+    right: 1.5rem;
+  }
+  .reset-button {
+    font-size: 2rem;
+  }
 
   .content{
     top: 1rem;
     position: sticky;
-    display: grid;
-
-    @media(max-width: 980px) {
-      width: 420px;
-      grid-template-columns: repeat(2, 210px);
-      margin: 0 auto;
-    }
-    @media(max-width: 460px) {
-      width: 220px;
-      grid-template-columns: 220px;
+    
+    .content__container {
+      display: grid;
+      @media(max-width: 980px) {
+        width: 420px;
+        grid-template-columns: repeat(2, 210px);
+        margin: 0 auto;
+      }
+      @media(max-width: 460px) {
+        width: 220px;
+        grid-template-columns: 220px;
+      }
     }
   }
   
@@ -78,6 +91,17 @@
     }
   }
 
+  .colors-top {
+    display: grid;
+    grid-template-columns: 1fr 50px;
+    align-items: center;
+  }
+  .colors-top button {
+    width: 26px;
+    height: 26px;  
+    padding: .1rem;
+    margin-bottom: .1rem;
+  }
   .colors {
     display: grid;
     width: 200px;
