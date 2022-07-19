@@ -46,12 +46,12 @@ export class ItemsList {
     this.setHidden();
   }
 
-  static refreshItemsList() {
+  static refreshItemsList(items?: IDakimakura[]) {
     this.clearItemsContainer();
-    const items = dakimakuras;
+    const itemsToFilter = items ? items : dakimakuras;
     const sortType = window.localStorage.getItem("sort");
     //gender
-    const filteredByGender = Filter.filterItemsByGender(items);
+    const filteredByGender = Filter.filterItemsByGender(itemsToFilter);
     console.log(filteredByGender);
     //material
     const filteredByMaterial = Filter.filterItemsByMaterial(filteredByGender);
