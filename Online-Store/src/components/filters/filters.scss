@@ -1,5 +1,8 @@
 .filters {
   position: relative;
+  @media(max-width: 980px) {
+    height: 323px;
+  }
 
   .reset {
     //width: 90px;
