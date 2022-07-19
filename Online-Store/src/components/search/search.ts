@@ -7,10 +7,10 @@ export class Search {
     document.querySelector(".search-input");
   static inputChangeHandler(event: Event) {
     const searchBar = event.target as HTMLInputElement;
-    console.log(searchBar.value.toLowerCase());
+    console.log(searchBar.value);
     const filteredBySearchValue = this.filterBySearchValue(
       dakimakuras,
-      searchBar.value
+      searchBar.value.toLowerCase()
     );
     ItemsList.refreshItemsList(filteredBySearchValue);
   }
