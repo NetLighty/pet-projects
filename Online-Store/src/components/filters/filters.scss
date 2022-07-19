@@ -17,6 +17,7 @@
     
     .content__container {
       display: grid;
+      align-items: center;
       @media(max-width: 980px) {
         width: 420px;
         grid-template-columns: repeat(2, 210px);

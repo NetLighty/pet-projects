@@ -13,16 +13,29 @@ export class Search {
     ItemsList.refreshItemsList();
   }
   static filterBySearchValue(items: IDakimakura[]) {
-    if (this.searchBarCurrentValue)
+    const searchBar = document.querySelector(
+      ".search-input"
+    ) as HTMLInputElement;
+    if (searchBar && searchBar.value !== "")
       return items.filter((item) =>
         item.name.toLowerCase().includes(this.searchBarCurrentValue)
       );
     else return items;
   }
+  static clearCressClickHandler() {
+    const searchBar = document.querySelector(
+      ".search-input"
+    ) as HTMLInputElement;
+    if (searchBar !== null) searchBar.value = "";
+    ItemsList.refreshItemsList();
+  }
   static addSearchListeners() {
     this.searchBar?.addEventListener("input", (e) =>
       this.inputChangeHandler(e)
     );
+    document
+      .querySelector(".clear-cress")
+      ?.addEventListener("click", this.clearCressClickHandler);
   }
 }
 

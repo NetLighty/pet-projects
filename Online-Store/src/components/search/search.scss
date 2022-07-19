@@ -1,0 +1,25 @@
+.search-container {
+  position: relative;
+  .clear-cress {
+    cursor: pointer;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    right: .3rem;
+    top: 50%;
+    margin-top: -1.75rem;
+  }
+}
+
+.search-input {
+  height: 3.5rem;
+  padding: 0.5rem;
+  background: rgb(25,126,252, 0.1);
+  border-radius: 0.5rem;
+  border-color: transparent;
+  letter-spacing: 0.1rem;
+}
+.search-input:hover {
+  background: rgba(25,126,252, 0.2);
+  border-color: rgba(25,126,252, 0.2);
+}

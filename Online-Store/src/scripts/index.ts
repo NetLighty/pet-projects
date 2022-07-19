@@ -12,6 +12,7 @@ import "../components/itemsList/itemsList.scss";
 import "../components/cart/alert.scss";
 import Sort from "../components/sort/sort";
 import "../components/footer/footer.scss";
+import "../components/search/search.scss";
 
 const item = new Item("dakimakura");
 const header = new Header("Softy");
