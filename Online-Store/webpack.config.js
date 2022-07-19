@@ -59,7 +59,7 @@ const baseConfig = {
   },
   output: {
     filename: "[name].[contenthash].js",
-    path: path.resolve(__dirname, "./src/dist"),
+    path: path.resolve(__dirname, "./dist"),
   },
   plugins: [
     new HtmlWebpackPlugin({
