@@ -26,6 +26,10 @@ export class Dakimakura {
       if (counter !== null)
         counter.innerHTML = `${Number(window.localStorage.getItem("counter"))}`;
     } else {
+      if (Number(localStorageCounter) >= 10) {
+        Cart.sendAlert();
+        return;
+      }
       selectedBookmark?.classList.add("selected");
       notSelectedBookmark?.classList.remove("selected");
       window.localStorage.setItem(`${id}`, `selected`);
