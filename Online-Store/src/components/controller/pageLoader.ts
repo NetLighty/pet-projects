@@ -1,9 +1,8 @@
-import Cart from "../cart/cart";
 import Filter from "../filters/filters";
-import dakimakuras from "../itemsList/itemsDB";
 import ItemsList from "../itemsList/itemsList";
 import Search from "../search/search";
 import Sort from "../sort/sort";
+import StorageController from "./storageController";
 
 export class PageLoader {
   static loadPage() {
@@ -11,6 +10,7 @@ export class PageLoader {
     Sort.setEventListeners();
     Filter.initializeFilters();
     Search.addSearchListeners();
+    StorageController.setCleanStorageButtonListener();
     ItemsList.refreshItemsList();
   }
 }

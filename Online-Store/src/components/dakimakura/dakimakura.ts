@@ -26,6 +26,10 @@ export class Dakimakura {
       if (counter !== null)
         counter.innerHTML = `${Number(window.localStorage.getItem("counter"))}`;
     } else {
+      if (Number(localStorageCounter) >= 10) {
+        Cart.sendAlert();
+        return;
+      }
       selectedBookmark?.classList.add("selected");
       notSelectedBookmark?.classList.remove("selected");
       window.localStorage.setItem(`${id}`, `selected`);
@@ -63,6 +67,8 @@ export class Dakimakura {
       <span class="value" id="gender">${info.gender}</span>
       <span class="attribute">Colors: </span>
       <span class="value" id="colors">${[...info.colors]}</span>
+      <span class="attribute">Material: </span>
+      <span class="value" id="popular">${info.material}</span>
       <span class="attribute">Popular: </span>
       <span class="value" id="popular">${info.isPopular}</span>
     </div>`;

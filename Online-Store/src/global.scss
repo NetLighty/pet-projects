@@ -28,3 +28,20 @@ body {
     grid-template-rows: 323px 1fr;
   }
 }
+
+.custom-button {
+  display: block;
+  padding: 0.25rem 0px;
+  text-transform: capitalize;
+  font-size: 2rem;
+  background: transparent;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-image: initial;
+  border-bottom: 1px solid transparent;
+  margin-bottom: .2rem;
+  letter-spacing: 0.1rem;
+  color: rgb(25,126,252);
+  cursor: pointer;
+}
