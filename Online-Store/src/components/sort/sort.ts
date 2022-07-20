@@ -36,18 +36,13 @@ export class Sort {
     });
   }
   static sortByName(items: IDakimakura[], type: string) {
-    const result: IDakimakura[] = [];
-    const itemNames: string[] = [];
-    items.forEach((el) => itemNames.push(el.name));
-    if (type === "A-Z")
-      itemNames.sort().forEach((item) =>
-        result.push(
-          dakimakuras.filter((el) => {
-            el.name === item;
-          })[0]
-        )
-      );
-    return result;
+    const itemNames: string[] = items.map((el) => el.name);
+    const sortedItemNames =
+      type === "A-Z" ? itemNames.sort() : itemNames.sort().reverse();
+    return sortedItemNames.map(
+      (itemName) =>
+        dakimakuras.filter((dakimakura) => dakimakura.name === itemName)[0]
+    );
   }
   static sortByType(items: IDakimakura[], type: string) {
     if (type === "highest" || type === "lowest")
