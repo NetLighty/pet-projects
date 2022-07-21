@@ -1,8 +1,12 @@
 .sort-section {
+   position: relative;
    display: grid;
    grid-template-columns: repeat(3, 1fr);
    margin-bottom: .7rem;
    justify-items: end;
+   @media(max-width: 980px) {
+      margin-top: 7.3rem;
+   }
 }
 
 .sort {

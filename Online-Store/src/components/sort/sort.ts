@@ -19,7 +19,6 @@ export class Sort {
     nameAz?.addEventListener("click", () => this.sortByNameHandler("A-Z"));
     nameZa?.addEventListener("click", () => this.sortByNameHandler("Z-A"));
   }
-
   static getNotHiddenItems() {
     const allItems: Element[] = Array.from(
       document.querySelectorAll(".dakimakura")
@@ -73,7 +72,7 @@ export class Sort {
       type === "A-Z"
         ? notHiddenItemsNames.sort()
         : notHiddenItemsNames.sort().reverse();
-    console.log(notHiddenItemsNamesSorted);
+    //console.log(notHiddenItemsNamesSorted);
     const sortedElements: Element[] = [];
     notHiddenItemsNamesSorted.forEach((itemName) => {
       sortedElements.push(

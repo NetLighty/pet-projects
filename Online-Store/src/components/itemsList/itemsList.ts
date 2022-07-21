@@ -67,15 +67,17 @@ export class ItemsList {
     const filteredBySearchValue = Search.filterBySearchValue(itemsToFilter);
     //gender
     const filteredByGender = Filter.filterItemsByGender(filteredBySearchValue);
-    console.log(filteredByGender);
+    //console.log(filteredByGender);
     //material
     const filteredByMaterial = Filter.filterItemsByMaterial(filteredByGender);
-    console.log(filteredByMaterial);
+    //console.log(filteredByMaterial);
     //popular
     const filteredByPopular = Filter.filterByPopular(filteredByMaterial);
-    console.log(filteredByPopular);
+    //console.log(filteredByPopular);
+    //priceRange
+    const filteredByPriceRange = Filter.filterByPriceRange(filteredByPopular);
     //color
-    const finallyFiltered = Filter.filterItemsByColor(filteredByPopular);
+    const finallyFiltered = Filter.filterItemsByColor(filteredByPriceRange);
     if (finallyFiltered.length === 0) {
       this.appendNothinFoundMessage();
     }
