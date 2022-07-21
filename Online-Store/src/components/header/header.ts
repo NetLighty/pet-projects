@@ -6,7 +6,7 @@ export class Header {
     this.name = name;
   }
   itemClick() {
-    console.log("clicked");
+    //console.log("clicked");
   }
 }
 

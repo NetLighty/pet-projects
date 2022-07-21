@@ -10,6 +10,8 @@ export class FiltersController {
     Filter.setAllMaterialsTrue();
     window.localStorage.setItem("gender", "all-gender");
     window.localStorage.setItem("only-popular", "false");
+    window.localStorage.setItem("input-0", "0");
+    window.localStorage.setItem("input-1", "10001");
     Filter.setSelected();
     ItemsList.refreshItemsList();
   }

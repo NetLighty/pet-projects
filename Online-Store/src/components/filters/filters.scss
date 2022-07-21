@@ -17,14 +17,15 @@
   .content{
     top: 1rem;
     position: sticky;
+    @media(max-width: 980px) {
+      margin-bottom: .7rem;
+    }
     
     .content__container {
       display: grid;
       align-items: center;
       @media(max-width: 980px) {
-        width: 420px;
-        grid-template-columns: repeat(2, 210px);
-        margin: 0 auto;
+        
       }
       @media(max-width: 460px) {
         width: 220px;
@@ -44,6 +45,7 @@
       line-height: 1.25;
       margin: 0.25em 0px;
     }
+    
   }
 
   .active {
@@ -139,5 +141,19 @@
     .active >*:nth-child(1) {
       display: block;
     }
+  }
+}
+
+@media(max-width: 980px) {
+  .slider-filter {
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    justify-content: center;
+  }
+  .content__container {
+    width: 420px;
+    grid-template-columns: repeat(2, 210px);
+    margin: 0 auto;
   }
 }

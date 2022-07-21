@@ -1,3 +1,4 @@
+import { setSliderValues } from "../../scripts/slider";
 import { IDakimakura } from "../../types/index";
 import FiltersController from "../controller/FiltersController";
 import dakimakuras, { colors, materials } from "../itemsList/itemsDB";
@@ -29,7 +30,7 @@ export class Filter {
       String(colorButton?.classList.contains("active"))
     );
     ItemsList.refreshItemsList();
-    console.log(color);
+    //console.log(color);
   };
   static setAllColorsTrue() {
     document.querySelectorAll(".color-btn").forEach((colorBtn) => {
@@ -147,7 +148,7 @@ export class Filter {
     const checkBoxes: HTMLInputElement[] = Array.from(
       document.querySelectorAll(".material-checkbox")
     );
-    console.log(checkBoxes);
+    //console.log(checkBoxes);
     checkBoxes.forEach((checkBox) => {
       checkBox.checked = true;
       window.localStorage.setItem(checkBox.id, "true");
@@ -210,12 +211,33 @@ export class Filter {
       return items.filter((items) => items.isPopular === "Yes");
     else return items;
   }
+  //priceRange
+  static setPriceRangeValues() {
+    const input0LocalValue = window.localStorage.getItem("input-0");
+    const input1LocalValue = window.localStorage.getItem("input-1");
+    const minPrice = input0LocalValue !== null ? input0LocalValue : "0";
+    const maxPrice = input1LocalValue !== null ? input1LocalValue : "10001";
+    setSliderValues(Number(minPrice), Number(maxPrice));
+  }
+  static filterByPriceRange(items: IDakimakura[]) {
+    const input0 = document.getElementById("input-0") as HTMLInputElement;
+    const input1 = document.getElementById("input-1") as HTMLInputElement;
+    if (input0 === null || input1 === null) return items;
+    const minPrice = Number(input0.value);
+    const maxPrice = Number(input1.value);
+    //console.log(minPrice);
+    //console.log(maxPrice);
+    return items.filter(
+      (item) => item.price >= minPrice && item.price <= maxPrice
+    );
+  }
   //common
   static setSelected() {
     this.setSelectedColors();
     this.setSelectedGender();
     this.setSelectedMaterials();
     this.setOnlyPopular();
+    this.setPriceRangeValues();
   }
   static setListeners() {
     this.setColorsEventListeners();

@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/rolling-scopes-school/netlighty-JSFE2022Q1#readme",
   "devDependencies": {
+    "@types/wnumb": "^1.2.1",
     "@typescript-eslint/eslint-plugin": "^5.30.6",
     "@typescript-eslint/parser": "^5.30.6",
     "clean-webpack-plugin": "^4.0.0",
@@ -37,6 +38,7 @@
     "html-webpack-plugin": "^5.5.0",
     "image-webpack-loader": "^8.1.0",
     "mini-css-extract-plugin": "^2.6.1",
+    "nouislider": "^15.6.0",
     "prettier": "^2.7.1",
     "sass": "^1.53.0",
     "sass-loader": "^13.0.2",
@@ -48,5 +50,8 @@
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.9.3",
     "webpack-merge": "^5.8.0"
+  },
+  "dependencies": {
+    "wnumb": "^1.2.0"
   }
 }
