@@ -1,7 +1,7 @@
 import { INews, ISources } from '../../types/index';
 import AppController from '../controller/controller';
 import { AppView } from '../view/appView';
-import { Arrow } from '../view/sources/arrow';
+import { Arrow } from '../view/arrow/arrow';
 
 class App {
     controller: AppController;

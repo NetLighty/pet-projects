@@ -19,16 +19,13 @@ class Loader {
 
     errorHandler(res: Response): Response {
         if (!res.ok) {
-            if (res.status === 401 || res.status === 404)
-                console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
-            throw Error(res.statusText);
+            if (res.status === 401 || res.status === 404) throw Error(res.statusText);
         }
 
         return res;
     }
 
     makeUrl(options: Record<string, string>, endpoint: string): string {
-        console.log(options);
         const urlOptions: Record<string, string> = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 
