@@ -13,11 +13,11 @@ class AppController extends AppLoader {
 
     getNews<T>(e: Event, callback: Callback<T>): void {
         let target = e.target as Element | null;
-        const newsContainer = e.currentTarget as Element;
+        const newsContainer = e.currentTarget as Element | null;
         while (target !== newsContainer) {
             if (target?.classList.contains('source__item')) {
-                const sourceId: string | null = target.getAttribute('data-source-id');
-                if (sourceId) {
+                const sourceId = target.getAttribute('data-source-id');
+                if (sourceId && newsContainer) {
                     if (newsContainer.getAttribute('data-source') !== sourceId) {
                         newsContainer.setAttribute('data-source', sourceId);
                         super.getResp(
@@ -33,7 +33,7 @@ class AppController extends AppLoader {
                 }
                 return;
             }
-            target = target?.parentNode as Element;
+            target = target?.parentNode as Element | null;
         }
     }
 }
