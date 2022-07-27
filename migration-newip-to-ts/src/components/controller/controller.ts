@@ -12,31 +12,28 @@ class AppController extends AppLoader {
     }
 
     getNews<T>(e: Event, callback: Callback<T>): void {
-        let target: Element | null = e.target as Element;
-        const newsContainer: Element = e.currentTarget as Element;
-
+        let target = e.target as Element | null;
+        const newsContainer = e.currentTarget as Element;
         while (target !== newsContainer) {
-            if (target === null) {
-                throw new Error('target is null');
-            }
-            if (target.classList.contains('source__item')) {
+            if (target?.classList.contains('source__item')) {
                 const sourceId: string | null = target.getAttribute('data-source-id');
-                if (sourceId === null) throw new Error('sourceId is null');
-                if (newsContainer.getAttribute('data-source') !== sourceId) {
-                    newsContainer.setAttribute('data-source', sourceId);
-                    super.getResp(
-                        {
-                            endpoint: 'everything',
-                            options: {
-                                sources: sourceId,
+                if (sourceId) {
+                    if (newsContainer.getAttribute('data-source') !== sourceId) {
+                        newsContainer.setAttribute('data-source', sourceId);
+                        super.getResp(
+                            {
+                                endpoint: 'everything',
+                                options: {
+                                    sources: sourceId,
+                                },
                             },
-                        },
-                        callback
-                    );
+                            callback
+                        );
+                    }
                 }
                 return;
             }
-            target = target.parentNode as Element;
+            target = target?.parentNode as Element;
         }
     }
 }
