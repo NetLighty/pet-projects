@@ -9,9 +9,13 @@ class Sources {
         data.forEach((item): void => {
             const sourceClone = sourceItemTemp?.content.cloneNode(true) as Node;
             const sourceItemName = (<Element>sourceClone).querySelector('.source__item-name');
-            if (sourceItemName) sourceItemName.textContent = item.name;
+            if (sourceItemName) {
+                sourceItemName.textContent = item.name;
+            }
             const sourceItem = (<Element>sourceClone).querySelector('.source__item');
-            if (sourceItem) sourceItem.setAttribute('data-source-id', item.id);
+            if (sourceItem) {
+                sourceItem.setAttribute('data-source-id', item.id);
+            }
             fragment.append(sourceClone);
         });
 

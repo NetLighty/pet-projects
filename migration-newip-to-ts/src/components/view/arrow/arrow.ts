@@ -23,7 +23,9 @@ export class Arrow {
         arrow.className = 'source__arrow';
         arrow.setAttribute('src', 'https://cdn-icons-png.flaticon.com/512/875/875617.png');
         arrow.addEventListener('click', this.arrowClickListener);
-        if (document.querySelector('.source__arrow') === null) sources?.after(arrow);
+        if (document.querySelector('.source__arrow') === null) {
+            sources?.after(arrow);
+        }
     }
 }
 

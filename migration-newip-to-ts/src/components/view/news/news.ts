@@ -18,19 +18,29 @@ class News {
                 newsMetaPhoto.style.backgroundImage = `url(${item.urlToImage || 'img/news_placeholder.jpg'})`;
             }
             const newsMetaAuthor = newsClone.querySelector('.news__meta-author');
-            if (newsMetaAuthor) newsMetaAuthor.textContent = item.author || item.source.name;
+            if (newsMetaAuthor) {
+                newsMetaAuthor.textContent = item.author || item.source.name;
+            }
             const newsMetaDate = newsClone.querySelector('.news__meta-date');
             if (newsMetaDate) {
                 newsMetaDate.textContent = item.publishedAt.slice(0, 10).split('-').reverse().join('-');
             }
             const newsDescriptionTitle = newsClone.querySelector('.news__description-title');
-            if (newsDescriptionTitle) newsDescriptionTitle.textContent = item.title;
+            if (newsDescriptionTitle) {
+                newsDescriptionTitle.textContent = item.title;
+            }
             const newsDescriptionSource = newsClone.querySelector('.news__description-source');
-            if (newsDescriptionSource) newsDescriptionSource.textContent = item.source.name;
+            if (newsDescriptionSource) {
+                newsDescriptionSource.textContent = item.source.name;
+            }
             const newsDescriptionContent = newsClone.querySelector('.news__description-content');
-            if (newsDescriptionContent) newsDescriptionContent.textContent = item.description;
+            if (newsDescriptionContent) {
+                newsDescriptionContent.textContent = item.description;
+            }
             const newsReadMore = newsClone.querySelector('.news__read-more a');
-            if (newsReadMore) newsReadMore.setAttribute('href', item.url);
+            if (newsReadMore) {
+                newsReadMore.setAttribute('href', item.url);
+            }
             fragment.append(newsClone);
         });
 
