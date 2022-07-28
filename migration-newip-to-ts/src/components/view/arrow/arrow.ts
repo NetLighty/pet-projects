@@ -1,7 +1,7 @@
 export class Arrow {
     private static arrowClickListener(): void {
-        const arrow: Element | null = document.querySelector('.source__arrow');
-        const sources: Element | null = document.querySelector('.sources');
+        const arrow = document.querySelector('.source__arrow');
+        const sources = document.querySelector('.sources');
         if (arrow && sources) {
             if (arrow.classList.contains('up')) {
                 arrow.classList.remove('up');
@@ -18,8 +18,8 @@ export class Arrow {
     }
 
     public static createArrow(): void {
-        const arrow: Element = document.createElement('img');
-        const sources: Element | null = document.querySelector('.sources');
+        const arrow = document.createElement('img');
+        const sources = document.querySelector('.sources');
         arrow.className = 'source__arrow';
         arrow.setAttribute('src', 'https://cdn-icons-png.flaticon.com/512/875/875617.png');
         arrow.addEventListener('click', this.arrowClickListener);
