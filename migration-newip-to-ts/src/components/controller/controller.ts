@@ -1,5 +1,6 @@
 import { Callback } from '../../types/index';
 import AppLoader from './appLoader';
+import { CustomEvent } from './controller.types';
 
 class AppController extends AppLoader {
     getSources<T>(callback: Callback<T>): void {
@@ -11,9 +12,9 @@ class AppController extends AppLoader {
         );
     }
 
-    getNews<T>(e: Event, callback: Callback<T>): void {
-        let target = e.target as Element | null;
-        const newsContainer = e.currentTarget as Element | null;
+    getNews<T>(e: CustomEvent, callback: Callback<T>): void {
+        let target = e.target;
+        const newsContainer = e.currentTarget;
         while (target !== newsContainer) {
             if (target?.classList.contains('source__item')) {
                 const sourceId = target.getAttribute('data-source-id');
