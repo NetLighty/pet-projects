@@ -1,15 +1,17 @@
-import { Callback, IOptions } from '../../types/index';
+import { Options } from 'webpack';
+import { Callback } from '../../types/index';
+import { IOptions, IResp } from './loader.types';
 
 class Loader {
     baseLink: string;
-    options: Record<string, string>;
-    constructor(baseLink: string, options: Record<string, string>) {
+    options: IOptions;
+    constructor(baseLink: string, options: IOptions) {
         this.baseLink = baseLink;
         this.options = options;
     }
 
     getResp<T>(
-        { endpoint, options = {} }: IOptions,
+        { endpoint, options = {} }: IResp,
         callback: Callback<T> = () => {
             console.error('No callback for GET response');
         }
@@ -25,18 +27,18 @@ class Loader {
         return res;
     }
 
-    makeUrl(options: Record<string, string>, endpoint: string): string {
-        const urlOptions: Record<string, string> = { ...this.options, ...options };
+    makeUrl(options: IResp['options'], endpoint: string): string {
+        const urlOptions = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 
         Object.keys(urlOptions).forEach((key) => {
-            url += `${key}=${urlOptions[key as keyof Record<string, string>]}&`;
+            url += `${key}=${urlOptions}&`;
         });
 
         return url.slice(0, -1);
     }
 
-    load<T>(method: string, endpoint: string, callback: Callback<T>, options: Record<string, string>): void {
+    load<T>(method: string, endpoint: string, callback: Callback<T>, options: IResp['options']): void {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())

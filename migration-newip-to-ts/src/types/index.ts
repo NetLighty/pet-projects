@@ -46,8 +46,3 @@ export interface INews {
 }
 
 export type Callback<T> = (data: T) => void;
-
-export interface IOptions {
-    endpoint: string;
-    options?: Record<string, string>;
-}
