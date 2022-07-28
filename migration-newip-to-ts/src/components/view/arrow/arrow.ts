@@ -4,17 +4,32 @@ export class Arrow {
         const sources = document.querySelector('.sources');
         if (arrow && sources) {
             if (arrow.classList.contains('up')) {
-                arrow.classList.remove('up');
-                arrow.classList.add('down');
-                sources.classList.add('closed');
-                sources.classList.remove('opened');
+                this.downArrow(arrow);
+                this.closeSources(sources);
             } else {
-                arrow.classList.remove('down');
-                arrow.classList.add('up');
-                sources.classList.add('opened');
-                sources.classList.remove('closed');
+                this.upArrow(arrow);
+                this.openSources(sources);
             }
         }
+    }
+
+    private static upArrow(arrow: Element) {
+        arrow.classList.remove('down');
+        arrow.classList.add('up');
+    }
+    private static openSources(sources: Element) {
+        sources.classList.add('opened');
+        sources.classList.remove('closed');
+    }
+
+    private static downArrow(arrow: Element) {
+        arrow.classList.remove('up');
+        arrow.classList.add('down');
+    }
+
+    private static closeSources(sources: Element) {
+        sources.classList.add('closed');
+        sources.classList.remove('opened');
     }
 
     public static createArrow(): void {
