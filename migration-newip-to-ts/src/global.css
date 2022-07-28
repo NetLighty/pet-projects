@@ -38,24 +38,24 @@ footer .copyright a:hover {
 footer .copyright:before {
     content: '©';
 }
-footer .rsschool-logo{
+footer .rsschool-logo {
     position: relative;
     width: 125px;
 }
-footer .github-logo{
+footer .github-logo {
     width: 125px;
 }
-footer a{
+footer a {
     text-decoration: none;
     text-align: center;
     color: white;
 }
-footer .creation-date{
+footer .creation-date {
     font-style: italic;
     letter-spacing: 1px;
 }
 
-@media(max-width: 530px) {
+@media (max-width: 530px) {
     footer {
         column-gap: 25px;
     }
@@ -65,8 +65,8 @@ footer .creation-date{
     }
 }
 
-@media(max-width: 350px) {
-   footer {
-    column-gap: 0px;
-   }
+@media (max-width: 350px) {
+    footer {
+        column-gap: 0px;
+    }
 }
