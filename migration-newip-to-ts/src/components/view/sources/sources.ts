@@ -3,16 +3,16 @@ import './sources.css';
 
 class Sources {
     draw(data: Array<IArticle['source']>): void {
-        const fragment: DocumentFragment = document.createDocumentFragment();
-        const sourceItemTemp: HTMLTemplateElement | null = document.querySelector('#sourceItemTemp');
+        const fragment = document.createDocumentFragment();
+        const sourceItemTemp = document.querySelector('#sourceItemTemp') as HTMLTemplateElement | null;
 
-        data.forEach((item): void => {
-            const sourceClone = sourceItemTemp?.content.cloneNode(true) as Node;
-            const sourceItemName = (<Element>sourceClone).querySelector('.source__item-name');
+        data.forEach((item) => {
+            const sourceClone = sourceItemTemp?.content.cloneNode(true) as Element;
+            const sourceItemName = sourceClone.querySelector('.source__item-name');
             if (sourceItemName) {
                 sourceItemName.textContent = item.name;
             }
-            const sourceItem = (<Element>sourceClone).querySelector('.source__item');
+            const sourceItem = sourceClone.querySelector('.source__item');
             if (sourceItem) {
                 sourceItem.setAttribute('data-source-id', item.id);
             }
