@@ -1,6 +1,6 @@
 .news {
     display: grid;
-    min-height: 800px;
+    /* min-height: 800px; */
     width: 1860px;
     grid-template-columns: 450px 450px 450px 450px;
     grid-column-gap: 20px;
