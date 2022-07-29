@@ -23,35 +23,11 @@ const baseConfig = {
               publicPath: "./",
             },
           },
-          // Translates CSS into CommonJS
           "css-loader",
-          // Compiles Sass to CSS
           "sass-loader",
         ],
       },
       { test: /\.ts$/i, use: "ts-loader" },
-      /* { 
-                test: /\.(png|svg|jpg|gif)$/,
-                use: [
-                    {
-                        loader: 'url-loader',
-                        options:
-                        { // Параметр опции option здесь может определить размер изображения, которое должно быть преобразовано в base64
-                            name: '[path][name].[ext]',// Указывает, что изображения размером менее 50 КБ преобразуются в base64, а изображения размером более 50 КБ являются путями
-                            outputPath: 'online-store/dist/images/src/', // why don't work?
-                            limit: false
-                        }
-                    },
-                    {    // Сжатые картинки следует использовать после файлового загрузчика
-                        loader: 'image-webpack-loader',
-                        options:
-                        {
-                            bypassOnDebug: true
-                        }
-                    }
-
-                ]
-            } */
     ],
   },
   resolve: {
