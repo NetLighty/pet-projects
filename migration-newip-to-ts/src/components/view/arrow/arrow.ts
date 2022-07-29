@@ -4,11 +4,11 @@ export class Arrow {
         const sources = document.querySelector('.sources');
         if (arrow && sources) {
             if (arrow.classList.contains('up')) {
-                this.downArrow(arrow);
-                this.closeSources(sources);
+                Arrow.downArrow(arrow);
+                Arrow.closeSources(sources);
             } else {
-                this.upArrow(arrow);
-                this.openSources(sources);
+                Arrow.upArrow(arrow);
+                Arrow.openSources(sources);
             }
         }
     }

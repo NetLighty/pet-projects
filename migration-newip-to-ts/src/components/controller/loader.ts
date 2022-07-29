@@ -1,4 +1,3 @@
-import { Options } from 'webpack';
 import { Callback } from '../../types/index';
 import { IOptions, IResp } from './loader.types';
 
@@ -32,7 +31,7 @@ class Loader {
         let url = `${this.baseLink}${endpoint}?`;
 
         Object.keys(urlOptions).forEach((key) => {
-            url += `${key}=${urlOptions}&`;
+            url += `${key}=${urlOptions.apiKey}&`;
         });
 
         return url.slice(0, -1);
