@@ -1,6 +1,6 @@
-import { IDakimakura } from "../../types/index";
-import dakimakuras from "../itemsList/itemsDB";
-import ItemsList from "../itemsList/itemsList";
+import { IDakimakura } from "../types/index";
+import dakimakuras from "../data/itemsDB";
+import ItemsList from "./itemsList";
 
 import "./sort.scss";
 

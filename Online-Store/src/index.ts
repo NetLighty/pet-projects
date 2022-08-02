@@ -1,4 +1,4 @@
-import PageLoader from "../components/controller/pageLoader";
+import PageLoader from "./scripts/pageLoader";
 
 import "../global.scss";
 import "../components/itemsList/itemsList.scss";

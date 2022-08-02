@@ -1,7 +1,7 @@
 import * as noUiSlider from "../../node_modules/nouislider/dist/nouislider";
 import "../../node_modules/nouislider/dist/nouislider.scss";
 import "../styles/slider.scss";
-import ItemsList from "../components/itemsList/itemsList";
+import ItemsList from "./itemsList";
 
 const slider: noUiSlider.target = document.getElementById(
   "slider"

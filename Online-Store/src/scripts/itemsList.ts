@@ -1,10 +1,10 @@
-import { IDakimakura } from "../../types/index";
-import Dakimakura from "../dakimakura/dakimakura";
-import Cart from "../cart/cart";
-import Sort from "../sort/sort";
-import dakimakuras from "./itemsDB";
-import Filter from "../filters/filters";
-import Search from "../search/search";
+import { IDakimakura } from "../types/index";
+import Dakimakura from "../components/dakimakura/dakimakura";
+import Cart from "./cart";
+import Sort from "./sort";
+import dakimakuras from "../data/itemsDB";
+import Filter from "./filters";
+import Search from "./search";
 
 export class ItemsList {
   static itemsContainer = document.querySelector(".items");

@@ -1,4 +1,4 @@
-import { IDakimakura } from "../../types/index";
+import { IDakimakura } from "../types/index";
 
 export const colors: string[] = [
   "white",

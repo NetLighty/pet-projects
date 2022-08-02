@@ -1,5 +1,5 @@
-import Filter from "../filters/filters";
-import ItemsList from "../itemsList/itemsList";
+import Filter from "./filters";
+import ItemsList from "./itemsList";
 
 export class FiltersController {
   static resetFilters() {

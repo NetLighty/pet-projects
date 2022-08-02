@@ -1,5 +1,5 @@
 import { IDakimakura } from "../../types/index";
-import Cart from "../cart/cart";
+import Cart from "../../scripts/cart";
 import "./dakimakura.scss";
 
 export class Dakimakura {

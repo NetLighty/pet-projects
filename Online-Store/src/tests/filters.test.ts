@@ -1,5 +1,5 @@
-import Filter from "../components/filters/filters";
-import dakimakuras from "../components/itemsList/itemsDB";
+import Filter from "../scripts/filters";
+import dakimakuras from "../data/itemsDB";
 
 describe("filter method", () => {
   it("it should return filtered items", () => {

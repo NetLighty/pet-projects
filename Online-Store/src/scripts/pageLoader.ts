@@ -1,7 +1,7 @@
-import Filter from "../filters/filters";
-import ItemsList from "../itemsList/itemsList";
-import Search from "../search/search";
-import Sort from "../sort/sort";
+import Filter from "./filters";
+import ItemsList from "./itemsList";
+import Search from "./search";
+import Sort from "./sort";
 import StorageController from "./storageController";
 
 export class PageLoader {

@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack serve --open",
     "test": "jest",
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js",
+    "lint": "eslint . --ext .ts"
   },
   "repository": {
     "type": "git",

@@ -1,5 +1,5 @@
-import { IDakimakura } from "../../types/index";
-import ItemsList from "../itemsList/itemsList";
+import { IDakimakura } from "../types/index";
+import ItemsList from "./itemsList";
 
 export class Search {
   static searchBar: HTMLInputElement | null =

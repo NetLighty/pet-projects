@@ -1,8 +1,8 @@
-import { setSliderValues } from "../../scripts/slider";
-import { IDakimakura } from "../../types/index";
-import FiltersController from "../controller/FiltersController";
-import { colors, materials } from "../itemsList/itemsDB";
-import ItemsList from "../itemsList/itemsList";
+import { setSliderValues } from "./slider";
+import { IDakimakura } from "../types/index";
+import FiltersController from "./FiltersController";
+import { colors, materials } from "../data/itemsDB";
+import ItemsList from "./itemsList";
 import "./filters.scss";
 
 export class Filter {

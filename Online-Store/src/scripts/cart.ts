@@ -1,4 +1,4 @@
-import { IDakimakura } from "../../types/index";
+import { IDakimakura } from "../types/index";
 
 export class Cart {
   static setSelected(dakimakuras: IDakimakura[]): string[] {
