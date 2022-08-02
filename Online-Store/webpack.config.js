@@ -8,7 +8,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const baseConfig = {
   entry: {
-    main: path.resolve(__dirname, "./src/scripts/index.ts"),
+    main: path.resolve(__dirname, "./src/index.ts"),
     slider: path.resolve(__dirname, "./src/scripts/slider.ts"),
   },
   mode: "development",

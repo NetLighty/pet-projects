@@ -1,10 +1,10 @@
 import PageLoader from "./scripts/pageLoader";
 
-import "../global.scss";
-import "../components/itemsList/itemsList.scss";
-import "../components/cart/alert.scss";
-import "../components/footer/footer.scss";
-import "../components/search/search.scss";
-import "../components/header/header.scss";
+import "./styles/global.scss";
+import "./styles/itemsList.scss";
+import "./styles/alert.scss";
+import "./styles/footer.scss";
+import "./styles/search.scss";
+import "./styles/header.scss";
 
 PageLoader.loadPage();

@@ -1,4 +1,4 @@
-import "./header.scss";
+import "../styles/header.scss";
 
 export class Header {
   name: string;

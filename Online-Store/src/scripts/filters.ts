@@ -3,7 +3,7 @@ import { IDakimakura } from "../types/index";
 import FiltersController from "./FiltersController";
 import { colors, materials } from "../data/itemsDB";
 import ItemsList from "./itemsList";
-import "./filters.scss";
+import "../styles/filters.scss";
 
 export class Filter {
   //Reset

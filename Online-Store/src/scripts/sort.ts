@@ -2,7 +2,7 @@ import { IDakimakura } from "../types/index";
 import dakimakuras from "../data/itemsDB";
 import ItemsList from "./itemsList";
 
-import "./sort.scss";
+import "../styles/sort.scss";
 
 export class Sort {
   static setEventListeners() {
