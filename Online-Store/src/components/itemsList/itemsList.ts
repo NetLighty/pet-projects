@@ -35,9 +35,6 @@ export class ItemsList {
 
   static setHidden() {
     const items = dakimakuras;
-    //filter by gender
-    //filter by material
-    //filter by color
     const filteredByColor: IDakimakura[] = Filter.filterItemsByColor(items);
     document.querySelectorAll(".dakimakura").forEach((el) => {
       el.classList.add("hidden");
@@ -67,13 +64,10 @@ export class ItemsList {
     const filteredBySearchValue = Search.filterBySearchValue(itemsToFilter);
     //gender
     const filteredByGender = Filter.filterItemsByGender(filteredBySearchValue);
-    //console.log(filteredByGender);
     //material
     const filteredByMaterial = Filter.filterItemsByMaterial(filteredByGender);
-    //console.log(filteredByMaterial);
     //popular
     const filteredByPopular = Filter.filterByPopular(filteredByMaterial);
-    //console.log(filteredByPopular);
     //priceRange
     const filteredByPriceRange = Filter.filterByPriceRange(filteredByPopular);
     //color

@@ -6,7 +6,6 @@ import StorageController from "./storageController";
 
 export class PageLoader {
   static loadPage() {
-    //ItemsList.fillPage(dakimakuras);
     Sort.setEventListeners();
     Filter.initializeFilters();
     Search.addSearchListeners();

@@ -7,11 +7,7 @@ const slider: noUiSlider.target = document.getElementById(
   "slider"
 ) as noUiSlider.target;
 
-/* function sliderUpdateHandler(input0Value: string, input1Value: string) {
-
-} */
 function sliderChangeHandler(input0Value: string, input1Value: string) {
-  //console.log("slider-change-event");
   window.localStorage.setItem("input-0", input0Value);
   window.localStorage.setItem("input-1", input1Value);
   ItemsList.refreshItemsList();
@@ -39,7 +35,6 @@ if (slider) {
   if (slider.noUiSlider !== undefined) {
     slider.noUiSlider.on("update", function (values, handle) {
       inputs[handle].value = String(Math.round(Number(values[handle])));
-      //sliderUpdateHandler(String(values[0]), String(values[1]));
     });
     slider.noUiSlider.on("change", function (values) {
       sliderChangeHandler(String(values[0]), String(values[1]));

@@ -72,7 +72,6 @@ export class Sort {
       type === "A-Z"
         ? notHiddenItemsNames.sort()
         : notHiddenItemsNames.sort().reverse();
-    //console.log(notHiddenItemsNamesSorted);
     const sortedElements: Element[] = [];
     notHiddenItemsNamesSorted.forEach((itemName) => {
       sortedElements.push(

@@ -1,5 +1,4 @@
 import { IDakimakura } from "../../types/index";
-import dakimakuras from "../itemsList/itemsDB";
 import ItemsList from "../itemsList/itemsList";
 
 export class Search {

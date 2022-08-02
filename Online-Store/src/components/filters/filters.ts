@@ -1,10 +1,8 @@
 import { setSliderValues } from "../../scripts/slider";
 import { IDakimakura } from "../../types/index";
 import FiltersController from "../controller/FiltersController";
-import dakimakuras, { colors, materials } from "../itemsList/itemsDB";
+import { colors, materials } from "../itemsList/itemsDB";
 import ItemsList from "../itemsList/itemsList";
-import Search from "../search/search";
-import Sort from "../sort/sort";
 import "./filters.scss";
 
 export class Filter {
@@ -30,7 +28,6 @@ export class Filter {
       String(colorButton?.classList.contains("active"))
     );
     ItemsList.refreshItemsList();
-    //console.log(color);
   };
   static setAllColorsTrue() {
     document.querySelectorAll(".color-btn").forEach((colorBtn) => {
@@ -140,15 +137,9 @@ export class Filter {
     });
   }
   static allMaterialClickHandler() {
-    /* const allButton = document.getElementById("all-material");
-    const syntheticBox = document.getElementById("synthetic");
-    const cottonBox = document.getElementById("cotton");
-    const plushBox = document.getElementById("plush");
-    const linenBox = document.getElementById("linen"); */
     const checkBoxes: HTMLInputElement[] = Array.from(
       document.querySelectorAll(".material-checkbox")
     );
-    //console.log(checkBoxes);
     checkBoxes.forEach((checkBox) => {
       checkBox.checked = true;
       window.localStorage.setItem(checkBox.id, "true");
@@ -225,8 +216,6 @@ export class Filter {
     if (input0 === null || input1 === null) return items;
     const minPrice = Number(input0.value);
     const maxPrice = Number(input1.value);
-    //console.log(minPrice);
-    //console.log(maxPrice);
     return items.filter(
       (item) => item.price >= minPrice && item.price <= maxPrice
     );
