@@ -5,7 +5,6 @@ import ItemsList from "./itemsList";
 import "../styles/filters.scss";
 
 export class Filter {
-  //Reset
   static setResetListener() {
     const reset = document.querySelector(".reset-button");
     reset?.addEventListener("click", Filter.resetFilters);
@@ -20,7 +19,6 @@ export class Filter {
     Filter.setSelected();
     ItemsList.refreshItemsList();
   }
-  //Colors
   static setSelectedColors() {
     colors.forEach((color) => {
       const colorButton = document.getElementById(color);
@@ -85,7 +83,6 @@ export class Filter {
     return arr.indexOf(el) !== -1;
   }
 
-  //Gender
   static setSelectedGender() {
     const selectedGender = window.localStorage.getItem("gender");
     if (selectedGender !== null) {
@@ -126,7 +123,6 @@ export class Filter {
     return items.filter((daki) => daki.gender === selectedGender);
   }
 
-  //material
   static getSelectedMaterials(): string[] {
     const selectedMaterials: string[] = [];
     materials.forEach((material) => {
@@ -184,7 +180,6 @@ export class Filter {
       window.localStorage.setItem(checkbox.id, "true");
     });
   }
-  //only popular
   static onlyPopularClickHandler(event: Event) {
     const onlyPopularBox = event.target as HTMLInputElement;
     if (onlyPopularBox.checked)
@@ -211,7 +206,6 @@ export class Filter {
       return items.filter((items) => items.isPopular === "Yes");
     else return items;
   }
-  //priceRange
   static setPriceRangeValues() {
     const input0LocalValue = window.localStorage.getItem("input-0");
     const input1LocalValue = window.localStorage.getItem("input-1");
@@ -229,7 +223,6 @@ export class Filter {
       (item) => item.price >= minPrice && item.price <= maxPrice
     );
   }
-  //common
   static setSelected() {
     this.setSelectedColors();
     this.setSelectedGender();
@@ -244,7 +237,6 @@ export class Filter {
     this.setMaterialClickListeners();
     this.setOnlyPopularClickListener();
   }
-  //main
   static initializeFilters() {
     this.setSelected();
     this.setListeners();
