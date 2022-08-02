@@ -22,9 +22,9 @@ export class Cart {
 
   static sendAlert() {
     const alert = document.querySelector(".over20-alert");
-    if (!alert?.classList.contains("active")) {
-      alert?.classList.add("active");
-      window.setTimeout(() => alert?.classList.remove("active"), 5000);
+    if (!alert?.classList.contains("alert-active")) {
+      alert?.classList.add("alert-active");
+      window.setTimeout(() => alert?.classList.remove("alert-active"), 5000);
     }
   }
 }
