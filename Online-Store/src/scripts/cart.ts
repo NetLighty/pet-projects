@@ -9,7 +9,6 @@ export class Cart {
         const selectedDakimakura = document.getElementById(dakimakura.name);
         const selectedBookmark =
           selectedDakimakura?.querySelector(".bookmark_selected");
-        console.log(window.localStorage.getItem(`${dakimakura.name}`));
         if (selectedBookmark !== null && selectedBookmark !== undefined)
           selectedBookmark.classList.add("selected");
       }

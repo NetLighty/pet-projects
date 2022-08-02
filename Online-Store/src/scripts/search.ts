@@ -7,7 +7,6 @@ export class Search {
   static searchBarCurrentValue: string;
   static inputChangeHandler(event: Event) {
     const searchBar = event.target as HTMLInputElement;
-    console.log(searchBar.value);
     this.searchBarCurrentValue = searchBar.value.toLowerCase();
     ItemsList.refreshItemsList();
   }
