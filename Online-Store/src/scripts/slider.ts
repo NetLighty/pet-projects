@@ -1,5 +1,5 @@
 import * as noUiSlider from "../../node_modules/nouislider/dist/nouislider";
-import "nouislider/dist/nouislider.scss";
+import "../../node_modules/nouislider/dist/nouislider.scss";
 import "../styles/slider.scss";
 import ItemsList from "../components/itemsList/itemsList";
 
