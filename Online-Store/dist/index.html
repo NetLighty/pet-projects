@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Softy</title>
+<script defer src="runtime.5243f3d8bb8a19d7d5cd.js"></script><script defer src="main.64e28a667516e288d36a.js"></script><script defer src="slider.c7b695428735f149615e.js"></script><link href="main.css" rel="stylesheet"><link href="slider.css" rel="stylesheet"></head>
+<body>
+  <div class="over20-alert">
+    <span class="over20-alert__message">Sorry, your shopping cart is full.</span>
+  </div>
+  <header class="header">
+    <div class="container">
+      <div class="logo"><img src="./images/girl-gradient-blue.png" alt="logo" class="logo"></div>
+      <h1 class="store-name">Softy (Still in development)</h1>
+      <div class="cart">
+        <div class="counter">
+          <span class="counter-number">0</span>
+          <img src="./images/counter.png" class="counter-background" alt="counter-background">
+        </div>
+        <img src="./images/shopping-cart.png" alt="cart" class="cart">
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="main-container">
+      <div class="filters">
+        <div class="content">
+          <div class="reset">
+            <button class="custom-button reset-button">Reset</button>
+          </div>
+          <div class="content__container">
+            <div class="filter">
+              <h5 class="filter__title">Gender</h5> 
+              <button type="button" name="gender" class="custom-button" id="all-gender">All</button>
+              <button type="button" name="gender" class="custom-button" id="girl">Girls</button>
+              <button type="button" name="gender" class="custom-button" id="boy">Boys</button>
+            </div>
+            <div class="filter">
+              <h5 class="filter__title">Material</h5>
+              <button type="button" name="gender" class="custom-button" id="all-material">All</button>
+              <div class="materials">
+                <div class="materials__item">
+                  <label for="synthetic">synthetic</label>
+                  <input type="checkbox" name="synthetic" class="custom-checkbox material-checkbox active" id="synthetic"></input>
+                </div>
+                <div class="materials__item">
+                  <label for="cotton">cotton</label>
+                  <input type="checkbox" name="cotton" class="custom-checkbox material-checkbox null" id="cotton"></input>
+                </div>
+                <div class="materials__item">
+                  <label for="plush">plush</label>
+                  <input type="checkbox" name="plush" class="custom-checkbox material-checkbox null" id="plush"></input>
+                </div>
+                <div class="materials__item">
+                  <label for="linen">linen</label>
+                  <input type="checkbox" name="linen" class="custom-checkbox material-checkbox null" id="linen"></input>
+                </div>
+              </div>
+            </div>
+            <div class="filter">
+              <div class="colors-top">
+                <h5 class="filter__title">Color</h5>
+                <button type="button" name="gender" class="custom-button" id="all-color">All</button>
+              </div>
+              <div class="colors">
+                <button name="color" class="color-btn color-btn_white" id="white">
+                  <svg stroke="currentColor" fill="black" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998
+                     36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 
+                     36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z">
+                    </path>
+                  </svg>
+                </button>
+                <button name="color" class="color-btn color-btn_black" id="black">
+                  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998
+                     36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 
+                     36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z">
+                    </path>
+                  </svg>
+                </button>
+                <button name="color" class="color-btn color-btn_blue" id="blue">
+                  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998
+                     36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 
+                     36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z">
+                    </path>
+                  </svg>
+                </button>
+                <button name="color" class="color-btn color-btn_green" id="green">
+                  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998
+                     36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 
+                     36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z">
+                    </path>
+                  </svg>
+                </button>
+                <button name="color" class="color-btn color-btn_pink" id="pink">
+                  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998
+                     36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 
+                     36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z">
+                    </path>
+                  </svg>
+                </button>
+                <button name="color" class="color-btn color-btn_red" id="red">
+                  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998
+                     36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 
+                     36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z">
+                    </path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class ="filter">
+              <div class="materials__item">
+                <label for="only-popular">Only Popular</label>
+                <input type="checkbox" name="only-popular" class="custom-checkbox active" id="only-popular"></input>
+              </div>
+            </div>
+            <div class="filter slider-filter">
+              <div class="slider-inputs">
+                <input type="text" name="text" value="" id="input-0" disabled>
+                <input type="text" name="text" value="" id="input-1" disabled>
+              </div>
+              <div id="slider" class="slider"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="sort-section">
+          <div class="sort">
+            <ul class="topmenu">
+              <li><span>Sort by</span>
+                 <ul class="submenu">
+                    <li id="highest"><span>Price (Highest)</span></li>
+                    <li id="lowest"><span>Price (Lowest)</span></li>
+                    <li id="A-Z"><span>Name (A-Z)</span></li>
+                    <li id="Z-A"><span>Name (Z-A)</span></li>
+                 </ul>
+              </li>
+           </ul>
+          </div>
+          <div class="search-container">
+            <input type="text" name="text" placeholder="Search" class="search-input" value="" autocomplete="off" autofocus>
+            <img src="./images/icons8-multiply-24.png" alt="clear-search-cress" class="clear-cress">
+          </div>
+          <button class="clean-storage-button custom-button">Clean storage</button>
+        </div>
+        <div class="items">
+          <span class="nothing-found">Sorry, nothing found</span>
+        </div>
+      </div>
+    </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <a href="https://rs.school/js" target="_blank">
+        <img class="rsschool-logo" src="https://2018.conf.rollingscopes.com/images/partners/logo-rs.svg" alt="RSShool logo">
+        <span class="creation-date">2022</span>
+    </a>
+    <a href="https://github.com/NetLighty" target="_blank">
+      <img class="github-logo" src="https://www.logolynx.com/images/logolynx/48/486bcc72e68c5f880850d9c76082af86.png" alt="github-logo">
+    </a>
+</footer>
+</body>
+</html>
