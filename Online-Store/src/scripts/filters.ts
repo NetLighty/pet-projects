@@ -1,6 +1,5 @@
 import { setSliderValues } from "./slider";
 import { IDakimakura } from "../types/index";
-import FiltersController from "./FiltersController";
 import { colors, materials } from "../data/itemsDB";
 import ItemsList from "./itemsList";
 import "../styles/filters.scss";
@@ -9,7 +8,17 @@ export class Filter {
   //Reset
   static setResetListener() {
     const reset = document.querySelector(".reset-button");
-    reset?.addEventListener("click", FiltersController.resetFilters);
+    reset?.addEventListener("click", Filter.resetFilters);
+  }
+  static resetFilters() {
+    Filter.setAllColorsTrue();
+    Filter.setAllMaterialsTrue();
+    window.localStorage.setItem("gender", "all-gender");
+    window.localStorage.setItem("only-popular", "false");
+    window.localStorage.setItem("input-0", "0");
+    window.localStorage.setItem("input-1", "10001");
+    Filter.setSelected();
+    ItemsList.refreshItemsList();
   }
   //Colors
   static setSelectedColors() {
