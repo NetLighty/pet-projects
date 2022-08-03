@@ -55,14 +55,14 @@ export class Filter {
       .getElementById("all-color")
       ?.addEventListener("click", this.allColorClickHandler);
   }
-  static getSelectedColors() {
+  static getSelectedColors(): string[] {
     const activeColors: string[] = [];
     Array.from(document.querySelectorAll(".color-btn")).forEach((button) => {
       if (button.classList.contains("active")) activeColors.push(button.id);
     });
     return activeColors;
   }
-  static filterItemsByColor(items: IDakimakura[]) {
+  static filterItemsByColor(items: IDakimakura[]): IDakimakura[] {
     const activeColors = this.getSelectedColors();
     if (activeColors.length === 0) return items;
     const filteredItems = items.filter((item) => {
@@ -70,7 +70,7 @@ export class Filter {
     });
     return filteredItems;
   }
-  static findCommon(arr1: string[], arr2: string[]) {
+  static findCommon(arr1: string[], arr2: string[]): string[] {
     const result: string[] = [];
     for (const el of arr1) {
       if (this.inArray(el, arr2)) {
@@ -79,7 +79,7 @@ export class Filter {
     }
     return result;
   }
-  static inArray(el: string, arr: string[]) {
+  static inArray(el: string, arr: string[]): boolean {
     return arr.indexOf(el) !== -1;
   }
 
@@ -116,7 +116,7 @@ export class Filter {
     girlsButton?.addEventListener("click", (e) => this.genderClickHandler(e));
     allButton?.addEventListener("click", (e) => this.genderClickHandler(e));
   }
-  static filterItemsByGender(items: IDakimakura[]) {
+  static filterItemsByGender(items: IDakimakura[]): IDakimakura[] {
     const selectedGender = window.localStorage.getItem("gender");
     if (selectedGender === null || selectedGender === "all-gender")
       return items;
@@ -167,7 +167,7 @@ export class Filter {
     );
     allButton?.addEventListener("click", this.allMaterialClickHandler);
   }
-  static filterItemsByMaterial(items: IDakimakura[]) {
+  static filterItemsByMaterial(items: IDakimakura[]): IDakimakura[] {
     const selectedMaterials = this.getSelectedMaterials();
     return items.filter((item) => {
       if (selectedMaterials.includes(item.material)) return true;
@@ -200,7 +200,7 @@ export class Filter {
       onlyPopular.checked = true;
     else onlyPopular.checked = false;
   }
-  static filterByPopular(items: IDakimakura[]) {
+  static filterByPopular(items: IDakimakura[]): IDakimakura[] {
     const isOnlyPopularChecked = window.localStorage.getItem("only-popular");
     if (isOnlyPopularChecked === "true")
       return items.filter((items) => items.isPopular === "Yes");
@@ -213,7 +213,7 @@ export class Filter {
     const maxPrice = input1LocalValue !== null ? input1LocalValue : "10001";
     setSliderValues(Number(minPrice), Number(maxPrice));
   }
-  static filterByPriceRange(items: IDakimakura[]) {
+  static filterByPriceRange(items: IDakimakura[]): IDakimakura[] {
     const input0 = document.getElementById("input-0") as HTMLInputElement;
     const input1 = document.getElementById("input-1") as HTMLInputElement;
     if (input0 === null || input1 === null) return items;

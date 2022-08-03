@@ -69,7 +69,7 @@ export class ItemsList {
     if (finallyFiltered.length === 0) {
       this.appendNothinFoundMessage();
     }
-    if (sortType !== null) {
+    if (sortType) {
       const sorted = Sort.sortByType(finallyFiltered, sortType);
       this.fillPage(sorted);
     } else this.fillPage(finallyFiltered);
