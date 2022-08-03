@@ -9,8 +9,7 @@ export class Cart {
         const selectedDakimakura = document.getElementById(dakimakura.name);
         const selectedBookmark =
           selectedDakimakura?.querySelector(".bookmark_selected");
-        if (selectedBookmark)
-          selectedBookmark.classList.add("selected");
+        if (selectedBookmark) selectedBookmark.classList.add("selected");
       }
     });
     const counter = document.querySelector(".counter-number");

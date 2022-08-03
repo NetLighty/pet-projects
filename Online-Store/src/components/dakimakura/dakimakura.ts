@@ -5,40 +5,40 @@ import "./dakimakura.scss";
 export class Dakimakura {
   static dakimakuraClickListener(id: string) {
     const clickedDakimakura = document.getElementById(`${id}`);
-    const counter = document.querySelector(".counter-number");
-    const localStorageCounter = window.localStorage.getItem("counter");
-    if (localStorageCounter === null)
-      window.localStorage.setItem("counter", "0");
-    const selectedBookmark =
-      clickedDakimakura?.querySelector(".bookmark_selected");
-    const notSelectedBookmark = clickedDakimakura?.querySelector(
-      ".bookmark_not-selected"
-    );
-    if (selectedBookmark?.classList.contains("selected")) {
-      selectedBookmark.classList.remove("selected");
-      notSelectedBookmark?.classList.add("selected");
-      window.localStorage.setItem(`${id}`, `not-selected`);
-      window.localStorage.setItem(
-        "counter",
-        String(Number(localStorageCounter) - 1)
-      );
-      if (counter !== null)
-        counter.innerHTML = `${Number(window.localStorage.getItem("counter"))}`;
-    } else {
-      if (Number(localStorageCounter) >= 10) {
+    const bookmark = clickedDakimakura?.querySelector(".bookmark_selected");
+    if (clickedDakimakura && bookmark) {
+      const isSelected = !bookmark.classList.contains("selected");
+      const localStorageCounterNumber = Number(localStorage.getItem("counter"));
+      if (isSelected && localStorageCounterNumber >= 10) {
         Cart.sendAlert();
-        return;
+      } else {
+        Dakimakura.toggleBookmark(id, bookmark);
+        Dakimakura.changeCounter(isSelected, localStorageCounterNumber);
       }
-      selectedBookmark?.classList.add("selected");
-      notSelectedBookmark?.classList.remove("selected");
-      window.localStorage.setItem(`${id}`, `selected`);
-      window.localStorage.setItem(
-        "counter",
-        String(Number(localStorageCounter) + 1)
-      );
-      if (counter !== null)
-        counter.innerHTML = `${Number(window.localStorage.getItem("counter"))}`;
     }
+  }
+
+  static toggleBookmark(dakimakuraId: string, bookmark: Element) {
+    bookmark.classList.toggle("selected");
+    localStorage.setItem(
+      `${dakimakuraId}`,
+      `${bookmark.classList.contains("selected") ? "selected" : "not-selected"}`
+    );
+  }
+  static changeCounter(isSelected: boolean, localStorageCounterNumber: number) {
+    const counterElement = document.querySelector(".counter-number");
+    if (counterElement) {
+      if (!localStorageCounterNumber) {
+        localStorage.setItem("counter", "0");
+      }
+      if (isSelected) {
+        localStorage.setItem("counter", `${localStorageCounterNumber + 1}`);
+        counterElement.innerHTML = `${localStorageCounterNumber + 1}`;
+      } else {
+        localStorage.setItem("counter", `${localStorageCounterNumber - 1}`);
+        counterElement.innerHTML = `${localStorageCounterNumber - 1}`;
+      }
+    } else return;
   }
 
   static createDakimakura(info: IDakimakura): HTMLDivElement {
@@ -51,7 +51,7 @@ export class Dakimakura {
     dakimakura.innerHTML = `<img class="dakimakura__img" src="${
       info.imgSrc
     }" alt="daki-img">
-    <img src="./images/bookmark.png" class="bookmark bookmark_not-selected selected" alt="bookmark"></img>
+    <img src="./images/bookmark.png" class="bookmark selected" alt="bookmark"></img>
     <img src="./images/bookmark-choosen.png" class="bookmark bookmark_selected" alt="bookmark-choosen"></img>
     <div class="dakimakura__main-info">
       <a class="dakimakura__name">${info.name}</a>
@@ -67,7 +67,7 @@ export class Dakimakura {
       <span class="attribute">Colors: </span>
       <span class="value" id="colors">${[...info.colors]}</span>
       <span class="attribute">Material: </span>
-      <span class="value" id="popular">${info.material}</span>
+      <span class="value" id="material">${info.material}</span>
       <span class="attribute">Popular: </span>
       <span class="value" id="popular">${info.isPopular}</span>
     </div>`;
