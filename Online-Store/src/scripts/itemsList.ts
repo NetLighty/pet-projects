@@ -60,17 +60,11 @@ export class ItemsList {
     this.clearItemsContainer();
     const itemsToFilter = items ? items : dakimakuras;
     const sortType = window.localStorage.getItem("sort");
-    //search
     const filteredBySearchValue = Search.filterBySearchValue(itemsToFilter);
-    //gender
     const filteredByGender = Filter.filterItemsByGender(filteredBySearchValue);
-    //material
     const filteredByMaterial = Filter.filterItemsByMaterial(filteredByGender);
-    //popular
     const filteredByPopular = Filter.filterByPopular(filteredByMaterial);
-    //priceRange
     const filteredByPriceRange = Filter.filterByPriceRange(filteredByPopular);
-    //color
     const finallyFiltered = Filter.filterItemsByColor(filteredByPriceRange);
     if (finallyFiltered.length === 0) {
       this.appendNothinFoundMessage();
