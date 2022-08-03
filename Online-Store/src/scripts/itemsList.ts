@@ -13,7 +13,7 @@ export class ItemsList {
     this.patterns = patterns;
   }
 
-  static fillPage(patterns: IDakimakura[]) {
+  static fillPage(patterns: IDakimakura[]): void {
     patterns.forEach((pattern) => {
       const dakimakura = Dakimakura.createDakimakura(pattern);
       ItemsList.itemsContainer?.append(dakimakura);
@@ -21,19 +21,19 @@ export class ItemsList {
     Cart.setSelected(patterns);
   }
 
-  static createNothingFoundMessage() {
+  static createNothingFoundMessage(): HTMLSpanElement {
     const nothingFoundMessage = document.createElement("span");
     nothingFoundMessage.className = "nothing-found";
     nothingFoundMessage.innerHTML = "Sorry, nothing found";
     return nothingFoundMessage;
   }
 
-  static appendNothinFoundMessage() {
+  static appendNothinFoundMessage(): void {
     const nothingFoundMessage = this.createNothingFoundMessage();
     document.querySelector(".items")?.append(nothingFoundMessage);
   }
 
-  static setHidden() {
+  static setHidden(): void {
     const items = dakimakuras;
     const filteredByColor: IDakimakura[] = Filter.filterItemsByColor(items);
     document.querySelectorAll(".dakimakura").forEach((el) => {
@@ -44,19 +44,19 @@ export class ItemsList {
     });
   }
 
-  static clearItemsContainer() {
+  static clearItemsContainer(): void {
     if (this.itemsContainer === null)
       throw new Error("items container doesnt exist");
     this.itemsContainer.innerHTML = "";
   }
 
-  static displaySortedItems(elements: Element[]) {
+  static displaySortedItems(elements: Element[]): void {
     this.clearItemsContainer();
     elements.forEach((el) => ItemsList.itemsContainer?.append(el));
     this.setHidden();
   }
 
-  static refreshItemsList(items?: IDakimakura[]) {
+  static refreshItemsList(items?: IDakimakura[]): void {
     this.clearItemsContainer();
     const itemsToFilter = items ? items : dakimakuras;
     const sortType = window.localStorage.getItem("sort");
