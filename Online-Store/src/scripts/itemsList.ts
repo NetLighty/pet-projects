@@ -45,9 +45,9 @@ export class ItemsList {
   }
 
   static clearItemsContainer(): void {
-    if (this.itemsContainer === null)
-      throw new Error("items container doesnt exist");
-    this.itemsContainer.innerHTML = "";
+    if (this.itemsContainer) {
+      this.itemsContainer.innerHTML = "";
+    }
   }
 
   static displaySortedItems(elements: Element[]): void {
