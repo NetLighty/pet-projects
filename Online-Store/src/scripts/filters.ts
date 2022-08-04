@@ -101,12 +101,14 @@ export class Filter {
       }
     }
   }
-  static genderClickHandler(event: Event) {
-    const element = event.target as Element;
-    if (element.classList.contains("active")) return;
-    window.localStorage.setItem("gender", element.id);
-    this.setSelectedGender();
-    ItemsList.refreshItemsList();
+  static genderClickHandler(event: Event): void {
+    const element = event.target as Element | null;
+    if (element) {
+      if (element.classList.contains("active")) return;
+      window.localStorage.setItem("gender", element.id);
+      this.setSelectedGender();
+      ItemsList.refreshItemsList();
+    }
   }
   static setGendersClickListeners() {
     const boysButton = document.getElementById("boy");
@@ -137,8 +139,12 @@ export class Filter {
   static setSelectedMaterials() {
     const selectedMaterials = this.getSelectedMaterials();
     selectedMaterials.forEach((material) => {
-      const checkBox = document.getElementById(material) as HTMLInputElement;
-      checkBox.checked = true;
+      const checkBox = document.getElementById(
+        material
+      ) as HTMLInputElement | null;
+      if (checkBox) {
+        checkBox.checked = true;
+      }
     });
   }
   static allMaterialClickHandler() {
@@ -152,10 +158,12 @@ export class Filter {
     ItemsList.refreshItemsList();
   }
   static materialCheckBoxClickHandler(event: Event) {
-    const checkBox = event.target as HTMLInputElement;
-    if (checkBox.checked) window.localStorage.setItem(checkBox.id, "true");
-    else window.localStorage.setItem(checkBox.id, "false");
-    ItemsList.refreshItemsList();
+    const checkBox = event.target as HTMLInputElement | null;
+    if (checkBox) {
+      if (checkBox.checked) window.localStorage.setItem(checkBox.id, "true");
+      else window.localStorage.setItem(checkBox.id, "false");
+      ItemsList.refreshItemsList();
+    }
   }
   static setMaterialClickListeners() {
     const allButton = document.getElementById("all-material");
@@ -181,11 +189,13 @@ export class Filter {
     });
   }
   static onlyPopularClickHandler(event: Event) {
-    const onlyPopularBox = event.target as HTMLInputElement;
-    if (onlyPopularBox.checked)
-      window.localStorage.setItem("only-popular", "true");
-    else window.localStorage.setItem("only-popular", "false");
-    ItemsList.refreshItemsList();
+    const onlyPopularBox = event.target as HTMLInputElement | null;
+    if (onlyPopularBox) {
+      if (onlyPopularBox.checked)
+        window.localStorage.setItem("only-popular", "true");
+      else window.localStorage.setItem("only-popular", "false");
+      ItemsList.refreshItemsList();
+    }
   }
   static setOnlyPopularClickListener() {
     document
@@ -193,12 +203,14 @@ export class Filter {
       ?.addEventListener("click", (e) => this.onlyPopularClickHandler(e));
   }
   static setOnlyPopular() {
-    const onlyPopular: HTMLInputElement = document.getElementById(
+    const onlyPopular = document.getElementById(
       "only-popular"
-    ) as HTMLInputElement;
-    if (window.localStorage.getItem("only-popular") === "true")
-      onlyPopular.checked = true;
-    else onlyPopular.checked = false;
+    ) as HTMLInputElement | null;
+    if (onlyPopular) {
+      if (window.localStorage.getItem("only-popular") === "true")
+        onlyPopular.checked = true;
+      else onlyPopular.checked = false;
+    }
   }
   static filterByPopular(items: IDakimakura[]): IDakimakura[] {
     const isOnlyPopularChecked = window.localStorage.getItem("only-popular");
@@ -214,9 +226,15 @@ export class Filter {
     setSliderValues(Number(minPrice), Number(maxPrice));
   }
   static filterByPriceRange(items: IDakimakura[]): IDakimakura[] {
-    const input0 = document.getElementById("input-0") as HTMLInputElement;
-    const input1 = document.getElementById("input-1") as HTMLInputElement;
-    if (input0 === null || input1 === null) return items;
+    const input0 = document.getElementById(
+      "input-0"
+    ) as HTMLInputElement | null;
+    const input1 = document.getElementById(
+      "input-1"
+    ) as HTMLInputElement | null;
+    if (!input0 || !input1) {
+      return items;
+    }
     const minPrice = Number(input0.value);
     const maxPrice = Number(input1.value);
     return items.filter(
