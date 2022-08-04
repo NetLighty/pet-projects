@@ -4,7 +4,7 @@ footer {
   grid-column-gap: 50px;
   align-items: center;
   justify-content: center;
-  margin-top: .7rem;
+  margin-top: 0.7rem;
 }
 
 footer .copyright {
@@ -21,22 +21,22 @@ footer .copyright a:hover {
   color: #555;
 }
 footer .copyright:before {
-  content: '©';
+  content: "©";
 }
-footer .rsschool-logo{
+footer .rsschool-logo {
   position: relative;
   width: 125px;
 }
-footer .github-logo{
+footer .github-logo {
   width: 125px;
 }
-footer a{
+footer a {
   font-size: 2rem;
   text-decoration: none;
   text-align: center;
   color: black;
 }
-footer .creation-date{
+footer .creation-date {
   font-style: italic;
   letter-spacing: 1px;
 }

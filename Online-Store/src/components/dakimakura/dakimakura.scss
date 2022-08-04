@@ -10,8 +10,8 @@
   .bookmark {
     display: none;
     position: absolute;
-    right: .5rem;
-    bottom: .5rem;
+    right: 0.5rem;
+    bottom: 0.5rem;
     width: 3.5rem;
   }
   .selected {
@@ -29,31 +29,31 @@
     font-weight: 600;
     letter-spacing: 0.1rem;
     margin: 0 auto;
-    color: rgb(0,137,181);
+    color: rgb(0, 137, 181);
   }
   &__price {
     position: relative;
-    right: .3rem;
+    right: 0.3rem;
     font-size: 1.8rem;
-    letter-spacing: .1rem;
-    color: rgb(115,180,181)
+    letter-spacing: 0.1rem;
+    color: rgb(115, 180, 181);
   }
-  &__currency{
+  &__currency {
     position: relative;
     right: 0;
     width: 1.6rem;
     height: 1.6rem;
-    margin-left: .5rem;
-    color: rgb(115,180,181);
+    margin-left: 0.5rem;
+    color: rgb(115, 180, 181);
   }
-  &__main-info{
+  &__main-info {
     position: relative;
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
-    margin-bottom: .6rem;
+    margin-bottom: 0.6rem;
   }
-  &__description{
+  &__description {
     text-transform: capitalize;
     width: 90%;
     display: grid;
@@ -63,13 +63,13 @@
 
     .attribute {
       font-size: 1.7rem;
-      color: rgb(0,107,151)
+      color: rgb(0, 107, 151);
     }
 
     .value {
       display: grid;
       justify-self: center;
-      color: rgb(0,157,201);
+      color: rgb(0, 157, 201);
       font-size: 1.8rem;
     }
   }
