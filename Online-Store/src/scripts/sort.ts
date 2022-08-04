@@ -30,12 +30,15 @@ export class Sort {
   }
   static sortByPrice(items: IDakimakura[], type: string) {
     return items.sort(function (a, b) {
-      if (type === "lowest") return a.price - b.price;
-      else return b.price - a.price;
+      if (type === "lowest") {
+        return a.price - b.price;
+      } else {
+        return b.price - a.price;
+      }
     });
   }
   static sortByName(items: IDakimakura[], type: string) {
-    const itemNames: string[] = items.map((el) => el.name);
+    const itemNames: string[] = items.map(({ name }) => name);
     const sortedItemNames =
       type === "A-Z" ? itemNames.sort() : itemNames.sort().reverse();
     return sortedItemNames.map(
@@ -58,8 +61,11 @@ export class Sort {
       const bPrice = dakimakuras.filter(
         (dakimakura) => dakimakura.name === b.id
       )[0].price;
-      if (type === "lowest") return aPrice - bPrice;
-      else return bPrice - aPrice;
+      if (type === "lowest") {
+        return aPrice - bPrice;
+      } else {
+        return bPrice - aPrice;
+      }
     });
     ItemsList.displaySortedItems(sortedElements);
   }
