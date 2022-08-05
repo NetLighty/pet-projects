@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js",
+    "start": "webpack serve --open"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.32.0",
