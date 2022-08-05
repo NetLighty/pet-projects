@@ -1,0 +1,16 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+.page {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(4,4,4);
+}
