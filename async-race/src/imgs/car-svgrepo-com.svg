@@ -1,38 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Async Race</title>
-</head>
-<body>
-  <div class="page">
-    <main>
-      <div class="garage">
-        <div class="page__navigation">
-          <button>Garage</button>
-          <button>Winners</button>
-       </div>
-       <div class="garage__menu">
-        <input type="text"/>
-        <input type="text"/> 
-       </div>
-       <h1>Garage ( 0 )</h1>
-       <h2>Page # 1</h2>
-       <div class="cars-list">
-        <div class="car-block">
-          <div class="car__head">
-            <span class="car__name">Pyterks</span>
-            <button class="">Select</button>
-            <button class="">Delete</button>
-          </div>
-          <div class="engine-buttons">
-            <button>A</button>
-            <button>B</button>
-          </div>
-          <div class="">
-<svg class="white" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="31.445px" height="31.445px" viewBox="0 0 31.445 31.445" style="enable-background:new 0 0 31.445 31.445;"
 	 xml:space="preserve">
 <g>
@@ -84,14 +53,3 @@
 <g>
 </g>
 </svg>
-          </div>
-        </div>
-       </div>
-      </div>
-      <div class="winners">
-  
-      </div>
-    </main>
-  </div>
-</body>
-</html>

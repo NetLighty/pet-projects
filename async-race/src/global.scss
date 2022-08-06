@@ -1,3 +1,10 @@
+$text-primary: #fff;
+$font-heading: Inter, BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-sans;
+$h1-font-size: 2.5rem;
+$h2-font-size: 2rem;
+$h1-font: 200 $h1-font-size $font-heading;
+$h2-font: 200 $h2-font-size $font-heading;
+
 * {
   padding: 0;
   margin: 0;
@@ -6,6 +13,7 @@
 
 html {
   font-size: 10px;
+  color: $text-primary;
 }
 
 .page {
@@ -13,4 +21,21 @@ html {
   width: 100vw;
   height: 100vh;
   background-color: rgb(4,4,4);
+}
+
+h1, h2 {
+  line-height: 120%;
+  letter-spacing: -.5px;
+}
+
+h1 {
+  font: $h1-font;
+}
+
+h2 {
+  font: $h2-font;
+}
+
+.white {
+  fill: #fff;
 }

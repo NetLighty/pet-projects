@@ -25,14 +25,18 @@ const baseConfig = {
           'sass-loader'
         ]
       },
-      { test: /\.ts$/i, use: 'ts-loader' }
+      { test: /\.ts$/i, use: 'ts-loader' },
+      {
+        test: /\.svg$/,
+        loader: 'svg-inline-loader'
+      }
     ]
   },
   resolve: {
     extensions: ['.ts', '.js']
   },
   output: {
-    filename: '[name].[contenthash].js',
+    filename: 'index.js',
     path: path.resolve(__dirname, './dist')
   },
   plugins: [
@@ -43,10 +47,7 @@ const baseConfig = {
     new CleanWebpackPlugin(),
     new EslingPlugin({ extensions: 'ts' }),
     new MiniCssExtractPlugin()
-  ],
-  optimization: {
-    runtimeChunk: 'single'
-  }
+  ]
 };
 
 module.exports = ({ mode }) => {
