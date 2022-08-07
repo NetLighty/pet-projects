@@ -7,8 +7,8 @@ class App {
     this.controller = new AppController();
   }
 
-  start(): void {
-    const cars = this.controller.getCars();
+  async start(): Promise<void> {
+    const cars = await this.controller.getCars();
     console.log(cars);
   }
 }
