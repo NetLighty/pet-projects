@@ -17,9 +17,15 @@ class Garage {
 
   cars: ICarDB[];
 
+  selectedCarId: number;
+
+  updateTextInput: HTMLInputElement | null;
+
   constructor(controller: AppController) {
     this.controller = controller;
     this.cars = [];
+    this.selectedCarId = 0;
+    this.updateTextInput = document.getElementById('text-update') as HTMLInputElement | null;
     this.generateCarsButton = document.getElementById('generate-cars-button');
     this.carsAmountElement = document.querySelector('.cars-amount');
     this.createButton = document.getElementById('create-button');
@@ -27,8 +33,10 @@ class Garage {
   }
 
   async initGarage() {
+    const updateButton = document.getElementById('update-button') as HTMLInputElement | null;
     this.generateCarsButton?.addEventListener('click', () => this.generateCars(generateCarsNumber));
     this.createButton?.addEventListener('click', () => this.createCar());
+    updateButton?.addEventListener('click', () => this.updateCar());
   }
 
   async refreshGarage() {
@@ -45,8 +53,9 @@ class Garage {
       this.cars.forEach((car) => {
         const carBlock = createCarBlockElement(car);
         const deleteButton = carBlock.querySelector('.delete');
-        // const selectButton = carBlock.querySelector('.select');
+        const selectButton = carBlock.querySelector('.select');
         deleteButton?.addEventListener('click', () => this.deleteCar(car.id));
+        selectButton?.addEventListener('click', () => this.selectCar(car.id));
         carBlocksContainer?.append(carBlock);
       });
     }
@@ -81,6 +90,33 @@ class Garage {
       await this.controller.createCar({ name: textInput.value, color: colorInput.value });
       await this.refreshGarage();
     }
+  }
+
+  selectCar(id: number) {
+    const selectedCarBlock = document.getElementById(`${id}`);
+    const pastSelectedCarBlock = document.getElementById(`${this.selectedCarId}`);
+    const selectedCarName = selectedCarBlock?.querySelector('.car__name')?.textContent;
+    if (this.updateTextInput && selectedCarName) {
+      this.updateTextInput.value = selectedCarName;
+    }
+    if (this.selectedCarId === id) {
+      selectedCarBlock?.classList.toggle('selected');
+    } else {
+      selectedCarBlock?.classList.add('selected');
+      pastSelectedCarBlock?.classList.remove('selected');
+    }
+    this.selectedCarId = id;
+  }
+
+  async updateCar() {
+    const colorInput = document.getElementById('colorpicker-update') as HTMLInputElement | null;
+    if (this.updateTextInput && colorInput) {
+      await this.controller.updateCar(this.selectedCarId, {
+        name: this.updateTextInput.value, color: colorInput.value
+      });
+      this.updateTextInput.value = '';
+    }
+    await this.refreshGarage();
   }
 }
 
