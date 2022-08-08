@@ -1,0 +1,96 @@
+/*!**********************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/global.scss ***!
+  \**********************************************************************************************************/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+  color: #fff;
+}
+
+.page {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: rgb(4, 4, 4);
+}
+
+h1, h2 {
+  line-height: 120%;
+  letter-spacing: -0.5px;
+}
+
+h1 {
+  font: 200 3rem Inter, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-sans;
+}
+
+h2 {
+  font: 200 2.7rem Inter, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-sans;
+}
+
+.white {
+  fill: #fff;
+}
+
+.cars-list {
+  margin-left: 3rem;
+  width: 90vw;
+}
+
+.alert-message {
+  color: green;
+}
+/*!*********************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/view/garage/garage.scss ***!
+  \*********************************************************************************************************************************/
+.car-block {
+  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  border-bottom: 0.5rem white dashed;
+}
+.car-block__body {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+}
+
+.selected {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.race {
+  display: grid;
+  grid-template-columns: 6rem 1fr;
+  align-items: baseline;
+  justify-items: center;
+}
+
+.car__name {
+  font-size: 2.5rem;
+}
+.car__img {
+  position: relative;
+  bottom: -1.3rem;
+  width: 6rem;
+  height: 6rem;
+}
+
+.flag {
+  display: grid;
+  justify-self: end;
+  height: 5rem;
+  fill: rgba(240, 0, 0, 0.7);
+}
+
+.engine-buttons {
+  width: 5rem;
+}
+.engine-buttons button {
+  width: 2rem;
+  height: 2rem;
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWFpbi5jc3MiLCJtYXBwaW5ncyI6Ijs7O0FBT0E7RUFDRTtFQUNBO0VBQ0E7QUFORjs7QUFTQTtFQUNFO0VBQ0EsV0FmYTtBQVNmOztBQVNBO0VBRUU7RUFDQTtFQUNBO0FBUEY7O0FBVUE7RUFDRTtFQUNBO0FBUEY7O0FBVUE7RUFDRSx1SkEzQlE7QUFvQlY7O0FBVUE7RUFDRSx5SkE5QlE7QUF1QlY7O0FBVUE7RUFDRTtBQVBGOztBQVVBO0VBQ0U7RUFDQTtBQVBGOztBQVVBO0VBQ0U7QUFQRixDOzs7O0FDdkNBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7QUFERjtBQUdFO0VBQ0U7RUFDQTtBQURKOztBQUlBO0VBQ0U7QUFERjs7QUFHQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0FBQUY7O0FBR0U7RUFDRSxpQkF4QmlCO0FBd0JyQjtBQUVFO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7QUFBSjs7QUFHQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0FBQUY7O0FBRUE7RUFDRTtBQUNGO0FBQ0U7RUFDRTtFQUNBO0FBQ0osQyIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3NyYy9nbG9iYWwuc2NzcyIsIndlYnBhY2s6Ly8vLi9zcmMvY29tcG9uZW50cy92aWV3L2dhcmFnZS9nYXJhZ2Uuc2NzcyJdLCJzb3VyY2VzQ29udGVudCI6WyIkdGV4dC1wcmltYXJ5OiAjZmZmO1xyXG4kZm9udC1oZWFkaW5nOiBJbnRlciwgQmxpbmtNYWNTeXN0ZW1Gb250LFwiU2Vnb2UgVUlcIixcIlJvYm90b1wiLFwiT3h5Z2VuXCIsXCJVYnVudHVcIixcIkNhbnRhcmVsbFwiLFwiRmlyYSBTYW5zXCIsXCJEcm9pZCBTYW5zXCIsXCJIZWx2ZXRpY2EgTmV1ZVwiLHNhbnMtc2FucztcclxuJGgxLWZvbnQtc2l6ZTogM3JlbTtcclxuJGgyLWZvbnQtc2l6ZTogMi43cmVtO1xyXG4kaDEtZm9udDogMjAwICRoMS1mb250LXNpemUgJGZvbnQtaGVhZGluZztcclxuJGgyLWZvbnQ6IDIwMCAkaDItZm9udC1zaXplICRmb250LWhlYWRpbmc7XHJcblxyXG4qIHtcclxuICBwYWRkaW5nOiAwO1xyXG4gIG1hcmdpbjogMDtcclxuICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xyXG59XHJcblxyXG5odG1sIHtcclxuICBmb250LXNpemU6IDEwcHg7XHJcbiAgY29sb3I6ICR0ZXh0LXByaW1hcnk7XHJcbn1cclxuXHJcbi5wYWdlIHtcclxuICAvL292ZXJmbG93OiBoaWRkZW47XHJcbiAgd2lkdGg6IDEwMHZ3O1xyXG4gIG1pbi1oZWlnaHQ6IDEwMHZoO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHJnYig0LDQsNCk7XHJcbn1cclxuXHJcbmgxLCBoMiB7XHJcbiAgbGluZS1oZWlnaHQ6IDEyMCU7XHJcbiAgbGV0dGVyLXNwYWNpbmc6IC0uNXB4O1xyXG59XHJcblxyXG5oMSB7XHJcbiAgZm9udDogJGgxLWZvbnQ7XHJcbn1cclxuXHJcbmgyIHtcclxuICBmb250OiAkaDItZm9udDtcclxufVxyXG5cclxuLndoaXRlIHtcclxuICBmaWxsOiAjZmZmO1xyXG59XHJcblxyXG4uY2Fycy1saXN0IHtcclxuICBtYXJnaW4tbGVmdDogM3JlbTtcclxuICB3aWR0aDogOTB2dztcclxufVxyXG5cclxuLmFsZXJ0LW1lc3NhZ2Uge1xyXG4gIGNvbG9yOiBncmVlbjtcclxufSIsIiRjYXItbmFtZS1mb250LXNpemU6IDIuNXJlbTtcclxuXHJcbi5jYXItYmxvY2sge1xyXG4gIG1hcmdpbi1ib3R0b206IDFyZW07XHJcbiAgZGlzcGxheTogZ3JpZDtcclxuICBncmlkLXRlbXBsYXRlLWNvbHVtbnM6IDFmcjtcclxuICBib3JkZXItYm90dG9tOiAuNXJlbSB3aGl0ZSBkYXNoZWQ7XHJcblxyXG4gICZfX2JvZHkge1xyXG4gICAgZGlzcGxheTogZ3JpZDtcclxuICAgIGdyaWQtdGVtcGxhdGUtY29sdW1uczogNXJlbSAxZnI7XHJcbiAgfVxyXG59XHJcbi5zZWxlY3RlZCB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgyNTUsIDI1NSwgMjU1LCAwLjIpO1xyXG59XHJcbi5yYWNlIHtcclxuICBkaXNwbGF5OiBncmlkO1xyXG4gIGdyaWQtdGVtcGxhdGUtY29sdW1uczogNnJlbSAxZnI7XHJcbiAgYWxpZ24taXRlbXM6IGJhc2VsaW5lO1xyXG4gIGp1c3RpZnktaXRlbXM6IGNlbnRlcjtcclxufVxyXG4uY2FyIHtcclxuICAmX19uYW1lIHtcclxuICAgIGZvbnQtc2l6ZTogJGNhci1uYW1lLWZvbnQtc2l6ZTtcclxuICB9XHJcbiAgJl9faW1nIHtcclxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgIGJvdHRvbTogLTEuM3JlbTtcclxuICAgIHdpZHRoOiA2cmVtO1xyXG4gICAgaGVpZ2h0OiA2cmVtO1xyXG4gIH1cclxufVxyXG4uZmxhZyB7XHJcbiAgZGlzcGxheTogZ3JpZDtcclxuICBqdXN0aWZ5LXNlbGY6IGVuZDtcclxuICBoZWlnaHQ6IDVyZW07XHJcbiAgZmlsbDogcmdiYSgyNDAsIDAsIDAsIDAuNyk7XHJcbn1cclxuLmVuZ2luZS1idXR0b25zIHtcclxuICB3aWR0aDogNXJlbTtcclxuXHJcbiAgYnV0dG9uIHtcclxuICAgIHdpZHRoOiAycmVtO1xyXG4gICAgaGVpZ2h0OiAycmVtO1xyXG4gIH1cclxufVxyXG4iXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=*/
