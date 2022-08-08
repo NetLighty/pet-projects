@@ -1,3 +1,4 @@
+import { EngineData } from '../view/garage/garage.types';
 import {
   engineStatus, fetchData, ICar, ICarDB, IWinner
 } from './appController.types';
@@ -34,8 +35,8 @@ class AppController {
     return res;
   }
 
-  async ruleCarEngine(id: string, status: engineStatus): Promise<Response> {
-    const res = await AppController.request(this.apiUrl + '/engine?' + new URLSearchParams({ id, status }), 'PATCH');
+  async ruleCarEngine(id: number, status: engineStatus): Promise<EngineData> {
+    const res = await AppController.request(this.apiUrl + '/engine?' + new URLSearchParams({ id: `${id}`, status }), 'PATCH');
     return res;
   }
 

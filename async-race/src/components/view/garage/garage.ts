@@ -1,10 +1,13 @@
 /* import { ICarDB } from "../../controller/appController.types"; */
 
 import {
-  createCarBlockElement, generateCarsNumber, getRandomCarName, getRandomColor
+  carDriveAnimation,
+  createCarBlockElement, generateCarsNumber, getDistanceBetweenElems, getRandomCarName,
+  getRandomColor, startRaceButtonClass
 } from '../../../utils/utils';
 import AppController from '../../controller/appController';
 import { ICarDB } from '../../controller/appController.types';
+import { EngineData } from './garage.types';
 
 class Garage {
   controller: AppController;
@@ -54,8 +57,11 @@ class Garage {
         const carBlock = createCarBlockElement(car);
         const deleteButton = carBlock.querySelector('.delete');
         const selectButton = carBlock.querySelector('.select');
+        const startRaceButton = carBlock.querySelector(startRaceButtonClass);
+        // const stopRaceButton = carBlock.querySelector(stopRaceButtonClass);
         deleteButton?.addEventListener('click', () => this.deleteCar(car.id));
         selectButton?.addEventListener('click', () => this.selectCar(car.id));
+        startRaceButton?.addEventListener('click', () => this.startCarRace(car.id));
         carBlocksContainer?.append(carBlock);
       });
     }
@@ -117,6 +123,18 @@ class Garage {
       this.updateTextInput.value = '';
     }
     await this.refreshGarage();
+  }
+
+  async startCarRace(id: number) {
+    const carBlock = document.getElementById(`${id}`);
+    const carImg = carBlock?.querySelector('.car__img') as HTMLDivElement | null;
+    const flag = carBlock?.querySelector('.flag') as HTMLDivElement | null;
+    const engineData: EngineData = await this.controller.ruleCarEngine(id, 'started');
+    const animationTime = engineData.distance / engineData.velocity;
+    if (carImg && flag) {
+      const distanceBetweenCarAndFlag = getDistanceBetweenElems(carImg, flag);
+      carDriveAnimation(carImg, distanceBetweenCarAndFlag, animationTime);
+    }
   }
 }
 
