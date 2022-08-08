@@ -1,4 +1,36 @@
 import { ICarDB } from '../components/controller/appController.types';
+import { CarsDB } from '../components/view/garage/garage.types';
+
+export const carsDB: CarsDB = {
+  BMW: ['Gran Coupe', 'Active Tourer', 'Saloon', 'Z4 Roadster'],
+  AUDI: ['e-tron', 'RS 7', 'Q8', 'Q6', 'Q3'],
+  ISUZU: ['D-Max', 'MU-X', 'Mysterious Utility Wizard'],
+  FORD: ['Kuga', 'Explorer', 'Fiesta', 'Edge'],
+  FERRARI: ['LaFerrari', 'Pisra Spider', 'Portofino', 'Challange', 'LaFerrari Aperta'],
+  HAVAL: ['Big Dog']
+};
+
+export const generateCarsNumber = 100;
+
+export const getRandomColor = ():string => {
+  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+};
+
+const getRandomBrand = (carsInfo: CarsDB): string => {
+  const brands = Object.keys(carsInfo);
+  return brands[Math.floor(Math.random() * brands.length)];
+};
+
+const getRandomModel = (brand: string): string => {
+  const models = carsDB[brand];
+  return models[Math.floor(Math.random() * models.length)];
+};
+
+export const getRandomCarName = (): string => {
+  const randomBrand = getRandomBrand(carsDB);
+  const randomModel = getRandomModel(randomBrand);
+  return `${randomBrand} ${randomModel}`;
+};
 
 export function createCarBlockElement(carData: ICarDB): HTMLDivElement {
   const carBlock = document.createElement('div');
@@ -6,9 +38,9 @@ export function createCarBlockElement(carData: ICarDB): HTMLDivElement {
   carBlock.id = `${carData.id}`;
   carBlock.innerHTML = `
   <div class="car-block__head">
-    <span class="car__name">${carData.name}</span>
     <button class="select">Select</button>
     <button class="delete">Delete</button>
+    <span class="car__name">${carData.name}</span>
   </div>
   <div class="car-block__body">
     <div class="engine-buttons">
@@ -16,7 +48,7 @@ export function createCarBlockElement(carData: ICarDB): HTMLDivElement {
       <button>B</button>
     </div>
     <div class="">
-      <svg class="car__img" stroke="white" stroke-opacity="0.1" fill=${carData.color} version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+      <svg class="car__img" stroke="white" stroke-opacity="0.2" fill=${carData.color} version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="31.445px" height="31.445px"
         viewBox="0 0 31.445 31.445" style="enable-background:new 0 0 31.445 31.445;" xml:space="preserve"
         transform="scale(-1, 1)">

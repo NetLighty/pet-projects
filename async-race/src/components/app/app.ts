@@ -12,7 +12,8 @@ class App {
   }
 
   async start(): Promise<void> {
-    this.garage.renderCars();
+    this.garage.refreshGarage();
+    // this.garage.generateCars(100);
   }
 }
 
