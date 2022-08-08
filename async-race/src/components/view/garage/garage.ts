@@ -133,7 +133,11 @@ class Garage {
     const animationTime = engineData.distance / engineData.velocity;
     if (carImg && flag) {
       const distanceBetweenCarAndFlag = getDistanceBetweenElems(carImg, flag);
-      carDriveAnimation(carImg, distanceBetweenCarAndFlag, animationTime);
+      const animationData = carDriveAnimation(carImg, distanceBetweenCarAndFlag, animationTime);
+      const driveRes = await this.controller.driveCarEngine(id, 'drive');
+      if (!driveRes.success) {
+        cancelAnimationFrame(animationData.id);
+      }
     }
   }
 }

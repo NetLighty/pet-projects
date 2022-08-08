@@ -17,13 +17,18 @@ export interface IWinnerDB extends IWinner {
   id: number;
 }
 
-export interface winnersParams {
+export interface WinnersParams {
   _page: string;
   _limit: string;
   _sort: 'id' | 'wins' | 'time';
   _order: 'ASC' | 'DESC';
 }
 
+export interface DriveData {
+  success: boolean;
+}
+
 export type fetchData = ICar | IWinner;
 export type apiDataRes = ICarDB | IWinnerDB;
-export type engineStatus = 'started' | 'stopped' | 'drive';
+export type EngineStatus = 'started' | 'stopped';
+export type DriveStatus = 'drive';

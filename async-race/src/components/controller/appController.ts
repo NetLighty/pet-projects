@@ -1,6 +1,8 @@
 import { EngineData } from '../view/garage/garage.types';
 import {
-  engineStatus, fetchData, ICar, ICarDB, IWinner
+  DriveData,
+  DriveStatus,
+  EngineStatus, fetchData, ICar, ICarDB, IWinner
 } from './appController.types';
 
 class AppController {
@@ -11,13 +13,13 @@ class AppController {
   }
 
   async getCars(params?: Record<string, string>): Promise<ICarDB[]> {
-    const cars: ICarDB[] = await AppController.request(this.apiUrl + '/garage?' + new URLSearchParams(params), 'GET');
-    return cars;
+    const res = await AppController.request(this.apiUrl + '/garage?' + new URLSearchParams(params), 'GET');
+    return res.json();
   }
 
   async getCar(id: number): Promise<ICarDB> {
-    const car = await AppController.request(this.apiUrl + `/garage/${id}`, 'GET');
-    return car;
+    const res = await AppController.request(this.apiUrl + `/garage/${id}`, 'GET');
+    return res.json();
   }
 
   async createCar(data: ICar): Promise<Response> {
@@ -35,19 +37,24 @@ class AppController {
     return res;
   }
 
-  async ruleCarEngine(id: number, status: engineStatus): Promise<EngineData> {
+  async ruleCarEngine(id: number, status: EngineStatus): Promise<EngineData> {
     const res = await AppController.request(this.apiUrl + '/engine?' + new URLSearchParams({ id: `${id}`, status }), 'PATCH');
-    return res;
+    return res.json();
+  }
+
+  async driveCarEngine(id: number, status: DriveStatus): Promise<DriveData> {
+    const res = await AppController.request(this.apiUrl + '/engine?' + new URLSearchParams({ id: `${id}`, status }), 'PATCH').catch();
+    return res.status !== 200 ? { success: false } : { success: true };
   }
 
   async getWinners(params?: Record<string, string>): Promise<IWinner[]> {
-    const winners: IWinner[] = await AppController.request(this.apiUrl + '/winners?' + new URLSearchParams(params), 'GET');
-    return winners;
+    const res = await AppController.request(this.apiUrl + '/winners?' + new URLSearchParams(params), 'GET');
+    return res.json();
   }
 
   async getWinner(id: string): Promise<IWinner> {
-    const winner: IWinner = await AppController.request(this.apiUrl + `/winners/${id}`, 'GET');
-    return winner;
+    const winner: Response = await AppController.request(this.apiUrl + `/winners/${id}`, 'GET');
+    return winner.json();
   }
 
   async createWinner(data: IWinner): Promise<Response> {
@@ -56,18 +63,18 @@ class AppController {
   }
 
   async deleteWinner(id: string): Promise<IWinner> {
-    const winner: IWinner = await AppController.request(this.apiUrl + `/winners/${id}`, 'DELETE');
-    return winner;
+    const winner: Response = await AppController.request(this.apiUrl + `/winners/${id}`, 'DELETE');
+    return winner.json();
   }
 
   async updateWinner(id: string, data: IWinner): Promise<IWinner> {
-    const winner: IWinner = await AppController.request(this.apiUrl + `/winners/${id}`, 'DELETE', data);
-    return winner;
+    const winner: Response = await AppController.request(this.apiUrl + `/winners/${id}`, 'DELETE', data);
+    return winner.json();
   }
 
   static async request(url: string, method: string, data?: fetchData) {
     const res = await fetch(url, { method, body: JSON.stringify(data), headers: { 'Content-Type': 'application/json' } });
-    return res.json();
+    return res;
   }
 }
 
