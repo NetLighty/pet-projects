@@ -14,7 +14,7 @@ class AppController {
     return cars;
   }
 
-  async getCar(id: string): Promise<ICarDB> {
+  async getCar(id: number): Promise<ICarDB> {
     const car = await AppController.request(this.apiUrl + `/garage/${id}`, 'GET');
     return car;
   }
@@ -24,12 +24,12 @@ class AppController {
     return res;
   }
 
-  async updateCar(id: string, data: ICar): Promise<Response> {
+  async updateCar(id: number, data: ICar): Promise<Response> {
     const res = await AppController.request(this.apiUrl + `/garage/${id}`, 'PUT', data);
     return res;
   }
 
-  async deleteCar(id: string): Promise<Response> {
+  async deleteCar(id: number): Promise<Response> {
     const res = await AppController.request(this.apiUrl + `/garage/${id}`, 'DELETE');
     return res;
   }

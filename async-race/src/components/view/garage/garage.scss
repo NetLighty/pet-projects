@@ -1,6 +1,29 @@
+$car-name-font-size: 2.5rem;
 
+.car-block {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  &__body {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+  }
+}
 .car {
   &__name {
-    
+    font-size: $car-name-font-size;
+  }
+  &__img {
+    width: 6rem;
+    height: 6rem;
+  }
+}
+
+.engine-buttons {
+  width: 5rem;
+
+  button {
+    width: 2rem;
+    height: 2rem;
   }
 }
