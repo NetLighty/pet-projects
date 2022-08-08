@@ -1,3 +1,3 @@
-export type Store = {
+export type AnimationInfo = {
   [id: string]: number;
 };

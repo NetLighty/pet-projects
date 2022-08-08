@@ -1,6 +1,6 @@
 import { ICarDB } from '../components/controller/appController.types';
 import { CarsDB } from '../components/view/garage/garage.types';
-import { Store } from './utils.types';
+import { AnimationInfo } from './utils.types';
 
 export const carsDB: CarsDB = {
   BMW: ['Gran Coupe', 'Active Tourer', 'Saloon', 'Z4 Roadster'],
@@ -53,8 +53,8 @@ export const carDriveAnimation = (
   animationDuration: number
 ) => {
   let start: number | null = null;
-  const resultDistance = distance + 30;
-  const store: Store = {};
+  const resultDistance = distance + 1;
+  const animationInfo: AnimationInfo = {};
   function step(timeStamp: number) {
     if (!start) {
       start = timeStamp;
@@ -65,11 +65,11 @@ export const carDriveAnimation = (
     // eslint-disable-next-line no-param-reassign
     car.style.transform = `translateX(${result}px) scale(-1, 1)`;
     if (time < 1) {
-      store.id = requestAnimationFrame((timestamp) => step(timestamp));
+      animationInfo.id = requestAnimationFrame((timestamp) => step(timestamp));
     }
   }
-  store.id = requestAnimationFrame((timestamp) => step(timestamp));
-  return store;
+  animationInfo.id = requestAnimationFrame((timestamp) => step(timestamp));
+  return animationInfo;
 };
 
 export function createCarBlockElement(carData: ICarDB): HTMLDivElement {

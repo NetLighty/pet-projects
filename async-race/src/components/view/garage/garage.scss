@@ -1,8 +1,10 @@
 $car-name-font-size: 2.5rem;
 
 .car-block {
+  margin-bottom: 1rem;
   display: grid;
   grid-template-columns: 1fr;
+  border-bottom: .5rem white dashed;
 
   &__body {
     display: grid;
@@ -15,6 +17,7 @@ $car-name-font-size: 2.5rem;
 .race {
   display: grid;
   grid-template-columns: 6rem 1fr;
+  align-items: baseline;
   justify-items: center;
 }
 .car {
@@ -22,6 +25,8 @@ $car-name-font-size: 2.5rem;
     font-size: $car-name-font-size;
   }
   &__img {
+    position: relative;
+    bottom: -1.3rem;
     width: 6rem;
     height: 6rem;
   }

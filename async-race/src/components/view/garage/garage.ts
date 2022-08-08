@@ -1,13 +1,11 @@
-/* import { ICarDB } from "../../controller/appController.types"; */
-
 import {
   carDriveAnimation,
   createCarBlockElement, generateCarsNumber, getDistanceBetweenElems, getRandomCarName,
-  getRandomColor, startRaceButtonClass
+  getRandomColor, startRaceButtonClass, stopRaceButtonClass
 } from '../../../utils/utils';
 import AppController from '../../controller/appController';
 import { ICarDB } from '../../controller/appController.types';
-import { EngineData } from './garage.types';
+import { EngineData, Storage } from './garage.types';
 
 class Garage {
   controller: AppController;
@@ -24,8 +22,11 @@ class Garage {
 
   updateTextInput: HTMLInputElement | null;
 
+  storage: Storage;
+
   constructor(controller: AppController) {
     this.controller = controller;
+    this.storage = { animations: [] };
     this.cars = [];
     this.selectedCarId = 0;
     this.updateTextInput = document.getElementById('text-update') as HTMLInputElement | null;
@@ -58,10 +59,11 @@ class Garage {
         const deleteButton = carBlock.querySelector('.delete');
         const selectButton = carBlock.querySelector('.select');
         const startRaceButton = carBlock.querySelector(startRaceButtonClass);
-        // const stopRaceButton = carBlock.querySelector(stopRaceButtonClass);
+        const stopRaceButton = carBlock.querySelector(stopRaceButtonClass);
         deleteButton?.addEventListener('click', () => this.deleteCar(car.id));
         selectButton?.addEventListener('click', () => this.selectCar(car.id));
         startRaceButton?.addEventListener('click', () => this.startCarRace(car.id));
+        stopRaceButton?.addEventListener('click', () => this.stopCarRace(car.id));
         carBlocksContainer?.append(carBlock);
       });
     }
@@ -133,12 +135,21 @@ class Garage {
     const animationTime = engineData.distance / engineData.velocity;
     if (carImg && flag) {
       const distanceBetweenCarAndFlag = getDistanceBetweenElems(carImg, flag);
-      const animationData = carDriveAnimation(carImg, distanceBetweenCarAndFlag, animationTime);
+      this.storage.animations[id] = carDriveAnimation(
+        carImg,
+        distanceBetweenCarAndFlag,
+        animationTime
+      );
       const driveRes = await this.controller.driveCarEngine(id, 'drive');
       if (!driveRes.success) {
-        cancelAnimationFrame(animationData.id);
+        cancelAnimationFrame(this.storage.animations[id].id);
       }
     }
+  }
+
+  async stopCarRace(id: number) {
+    await this.controller.ruleCarEngine(id, 'stopped');
+    cancelAnimationFrame(this.storage.animations[id].id);
   }
 }
 
