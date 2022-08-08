@@ -9,11 +9,14 @@ $car-name-font-size: 2.5rem;
     grid-template-columns: 5rem 1fr;
   }
 }
-
 .selected {
   background-color: rgba(255, 255, 255, 0.2);
 }
-
+.race {
+  display: grid;
+  grid-template-columns: 6rem 1fr;
+  justify-items: center;
+}
 .car {
   &__name {
     font-size: $car-name-font-size;
@@ -23,7 +26,12 @@ $car-name-font-size: 2.5rem;
     height: 6rem;
   }
 }
-
+.flag {
+  display: grid;
+  justify-self: end;
+  height: 5rem;
+  fill: rgba(240, 0, 0, 0.7);
+}
 .engine-buttons {
   width: 5rem;
 

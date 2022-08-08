@@ -6,13 +6,19 @@ export const carsDB: CarsDB = {
   AUDI: ['e-tron', 'RS 7', 'Q8', 'Q6', 'Q3'],
   ISUZU: ['D-Max', 'MU-X', 'Mysterious Utility Wizard'],
   FORD: ['Kuga', 'Explorer', 'Fiesta', 'Edge'],
-  FERRARI: ['LaFerrari', 'Pisra Spider', 'Portofino', 'Challange', 'LaFerrari Aperta'],
+  FERRARI: [
+    'LaFerrari',
+    'Pisra Spider',
+    'Portofino',
+    'Challange',
+    'LaFerrari Aperta'
+  ],
   HAVAL: ['Big Dog']
 };
 
 export const generateCarsNumber = 100;
 
-export const getRandomColor = ():string => {
+export const getRandomColor = (): string => {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 };
 
@@ -47,7 +53,7 @@ export function createCarBlockElement(carData: ICarDB): HTMLDivElement {
       <button>A</button>
       <button>B</button>
     </div>
-    <div class="">
+    <div class="race">
       <svg class="car__img" stroke="white" stroke-opacity="0.2" fill=${carData.color} version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="31.445px" height="31.445px"
         viewBox="0 0 31.445 31.445" style="enable-background:new 0 0 31.445 31.445;" xml:space="preserve"
@@ -55,7 +61,7 @@ export function createCarBlockElement(carData: ICarDB): HTMLDivElement {
         <g>
           <g>
             <path d="M7.592,16.86c-1.77,0-3.203,1.434-3.203,3.204s1.434,3.204,3.203,3.204c1.768,0,3.203-1.434,3.203-3.204
-      S9.36,16.86,7.592,16.86z M7.592,21.032c-0.532,0-0.968-0.434-0.968-0.967s0.436-0.967,0.968-0.967
+        S9.36,16.86,7.592,16.86z M7.592,21.032c-0.532,0-0.968-0.434-0.968-0.967s0.436-0.967,0.968-0.967
         c0.531,0,0.966,0.434,0.966,0.967S8.124,21.032,7.592,21.032z" />
             <path d="M30.915,17.439l-0.524-4.262c-0.103-0.818-0.818-1.418-1.643-1.373L27.6,11.868l-3.564-3.211
           c-0.344-0.309-0.787-0.479-1.249-0.479l-7.241-0.001c-1.625,0-3.201,0.555-4.468,1.573l-4.04,3.246l-5.433,1.358
@@ -101,6 +107,48 @@ export function createCarBlockElement(carData: ICarDB): HTMLDivElement {
         <g>
         </g>
       </svg>
+      <svg class="flag" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+      viewBox="0 0 300.344 300.344" style="enable-background:new 0 0 300.344 300.344;" xml:space="preserve">
+      <g>
+        <path d="M289.286,28.36c-6.773-3.386-14.885-2.655-20.945,1.892c-23.387,17.547-46.014,10.395-80.992-2.728
+        c-34.281-12.859-76.942-28.861-119.047,2.728c-5.034,3.777-7.997,9.704-7.997,15.998v119.112c0,7.576,4.281,14.502,11.058,17.89
+        s14.887,2.654,20.945-1.892c23.387-17.547,46.014-10.395,80.992,2.728c19.513,7.319,41.739,15.657,65.034,15.657
+        c17.631,0,35.874-4.776,54.013-18.385c5.034-3.777,7.997-9.704,7.997-15.998V46.25C300.344,38.674,296.063,31.748,289.286,28.36z"
+        />
+        <path d="M20,7.819c-11.046,0-20,8.954-20,20v244.705c0,11.046,8.954,20,20,20s20-8.954,20-20V27.819
+        C40,16.773,31.046,7.819,20,7.819z"/>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        <g>
+        </g>
+        </svg>
     </div>
   </div>
 `;
