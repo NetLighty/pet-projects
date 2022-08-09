@@ -7,6 +7,17 @@ export interface EngineData {
   distance: number;
 }
 
+export interface CarRaceResult {
+  id: number;
+  time: number;
+}
+
+export interface CarElements {
+  block: HTMLDivElement | null;
+  img: HTMLImageElement | null;
+  flag: HTMLImageElement | null;
+}
+
 export interface Storage {
   animations: AnimationInfo[];
 }

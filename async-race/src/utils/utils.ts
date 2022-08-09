@@ -17,6 +17,8 @@ export const carsDB: CarsDB = {
   HAVAL: ['Big Dog']
 };
 
+export const unknownCarName = 'Unknown';
+
 export const generateCarsNumber = 100;
 export const startRaceButtonClass = '.start-race-button';
 export const stopRaceButtonClass = '.stop-race-button';
@@ -48,7 +50,7 @@ export const getDistanceBetweenElems = (elem1: HTMLDivElement, elem2: HTMLDivEle
 };
 
 export const carDriveAnimation = (
-  car: HTMLDivElement,
+  car: HTMLImageElement,
   distance: number,
   animationDuration: number
 ) => {
@@ -59,9 +61,8 @@ export const carDriveAnimation = (
     if (!start) {
       start = timeStamp;
     }
-    const time = (timeStamp - start) / animationDuration; // ОТ 0 ДО 1
+    const time = (timeStamp - start) / animationDuration;
     const result = time * resultDistance;
-    // const isFinished = result > resultDistance;
     // eslint-disable-next-line no-param-reassign
     car.style.transform = `translateX(${result}px) scale(-1, 1)`;
     if (time < 1) {
@@ -85,6 +86,22 @@ export const getPaginationButtons = (pagesNumber: number) => {
     buttons.push(createPaginationButton(i + 1));
   }
   return buttons;
+};
+
+const createWinnerMessage = (name: string, time: number) => {
+  const messageBlock = document.createElement('div');
+  const messageText = document.createElement('span');
+  messageBlock.className = 'winner-message';
+  messageText.className = 'winner-message__text';
+  messageText.textContent = `Winner is ${name}, time: ${(time / 1000).toFixed(2)}s`;
+  messageBlock.append(messageText);
+  return messageBlock;
+};
+
+export const renderWinnerMessage = (name: string, time: number) => {
+  const garage = document.querySelector('.garage');
+  const message = createWinnerMessage(name, time);
+  garage?.append(message);
 };
 
 export function createCarBlockElement(carData: ICarDB): HTMLDivElement {

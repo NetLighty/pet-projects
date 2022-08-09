@@ -2,11 +2,13 @@ import {
   carDriveAnimation, createCarBlockElement, generateCarsNumber, getDistanceBetweenElems,
   getPaginationButtons,
   getRandomCarName,
-  getRandomColor, startRaceButtonClass, stopRaceButtonClass
+  getRandomColor, renderWinnerMessage, startRaceButtonClass, stopRaceButtonClass, unknownCarName
 } from '../../../utils/utils';
 import AppController from '../../controller/appController';
-import { ICarDB } from '../../controller/appController.types';
-import { EngineData, Storage } from './garage.types';
+import { DriveData, ICarDB } from '../../controller/appController.types';
+import {
+  CarElements, CarRaceResult, EngineData, Storage
+} from './garage.types';
 
 class Garage {
   controller: AppController;
@@ -32,7 +34,7 @@ class Garage {
   constructor(controller: AppController) {
     this.controller = controller;
     this.allCars = [];
-    this.pageLimit = 10;
+    this.pageLimit = 7;
     this.currentPage = 1;
     this.carsInPage = [];
     this.storage = { animations: [] };
@@ -45,6 +47,8 @@ class Garage {
 
   async initGarage() {
     const updateButton = document.getElementById('update-button') as HTMLInputElement | null;
+    const startRaceButton = document.querySelector('.start-race-button') as HTMLButtonElement | null;
+    startRaceButton?.addEventListener('click', () => this.startRace());
     this.generateCarsButton?.addEventListener('click', () => this.generateCars(generateCarsNumber));
     this.createButton?.addEventListener('click', () => this.createCar());
     updateButton?.addEventListener('click', () => this.updateCar());
@@ -131,7 +135,8 @@ class Garage {
     const textInput = document.getElementById('text-create') as HTMLInputElement | null;
     const colorInput = document.getElementById('colorpicker-create') as HTMLInputElement | null;
     if (textInput && colorInput) {
-      await this.controller.createCar({ name: textInput.value, color: colorInput.value });
+      const name = textInput.value ? textInput.value : unknownCarName;
+      await this.controller.createCar({ name, color: colorInput.value });
       await this.refreshGarage();
     }
   }
@@ -164,16 +169,19 @@ class Garage {
   }
 
   static getCarBlockElements(id: number) {
-    const carBlock = document.getElementById(`${id}`);
-    const carImg = carBlock?.querySelector('.car__img') as HTMLDivElement | null;
-    const flag = carBlock?.querySelector('.flag') as HTMLDivElement | null;
+    const carBlock = document.getElementById(`${id}`) as HTMLDivElement | null;
+    const carImg = carBlock?.querySelector('.car__img') as HTMLImageElement | null;
+    const flag = carBlock?.querySelector('.flag') as HTMLImageElement | null;
     return { block: carBlock, img: carImg, flag: flag };
   }
 
-  async startCarEngine(id: number) {
-    const carElements = Garage.getCarBlockElements(id);
+  async startCarEngine(id: number): Promise<CarRaceResult> {
+    const carElements: CarElements = Garage.getCarBlockElements(id);
     const engineData: EngineData = await this.controller.ruleCarEngine(id, 'started');
     const animationTime = engineData.distance / engineData.velocity;
+    let driveRes: DriveData = {
+      success: false
+    };
     if (carElements.img && carElements.flag) {
       const distanceBetweenCarAndFlag = getDistanceBetweenElems(carElements.img, carElements.flag);
       this.storage.animations[id] = carDriveAnimation(
@@ -181,10 +189,27 @@ class Garage {
         distanceBetweenCarAndFlag,
         animationTime
       );
-      const driveRes = await this.controller.driveCarEngine(id, 'drive');
+      driveRes = await this.controller.driveCarEngine(id, 'drive');
       if (!driveRes.success) {
         cancelAnimationFrame(this.storage.animations[id].id);
+      } else {
+        return Promise.resolve({ id, time: animationTime });
       }
+    }
+    return Promise.reject(id);
+  }
+
+  async startRace() {
+    const responses: Promise<CarRaceResult>[] = [];
+    this.carsInPage.forEach((car) => {
+      responses.push(this.startCarEngine(car.id));
+    });
+    const winnerIdAndTime = await Promise.any(responses);
+    const winnerInfo = this.carsInPage.find((winner) => winner.id === winnerIdAndTime.id);
+    const winnerName = winnerInfo?.name;
+    if (winnerName) {
+      console.log('render winner message');
+      renderWinnerMessage(winnerInfo.name, winnerIdAndTime.time);
     }
   }
 

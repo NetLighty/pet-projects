@@ -1,4 +1,6 @@
+@import '../../../global.scss';
 $car-name-font-size: 2.5rem;
+$border-primary: #858585;
 
 .garage {
   display: grid;
@@ -60,5 +62,18 @@ $car-name-font-size: 2.5rem;
   button {
     width: 2rem;
     height: 2rem;
+  }
+}
+.winner-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid $border-primary;
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+  background-color: $dark-primary;
+  &__text {
+    font-size: 3rem;
   }
 }
