@@ -6,6 +6,7 @@ import {
 } from '../../../utils/utils';
 import AppController from '../../controller/appController';
 import { DriveData, ICarDB } from '../../controller/appController.types';
+import Winners from '../winners/winners';
 import {
   CarElements, CarRaceResult, EngineData, Storage
 } from './garage.types';
@@ -33,8 +34,11 @@ class Garage {
 
   colorUpdateInput: HTMLInputElement | null;
 
-  constructor(controller: AppController) {
+  winners: Winners;
+
+  constructor(controller: AppController, winners: Winners) {
     this.controller = controller;
+    this.winners = winners;
     this.allCars = [];
     this.pageLimit = 7;
     this.currentPage = 1;
@@ -218,7 +222,15 @@ class Garage {
     const winnerInfo = this.carsInPage.find((winner) => winner.id === winnerIdAndTime.id);
     const winnerName = winnerInfo?.name;
     if (winnerName) {
-      renderWinnerMessage(winnerInfo.name, winnerIdAndTime.time);
+      renderWinnerMessage(winnerName, winnerIdAndTime.time);
+    }
+    if (winnerInfo) {
+      this.winners.addWinnerInfo({
+        id: winnerInfo.id,
+        name: winnerInfo.name,
+        color: winnerInfo.color,
+        time: winnerIdAndTime.time
+      });
     }
   }
 

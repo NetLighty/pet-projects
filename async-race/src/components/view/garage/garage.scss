@@ -4,6 +4,7 @@ $border-primary: #858585;
 
 .garage {
   display: grid;
+  //display: none;
   grid-template-columns: 1fr;
   column-gap: 3rem;
   margin-left: 3rem;

@@ -13,10 +13,6 @@ export interface ICarDB extends ICar {
   id: number;
 }
 
-export interface IWinnerDB extends IWinner {
-  id: number;
-}
-
 export interface WinnersParams {
   _page: string;
   _limit: string;
@@ -29,6 +25,6 @@ export interface DriveData {
 }
 
 export type fetchData = ICar | IWinner;
-export type apiDataRes = ICarDB | IWinnerDB;
+export type apiDataRes = ICarDB | IWinner;
 export type EngineStatus = 'started' | 'stopped';
 export type DriveStatus = 'drive';

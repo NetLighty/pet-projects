@@ -11,11 +11,11 @@
 <body>
   <div class="page">
     <main>
+      <div class="page__navigation">
+        <button class="garage-button">Garage</button>
+        <button class="winners-button">Winners</button>
+      </div>
       <div class="garage">
-        <div class="page__navigation">
-          <button>Garage</button>
-          <button>Winners</button>
-        </div>
         <div class="garage__menu">
           <div class="create-form">
             <input type="text" id="text-create"/>
@@ -38,7 +38,19 @@
         <div class="pagination"></div>
       </div>
       <div class="winners">
-
+        <table class="winners-table">
+          <thead>
+            <tr>
+              <th>№</th>
+              <th>Car</th>
+              <th>Name</th>
+              <th>Wins</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody class="winners-table-body">
+          </tbody>
+        </table>
       </div>
     </main>
   </div>
