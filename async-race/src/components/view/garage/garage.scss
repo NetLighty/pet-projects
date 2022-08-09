@@ -2,9 +2,8 @@
 $car-name-font-size: 2.5rem;
 $border-primary: #858585;
 
-.garage {
+.garage-container {
   display: grid;
-  //display: none;
   grid-template-columns: 1fr;
   column-gap: 3rem;
   margin-left: 3rem;

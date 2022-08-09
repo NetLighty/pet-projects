@@ -85,6 +85,7 @@ class Winners {
     } else {
       await this.createWinner(winnerInfo.id, 1, winnerInfo.time);
     }
+    this.renderWinnersPage();
   }
 }
 
