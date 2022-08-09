@@ -62,8 +62,8 @@ class Garage {
         const stopRaceButton = carBlock.querySelector(stopRaceButtonClass);
         deleteButton?.addEventListener('click', () => this.deleteCar(car.id));
         selectButton?.addEventListener('click', () => this.selectCar(car.id));
-        startRaceButton?.addEventListener('click', () => this.startCarRace(car.id));
-        stopRaceButton?.addEventListener('click', () => this.stopCarRace(car.id));
+        startRaceButton?.addEventListener('click', () => this.startCarEngine(car.id));
+        stopRaceButton?.addEventListener('click', () => this.stopCarEngine(car.id));
         carBlocksContainer?.append(carBlock);
       });
     }
@@ -127,16 +127,21 @@ class Garage {
     await this.refreshGarage();
   }
 
-  async startCarRace(id: number) {
+  static getCarBlockElements(id: number) {
     const carBlock = document.getElementById(`${id}`);
     const carImg = carBlock?.querySelector('.car__img') as HTMLDivElement | null;
     const flag = carBlock?.querySelector('.flag') as HTMLDivElement | null;
+    return { block: carBlock, img: carImg, flag: flag };
+  }
+
+  async startCarEngine(id: number) {
+    const carElements = Garage.getCarBlockElements(id);
     const engineData: EngineData = await this.controller.ruleCarEngine(id, 'started');
     const animationTime = engineData.distance / engineData.velocity;
-    if (carImg && flag) {
-      const distanceBetweenCarAndFlag = getDistanceBetweenElems(carImg, flag);
+    if (carElements.img && carElements.flag) {
+      const distanceBetweenCarAndFlag = getDistanceBetweenElems(carElements.img, carElements.flag);
       this.storage.animations[id] = carDriveAnimation(
-        carImg,
+        carElements.img,
         distanceBetweenCarAndFlag,
         animationTime
       );
@@ -147,9 +152,13 @@ class Garage {
     }
   }
 
-  async stopCarRace(id: number) {
-    await this.controller.ruleCarEngine(id, 'stopped');
-    cancelAnimationFrame(this.storage.animations[id].id);
+  async stopCarEngine(id: number) {
+    const carElements = Garage.getCarBlockElements(id);
+    if (carElements.img) {
+      await this.controller.ruleCarEngine(id, 'stopped');
+      cancelAnimationFrame(this.storage.animations[id].id);
+      carElements.img.style.transform = 'translateX(0) scale(-1, 1)';
+    }
   }
 }
 
