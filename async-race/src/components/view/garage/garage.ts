@@ -21,7 +21,7 @@ class Garage {
 
   selectedCarId: number;
 
-  updateTextInput: HTMLInputElement | null;
+  textUpdateInput: HTMLInputElement | null;
 
   storage: Storage;
 
@@ -31,6 +31,8 @@ class Garage {
 
   allCars: ICarDB[];
 
+  colorUpdateInput: HTMLInputElement | null;
+
   constructor(controller: AppController) {
     this.controller = controller;
     this.allCars = [];
@@ -39,7 +41,8 @@ class Garage {
     this.carsInPage = [];
     this.storage = { animations: [] };
     this.selectedCarId = 0;
-    this.updateTextInput = document.getElementById('text-update') as HTMLInputElement | null;
+    this.textUpdateInput = document.getElementById('text-update') as HTMLInputElement | null;
+    this.colorUpdateInput = document.getElementById('colorpicker-update') as HTMLInputElement | null;
     this.generateCarsButton = document.getElementById('generate-cars-button');
     this.createButton = document.getElementById('create-button');
     this.initGarage();
@@ -151,8 +154,10 @@ class Garage {
     const selectedCarBlock = document.getElementById(`${id}`);
     const pastSelectedCarBlock = document.getElementById(`${this.selectedCarId}`);
     const selectedCarName = selectedCarBlock?.querySelector('.car__name')?.textContent;
-    if (this.updateTextInput && selectedCarName) {
-      this.updateTextInput.value = selectedCarName;
+    const selectedCarColor = selectedCarBlock?.querySelector('.car__img')?.getAttribute('fill');
+    if (this.textUpdateInput && this.colorUpdateInput && selectedCarColor && selectedCarName) {
+      this.textUpdateInput.value = selectedCarName;
+      this.colorUpdateInput.value = selectedCarColor;
     }
     if (this.selectedCarId === id) {
       selectedCarBlock?.classList.toggle('selected');
@@ -164,12 +169,11 @@ class Garage {
   }
 
   async updateCar() {
-    const colorInput = document.getElementById('colorpicker-update') as HTMLInputElement | null;
-    if (this.updateTextInput && colorInput) {
+    if (this.textUpdateInput && this.colorUpdateInput) {
       await this.controller.updateCar(this.selectedCarId, {
-        name: this.updateTextInput.value, color: colorInput.value
+        name: this.textUpdateInput.value, color: this.colorUpdateInput.value
       });
-      this.updateTextInput.value = '';
+      this.textUpdateInput.value = '';
     }
     await this.refreshGarage();
   }
