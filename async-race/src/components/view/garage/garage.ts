@@ -68,6 +68,7 @@ class Garage {
     const pagesNumber = this.allCars.length / this.pageLimit;
     const buttons = getPaginationButtons(pagesNumber);
     if (buttonsContainer) {
+      buttonsContainer.innerHTML = '';
       buttons.forEach((button, index) => {
         button.addEventListener('click', () => this.changePage(index + 1));
         buttonsContainer.append(button);
