@@ -72,6 +72,21 @@ export const carDriveAnimation = (
   return animationInfo;
 };
 
+const createPaginationButton = (numberOfPage: number): HTMLButtonElement => {
+  const paginationButton = document.createElement('button');
+  paginationButton.className = 'pagination-button';
+  paginationButton.textContent = `${numberOfPage}`;
+  return paginationButton;
+};
+
+export const getPaginationButtons = (pagesNumber: number) => {
+  const buttons = [];
+  for (let i = 0; i < pagesNumber; i += 1) {
+    buttons.push(createPaginationButton(i + 1));
+  }
+  return buttons;
+};
+
 export function createCarBlockElement(carData: ICarDB): HTMLDivElement {
   const carBlock = document.createElement('div');
   carBlock.className = 'car-block';

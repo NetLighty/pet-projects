@@ -1,5 +1,22 @@
 $car-name-font-size: 2.5rem;
 
+.garage {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 3rem;
+  margin-left: 3rem;
+  width: 93vw;
+}
+.pagination {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 3rem);
+  column-gap: .7rem;
+  grid-gap: .7rem;
+  button {
+    width: 3rem;
+    height: 3rem;
+  }
+}
 .car-block {
   margin-bottom: 1rem;
   display: grid;

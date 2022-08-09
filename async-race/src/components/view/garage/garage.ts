@@ -1,6 +1,7 @@
 import {
-  carDriveAnimation,
-  createCarBlockElement, generateCarsNumber, getDistanceBetweenElems, getRandomCarName,
+  carDriveAnimation, createCarBlockElement, generateCarsNumber, getDistanceBetweenElems,
+  getPaginationButtons,
+  getRandomCarName,
   getRandomColor, startRaceButtonClass, stopRaceButtonClass
 } from '../../../utils/utils';
 import AppController from '../../controller/appController';
@@ -12,11 +13,9 @@ class Garage {
 
   generateCarsButton: HTMLElement | null;
 
-  carsAmountElement: Element | null;
-
   createButton: Element | null;
 
-  cars: ICarDB[];
+  carsInPage: ICarDB[];
 
   selectedCarId: number;
 
@@ -24,14 +23,22 @@ class Garage {
 
   storage: Storage;
 
+  pageLimit: number;
+
+  currentPage: number;
+
+  allCars: ICarDB[];
+
   constructor(controller: AppController) {
     this.controller = controller;
+    this.allCars = [];
+    this.pageLimit = 10;
+    this.currentPage = 1;
+    this.carsInPage = [];
     this.storage = { animations: [] };
-    this.cars = [];
     this.selectedCarId = 0;
     this.updateTextInput = document.getElementById('text-update') as HTMLInputElement | null;
     this.generateCarsButton = document.getElementById('generate-cars-button');
-    this.carsAmountElement = document.querySelector('.cars-amount');
     this.createButton = document.getElementById('create-button');
     this.initGarage();
   }
@@ -44,17 +51,37 @@ class Garage {
   }
 
   async refreshGarage() {
-    await this.renderCars();
+    this.allCars = await this.controller.getCars();
+    await this.renderCarsPage(this.currentPage);
     this.renderCarsAmount();
+    this.renderPaginationButtons();
   }
 
-  async renderCars() {
-    const carsData: ICarDB[] = await this.controller.getCars();
-    this.cars = carsData;
+  async changePage(page: number) {
+    this.currentPage = page;
+    this.renderPageNumber();
+    await this.renderCarsPage(page);
+  }
+
+  renderPaginationButtons() {
+    const buttonsContainer = document.querySelector('.pagination');
+    const pagesNumber = this.allCars.length / this.pageLimit;
+    const buttons = getPaginationButtons(pagesNumber);
+    if (buttonsContainer) {
+      buttons.forEach((button, index) => {
+        button.addEventListener('click', () => this.changePage(index + 1));
+        buttonsContainer.append(button);
+      });
+    }
+  }
+
+  async renderCarsPage(page: number) {
+    const carsData: ICarDB[] = await this.controller.getCars({ _page: `${page}`, _limit: `${this.pageLimit}` });
+    this.carsInPage = carsData;
     const carBlocksContainer = document.querySelector('.cars-list');
     if (carBlocksContainer) {
       carBlocksContainer.innerHTML = '';
-      this.cars.forEach((car) => {
+      this.carsInPage.forEach((car) => {
         const carBlock = createCarBlockElement(car);
         const deleteButton = carBlock.querySelector('.delete');
         const selectButton = carBlock.querySelector('.select');
@@ -70,8 +97,16 @@ class Garage {
   }
 
   renderCarsAmount() {
-    if (this.carsAmountElement) {
-      this.carsAmountElement.innerHTML = `${this.cars.length}`;
+    const carsAmountElement = document.querySelector('.cars-amount');
+    if (carsAmountElement) {
+      carsAmountElement.textContent = `${this.allCars.length}`;
+    }
+  }
+
+  renderPageNumber() {
+    const pageNumberElement = document.querySelector('.page-number');
+    if (pageNumberElement) {
+      pageNumberElement.textContent = `${this.currentPage}`;
     }
   }
 
