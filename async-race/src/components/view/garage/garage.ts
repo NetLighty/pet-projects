@@ -48,7 +48,9 @@ class Garage {
   async initGarage() {
     const updateButton = document.getElementById('update-button') as HTMLInputElement | null;
     const startRaceButton = document.querySelector('.start-race-button') as HTMLButtonElement | null;
+    const resetButton = document.querySelector('.reset-button') as HTMLButtonElement | null;
     startRaceButton?.addEventListener('click', () => this.startRace());
+    resetButton?.addEventListener('click', () => this.resetCars());
     this.generateCarsButton?.addEventListener('click', () => this.generateCars(generateCarsNumber));
     this.createButton?.addEventListener('click', () => this.createCar());
     updateButton?.addEventListener('click', () => this.updateCar());
@@ -88,17 +90,21 @@ class Garage {
       carBlocksContainer.innerHTML = '';
       this.carsInPage.forEach((car) => {
         const carBlock = createCarBlockElement(car);
-        const deleteButton = carBlock.querySelector('.delete');
-        const selectButton = carBlock.querySelector('.select');
-        const startRaceButton = carBlock.querySelector(startRaceButtonClass);
-        const stopRaceButton = carBlock.querySelector(stopRaceButtonClass);
-        deleteButton?.addEventListener('click', () => this.deleteCar(car.id));
-        selectButton?.addEventListener('click', () => this.selectCar(car.id));
-        startRaceButton?.addEventListener('click', () => this.startCarEngine(car.id));
-        stopRaceButton?.addEventListener('click', () => this.stopCarEngine(car.id));
+        this.setCarBlockListeners(carBlock);
         carBlocksContainer?.append(carBlock);
       });
     }
+  }
+
+  setCarBlockListeners(carBlock: HTMLDivElement) {
+    const deleteButton = carBlock.querySelector('.delete');
+    const selectButton = carBlock.querySelector('.select');
+    const startRaceButton = carBlock.querySelector(startRaceButtonClass);
+    const stopRaceButton = carBlock.querySelector(stopRaceButtonClass);
+    deleteButton?.addEventListener('click', () => this.deleteCar(+carBlock.id));
+    selectButton?.addEventListener('click', () => this.selectCar(+carBlock.id));
+    startRaceButton?.addEventListener('click', () => this.startCarEngine(+carBlock.id));
+    stopRaceButton?.addEventListener('click', () => this.stopCarEngine(+carBlock.id));
   }
 
   renderCarsAmount() {
@@ -208,7 +214,6 @@ class Garage {
     const winnerInfo = this.carsInPage.find((winner) => winner.id === winnerIdAndTime.id);
     const winnerName = winnerInfo?.name;
     if (winnerName) {
-      console.log('render winner message');
       renderWinnerMessage(winnerInfo.name, winnerIdAndTime.time);
     }
   }
@@ -220,6 +225,14 @@ class Garage {
       cancelAnimationFrame(this.storage.animations[id].id);
       carElements.img.style.transform = 'translateX(0) scale(-1, 1)';
     }
+  }
+
+  async resetCars() {
+    const winnerMessage = document.querySelector('.winner-message');
+    this.carsInPage.forEach((car) => {
+      this.stopCarEngine(car.id);
+    });
+    winnerMessage?.remove();
   }
 }
 
