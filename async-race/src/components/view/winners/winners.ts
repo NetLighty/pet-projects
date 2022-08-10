@@ -76,6 +76,7 @@ class Winners {
       this.currentSort,
       this.currentOrder
     );
+    console.log(winnersData);
     const winnersTableBody = document.querySelector('.winners__table__body');
     if (winnersTableBody) {
       winnersTableBody.innerHTML = '';
@@ -141,6 +142,11 @@ class Winners {
     this.allWinners = await this.controller.getWinners();
     await this.renderWinnersPage();
     this.renderPaginationButtons();
+  }
+
+  async deleteWinner(id: number) {
+    await this.controller.deleteWinner(id);
+    await this.refreshWinners();
   }
 }
 

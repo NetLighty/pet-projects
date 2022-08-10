@@ -141,6 +141,7 @@ class Garage {
 
   async deleteCar(id: number) {
     await this.controller.deleteCar(id);
+    await this.winners.deleteWinner(id);
     await this.refreshGarage();
   }
 

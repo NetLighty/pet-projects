@@ -62,7 +62,7 @@ class AppController {
     return res;
   }
 
-  async deleteWinner(id: string): Promise<IWinner> {
+  async deleteWinner(id: number): Promise<IWinner> {
     const winner: Response = await AppController.request(this.apiUrl + `/winners/${id}`, 'DELETE');
     return winner.json();
   }
