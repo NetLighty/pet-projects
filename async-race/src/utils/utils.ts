@@ -145,12 +145,12 @@ export const getPaginationButtons = (pagesNumber: number) => {
   return buttons;
 };
 
-const createWinnerMessage = (name: string, time: number) => {
+const createWinnerMessage = (isFinished: boolean, name: string, time: number) => {
   const messageBlock = document.createElement('div');
   const messageText = document.createElement('span');
   messageBlock.className = 'winner-message';
   messageText.className = 'winner-message__text';
-  messageText.textContent = `Winner is ${name}, time: ${(time / 1000).toFixed(2)}s`;
+  messageText.textContent = isFinished ? `Winner is ${name}, time: ${(time / 1000).toFixed(2)}s` : 'No one Finished';
   messageBlock.append(messageText);
   return messageBlock;
 };
@@ -171,9 +171,9 @@ export const createWinnerTableRow = (winnerData: AllWinnerData) => {
   return row;
 };
 
-export const renderWinnerMessage = (name: string, time: number) => {
+export const renderWinnerMessage = (isFinished: boolean, name: string, time: number) => {
   const garage = document.querySelector('.garage');
-  const message = createWinnerMessage(name, time);
+  const message = createWinnerMessage(isFinished, name, time);
   garage?.append(message);
 };
 

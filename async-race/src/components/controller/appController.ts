@@ -68,7 +68,9 @@ class AppController {
   }
 
   async updateWinner(data: IWinner): Promise<IWinner> {
-    const winner: Response = await AppController.request(this.apiUrl + `/winners/${data.id}`, 'DELETE', data);
+    console.log('updateWinner');
+    const winner: Response = await AppController.request(this.apiUrl + `/winners/${data.id}`, 'PUT', data);
+    console.log(winner.json());
     return winner.json();
   }
 

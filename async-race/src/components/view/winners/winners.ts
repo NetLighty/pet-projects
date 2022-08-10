@@ -72,8 +72,9 @@ class Winners {
     await this.controller.createWinner({ id, wins, time });
   }
 
-  async updateWinner(id: number, wins: number, time: number) {
-    await this.controller.updateWinner({ id, wins, time });
+  async updateWinner(id: number, wins: number, time: number, lastTime: number) {
+    const bestTime = time < lastTime ? time : lastTime;
+    await this.controller.updateWinner({ id, wins, time: bestTime });
   }
 
   async addWinnerInfo(winnerInfo: WinnerInfo) {
@@ -81,11 +82,11 @@ class Winners {
       return winner.id === winnerInfo.id;
     });
     if (isExist) {
-      await this.updateWinner(winnerInfo.id, isExist.wins + 1, winnerInfo.time);
+      await this.updateWinner(winnerInfo.id, isExist.wins + 1, winnerInfo.time, isExist.time);
     } else {
       await this.createWinner(winnerInfo.id, 1, winnerInfo.time);
     }
-    this.renderWinnersPage();
+    await this.renderWinnersPage();
   }
 }
 

@@ -218,19 +218,23 @@ class Garage {
     this.carsInPage.forEach((car) => {
       responses.push(this.startCarEngine(car.id));
     });
-    const winnerIdAndTime = await Promise.any(responses);
-    const winnerInfo = this.carsInPage.find((winner) => winner.id === winnerIdAndTime.id);
-    const winnerName = winnerInfo?.name;
-    if (winnerName) {
-      renderWinnerMessage(winnerName, winnerIdAndTime.time);
-    }
-    if (winnerInfo) {
-      this.winners.addWinnerInfo({
-        id: winnerInfo.id,
-        name: winnerInfo.name,
-        color: winnerInfo.color,
-        time: winnerIdAndTime.time
-      });
+    const winnerIdAndTime = await Promise.any(responses).catch(() => {
+      renderWinnerMessage(false, '', 0);
+    });
+    if (winnerIdAndTime) {
+      const winnerInfo = this.carsInPage.find((winner) => winner.id === winnerIdAndTime.id);
+      const winnerName = winnerInfo?.name;
+      if (winnerName) {
+        renderWinnerMessage(true, winnerName, winnerIdAndTime.time);
+      }
+      if (winnerInfo) {
+        this.winners.addWinnerInfo({
+          id: winnerInfo.id,
+          name: winnerInfo.name,
+          color: winnerInfo.color,
+          time: winnerIdAndTime.time
+        });
+      }
     }
   }
 
