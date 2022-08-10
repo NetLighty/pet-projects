@@ -95,11 +95,13 @@ class Winners {
 
   async createWinner(id: number, wins: number, time: number) {
     await this.controller.createWinner({ id, wins, time });
+    await this.renderWinnersPage();
   }
 
   async updateWinner(id: number, wins: number, time: number, lastTime: number) {
     const bestTime = time < lastTime ? time : lastTime;
     await this.controller.updateWinner({ id, wins, time: bestTime });
+    await this.renderWinnersPage();
   }
 
   async addWinnerInfo(winnerInfo: WinnerInfo) {
@@ -111,7 +113,6 @@ class Winners {
     } else {
       await this.createWinner(winnerInfo.id, 1, winnerInfo.time);
     }
-    await this.renderWinnersPage();
   }
 }
 
