@@ -6,13 +6,13 @@ import { AnimationInfo } from './utils.types';
 export const carsDB: CarsDB = {
   BMW: ['Gran Coupe', 'Active Tourer', 'Saloon', 'Z4 Roadster'],
   AUDI: ['e-tron', 'RS 7', 'Q8', 'Q6', 'Q3'],
-  ISUZU: ['D-Max', 'MU-X', 'Mysterious Utility Wizard'],
+  ISUZU: ['D-Max', 'MU-X', 'Mysterious Utility'],
   FORD: ['Kuga', 'Explorer', 'Fiesta', 'Edge'],
   FERRARI: [
     'LaFerrari',
     'Pisra Spider',
     'Portofino',
-    'Challange',
+    'Challenge',
     'LaFerrari Aperta'
   ],
   HAVAL: ['Big Dog']

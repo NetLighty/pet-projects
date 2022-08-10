@@ -1,22 +1,84 @@
-@import '../../../global.scss';
-$car-name-font-size: 2.5rem;
-$border-primary: #858585;
+@import '../../../utils/variables.scss';
 
+.garage {
+  input {
+    border:none;
+    background:none;
+    outline:none;
+    padding:0;
+  }
+
+  &__menu {
+    display: grid;
+    row-gap: .5rem;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 31rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    .form {
+      display: grid;
+      column-gap: 0.8rem;
+      grid-template-columns: 1fr 1fr 1fr;
+      align-items: center;
+      justify-items: center;
+    }
+
+    input[type=text] {
+      width: 20rem;
+      height: 3rem;
+      padding: .5rem;
+      border-radius: .7rem;
+      color: $text-primary;
+      background-color: rgba($dark-grey, 0.5);
+      font-size: 1.7rem;
+      font-weight: 200;
+    }
+    input[type=color] {
+      height: 3.5rem;
+      background-color: $dark-primary;
+    }
+  }
+
+}
 .garage-container {
   display: grid;
   grid-template-columns: 1fr;
   column-gap: 3rem;
   margin-left: 3rem;
   width: 93vw;
+
+  button {
+    cursor: pointer;
+    color: $text-primary;
+    position: relative;
+    background-color: $dark-grey;
+    border-radius: 0.7rem;
+    padding: .5rem .75rem;
+    text-align: left;
+    font-size: 1.5rem;
+    font-weight: 200;
+    letter-spacing: .2rem;
+  }
+  button:hover {
+    background-color: rgba($dark-grey, 0.5);
+  }
+  button:active {
+    transition: transform 0.1s ease;
+    transform: translate(0.05rem, 0.05rem);
+  }
 }
 .pagination {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 3rem);
-  column-gap: .7rem;
-  grid-gap: .7rem;
+  grid-template-columns: repeat(auto-fill, 4rem);
+  grid-gap: .5rem;
   button {
-    width: 3rem;
-    height: 3rem;
+    text-align: center;
+    padding: .3rem;
+    width: 4rem;
+    height: 4rem;
   }
 }
 .car-block {
@@ -24,14 +86,18 @@ $border-primary: #858585;
   display: grid;
   grid-template-columns: 1fr;
   border-bottom: .5rem white dashed;
+  border-radius: .5rem;
 
+  &__head {
+    margin-bottom: .5rem;
+  }
   &__body {
     display: grid;
     grid-template-columns: 5rem 1fr;
   }
 }
 .selected {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.08);
 }
 .race {
   display: grid;
@@ -57,11 +123,13 @@ $border-primary: #858585;
   fill: rgba(240, 0, 0, 0.7);
 }
 .engine-buttons {
-  width: 5rem;
+  width: 7rem;
 
   button {
-    width: 2rem;
-    height: 2rem;
+    padding: 0;
+    text-align: center;
+    width: 3rem;
+    height: 3rem;
   }
 }
 .winner-message {

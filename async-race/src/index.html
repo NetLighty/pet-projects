@@ -12,25 +12,27 @@
   <div class="page">
     <main>
       <div class="page__navigation">
-        <button class="garage-button">Garage</button>
-        <button class="winners-button">Winners</button>
+        <button class="page__navigation__button garage-button">Garage</button>
+        <button class="page__navigation__button winners-button">Winners</button>
       </div>
       <div class="garage">
         <div class="garage-container">
           <div class="garage__menu">
-            <div class="create-form">
+            <div class="create-form form">
               <input type="text" id="text-create"/>
               <input type="color" id="colorpicker-create" value="#ffffff">
               <button class="" id="create-button">Create</button>
             </div>
-            <div class="update-form">
+            <div class="update-form form">
               <input type="text" id="text-update"/>
               <input type="color" id="colorpicker-update" value="#ffffff">
               <button class="" id="update-button">Update</button>
             </div>
-            <button class="start-race-button">Race</button>
-            <button class="reset-button">Reset</button>
-            <button class="" id="generate-cars-button">Generate Cars</button>
+            <div class="garage-controls">
+              <button class="start-race-button">Race</button>
+              <button class="reset-button">Reset</button>
+              <button class="" id="generate-cars-button">Generate Cars</button>
+            </div>
           </div>
           <h1>Garage ( <span class="cars-amount">0</span> ) <span class="alert-message">Hi, can you give me some more time pls?</span></h1>
           <h2>Page # <span class="page-number">1</span></h2>

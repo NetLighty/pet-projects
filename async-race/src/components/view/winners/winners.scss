@@ -1,7 +1,4 @@
-$dark-grey: rgb(38,38,38);
-$background-dark: #1b1b1b;
-$alternative-primary: #5e9eff;
-$background-darker: rgb(15,15,15);
+@import '../../../utils/variables.scss';
 
 .winners__table {
 	width: 85rem;
