@@ -68,9 +68,7 @@ class AppController {
   }
 
   async updateWinner(data: IWinner): Promise<IWinner> {
-    console.log('updateWinner');
     const winner: Response = await AppController.request(this.apiUrl + `/winners/${data.id}`, 'PUT', data);
-    console.log(winner.json());
     return winner.json();
   }
 
