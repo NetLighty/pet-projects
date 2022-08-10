@@ -8,6 +8,18 @@ $background-darker: rgb(15,15,15);
   margin: 0 auto;
 	border: none;
 	margin-bottom: 20px;
+  .arrow {
+    position: absolute;
+    top: 0.8rem;
+    right: 1.2rem;
+    fill: white;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-weight: 200;
+  }
+  .down {
+    transform: rotate(180deg);
+  }
   .car__img {
     bottom: auto;
     width: 3rem;
@@ -15,6 +27,7 @@ $background-darker: rgb(15,15,15);
   }
   thead {
     th {
+      position: relative;
       background-color: $background-dark;
       font-weight: bold;
       text-align: left;
@@ -40,7 +53,6 @@ $background-darker: rgb(15,15,15);
       font-size: 1.8rem;
       font-weight: 200;
       letter-spacing: 0.15rem;
-      vertical-align: top;
     }
     tr:nth-child(2n){
       background: $background-dark;

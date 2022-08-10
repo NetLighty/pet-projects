@@ -1,4 +1,4 @@
-import { createWinnerTableRow } from '../../../utils/utils';
+import { createWinnersTable, createWinnerTableRow, getArrow } from '../../../utils/utils';
 import AppController from '../../controller/appController';
 import { ICarDB, IWinner } from '../../controller/appController.types';
 import { OrderTypes, SortTypes, WinnerInfo } from './winners.types';
@@ -12,6 +12,8 @@ class Winners {
 
   allWinners: IWinner[];
 
+  winnersOnPage: IWinner[];
+
   currentPage: number;
 
   currentSort: SortTypes;
@@ -22,23 +24,46 @@ class Winners {
     this.controller = controller;
     this.pageLimit = 10;
     this.allWinners = [];
+    this.winnersOnPage = [];
     this.allCars = [];
     this.currentPage = 1;
     this.currentSort = 'wins';
-    this.currentOrder = 'ASC';
+    this.currentOrder = 'DESC';
     this.initWinners();
   }
 
   async initWinners() {
+    const winnersContainer = document.querySelector('.winners');
+    winnersContainer?.append(createWinnersTable());
+    const winsCell = document.getElementById('wins');
+    const idCell = document.getElementById('id');
+    const timeCell = document.getElementById('time');
+    winsCell?.addEventListener('click', (e) => this.sortWinners(e));
+    winsCell?.append(getArrow());
+    idCell?.addEventListener('click', (e) => this.sortWinners(e));
+    timeCell?.addEventListener('click', (e) => this.sortWinners(e));
     this.allCars = await this.controller.getCars();
     this.allWinners = await this.controller.getWinners();
   }
 
   async getWinnersPage(page: number, sort: SortTypes, order: OrderTypes) {
-    const winners = await this.controller.getWinners({
+    this.winnersOnPage = await this.controller.getWinners({
       _page: `${page}`, _limit: `${this.pageLimit}`, _sort: sort, _order: order
     });
-    return winners;
+    return this.winnersOnPage;
+  }
+
+  async sortWinners(e: MouseEvent) {
+    document.querySelector('.arrow')?.remove();
+    const target = e.target as HTMLTableCellElement;
+    const arrow = getArrow();
+    this.currentOrder = this.currentOrder === 'DESC' ? 'ASC' : 'DESC';
+    if (this.currentOrder === 'ASC') {
+      arrow.classList.remove('down');
+    }
+    target.append(arrow);
+    this.currentSort = target.id as SortTypes;
+    await this.renderWinnersPage();
   }
 
   async renderWinnersPage() {

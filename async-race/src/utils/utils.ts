@@ -18,6 +18,17 @@ export const carsDB: CarsDB = {
   HAVAL: ['Big Dog']
 };
 
+export const getArrow = () => {
+  const arrow = document.createElement('div');
+  arrow.className = 'arrow down';
+  arrow.innerHTML = `<svg data-name="1-Arrow Up"
+  xmlns="http://www.w3.org/2000/svg"
+   viewBox="0 0 32 32"><path d="m26.71 10.29-10-10a1
+    1 0 0 0-1.41 0l-10 10 1.41 1.41L15 3.41V32h2V3.41l8.29 8.29z"/>
+    </svg>`;
+  return arrow;
+};
+
 const getColoredSvg = (color: string) => {
   return `<svg class="car__img" stroke="white" stroke-opacity="0.2" fill=${color} version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="31.445px" height="31.445px"
@@ -153,6 +164,32 @@ const createWinnerMessage = (isFinished: boolean, name: string, time: number) =>
   messageText.textContent = isFinished ? `Winner is ${name}, time: ${(time / 1000).toFixed(2)}s` : 'No one Finished';
   messageBlock.append(messageText);
   return messageBlock;
+};
+
+export const createWinnersTable = () => {
+  const table = document.createElement('table');
+  const tableHead = document.createElement('thead');
+  const headRow = document.createElement('tr');
+  const idCell = document.createElement('th');
+  const carCell = document.createElement('th');
+  const nameCell = document.createElement('th');
+  const winsCell = document.createElement('th');
+  const timeCell = document.createElement('th');
+  const tableBody = document.createElement('tbody');
+  table.className = 'winners__table';
+  tableBody.className = 'winners__table__body';
+  idCell.id = 'id';
+  idCell.textContent = 'Id';
+  carCell.textContent = 'Car';
+  nameCell.textContent = 'Name';
+  winsCell.id = 'wins';
+  winsCell.textContent = 'Wins';
+  timeCell.id = 'time';
+  timeCell.textContent = 'Time';
+  headRow.append(idCell, carCell, nameCell, winsCell, timeCell);
+  tableHead.append(headRow);
+  table.append(tableHead, tableBody);
+  return table;
 };
 
 export const createWinnerTableRow = (winnerData: AllWinnerData) => {
