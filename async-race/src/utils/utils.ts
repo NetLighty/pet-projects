@@ -166,7 +166,7 @@ const createWinnerMessage = (isFinished: boolean, name: string, time: number) =>
   return messageBlock;
 };
 
-export const createWinnersTable = () => {
+const createWinnersTable = () => {
   const table = document.createElement('table');
   const tableHead = document.createElement('thead');
   const headRow = document.createElement('tr');
@@ -190,6 +190,19 @@ export const createWinnersTable = () => {
   tableHead.append(headRow);
   table.append(tableHead, tableBody);
   return table;
+};
+
+export const createWinnersView = () => {
+  const winnersView = document.createElement('div');
+  const tableContainer = document.createElement('div');
+  const winnersTable = createWinnersTable();
+  tableContainer.append(winnersTable);
+  tableContainer.className = ('winners-table-container');
+  const winnersPagination = document.createElement('div');
+  winnersView.className = 'winners hiden';
+  winnersPagination.className = ('winners-pagination');
+  winnersView.append(tableContainer, winnersPagination);
+  return winnersView;
 };
 
 export const createWinnerTableRow = (winnerData: AllWinnerData) => {

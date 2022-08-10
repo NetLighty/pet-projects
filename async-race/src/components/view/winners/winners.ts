@@ -1,4 +1,6 @@
-import { createWinnersTable, createWinnerTableRow, getArrow } from '../../../utils/utils';
+import {
+  createWinnersView, createWinnerTableRow, getArrow, getPaginationButtons
+} from '../../../utils/utils';
 import AppController from '../../controller/appController';
 import { ICarDB, IWinner } from '../../controller/appController.types';
 import { OrderTypes, SortTypes, WinnerInfo } from './winners.types';
@@ -33,8 +35,9 @@ class Winners {
   }
 
   async initWinners() {
-    const winnersContainer = document.querySelector('.winners');
-    winnersContainer?.append(createWinnersTable());
+    const winnersView = createWinnersView();
+    const page = document.querySelector('.page');
+    page?.append(winnersView);
     const winsCell = document.getElementById('wins');
     const idCell = document.getElementById('id');
     const timeCell = document.getElementById('time');
@@ -44,6 +47,7 @@ class Winners {
     timeCell?.addEventListener('click', (e) => this.sortWinners(e));
     this.allCars = await this.controller.getCars();
     this.allWinners = await this.controller.getWinners();
+    await this.refreshWinners();
   }
 
   async getWinnersPage(page: number, sort: SortTypes, order: OrderTypes) {
@@ -95,13 +99,13 @@ class Winners {
 
   async createWinner(id: number, wins: number, time: number) {
     await this.controller.createWinner({ id, wins, time });
-    await this.renderWinnersPage();
+    await this.refreshWinners();
   }
 
   async updateWinner(id: number, wins: number, time: number, lastTime: number) {
     const bestTime = time < lastTime ? time : lastTime;
     await this.controller.updateWinner({ id, wins, time: bestTime });
-    await this.renderWinnersPage();
+    await this.refreshWinners();
   }
 
   async addWinnerInfo(winnerInfo: WinnerInfo) {
@@ -113,6 +117,30 @@ class Winners {
     } else {
       await this.createWinner(winnerInfo.id, 1, winnerInfo.time);
     }
+  }
+
+  renderPaginationButtons() {
+    const buttonsContainer = document.querySelector('.winners-pagination');
+    const pagesNumber = this.allWinners.length / this.pageLimit;
+    const buttons = getPaginationButtons(pagesNumber);
+    if (buttonsContainer) {
+      buttonsContainer.innerHTML = '';
+      buttons.forEach((button, index) => {
+        button.addEventListener('click', () => this.changePage(index + 1));
+        buttonsContainer.append(button);
+      });
+    }
+  }
+
+  async changePage(page: number) {
+    this.currentPage = page;
+    await this.renderWinnersPage();
+  }
+
+  async refreshWinners() {
+    this.allWinners = await this.controller.getWinners();
+    await this.renderWinnersPage();
+    this.renderPaginationButtons();
   }
 }
 
