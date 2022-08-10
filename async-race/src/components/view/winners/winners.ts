@@ -47,7 +47,7 @@ class Winners {
       this.currentSort,
       this.currentOrder
     );
-    const winnersTableBody = document.querySelector('.winners-table-body');
+    const winnersTableBody = document.querySelector('.winners__table__body');
     if (winnersTableBody) {
       winnersTableBody.innerHTML = '';
       winnersData.forEach((winnerData) => {
