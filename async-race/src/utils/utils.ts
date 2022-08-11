@@ -2,7 +2,6 @@ import { ICarDB } from '../components/controller/appController.types';
 import { CarsDB } from '../components/view/garage/garage.types';
 import { AllWinnerData } from '../components/view/winners/winners.types';
 import { AnimationInfo } from './utils.types';
-
 export const carsDB: CarsDB = {
   BMW: ['Gran Coupe', 'Active Tourer', 'Saloon', 'Z4 Roadster'],
   AUDI: ['e-tron', 'RS 7', 'Q8', 'Q6', 'Q3'],
@@ -29,11 +28,19 @@ export const getArrow = () => {
   return arrow;
 };
 
+export const createExplosionGif = () => {
+  const explosionImg = document.createElement('img');
+  explosionImg.className = 'explosion-gif';
+  explosionImg.setAttribute('src', '../imgs/explosion.gif');
+  return explosionImg;
+};
+
 const getColoredSvg = (color: string) => {
-  return `<svg class="car__img" stroke="white" stroke-opacity="0.2" fill=${color} version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+  return `<div class="img-container"><svg class="car__img" stroke="white" stroke-opacity="0.2" fill=${color} version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="31.445px" height="31.445px"
   viewBox="0 0 31.445 31.445" style="enable-background:new 0 0 31.445 31.445;" xml:space="preserve"
   transform="scale(-1, 1)">
+  <img src="'../imgs/explosion.gif'">
   <g>
     <g>
       <path d="M7.592,16.86c-1.77,0-3.203,1.434-3.203,3.204s1.434,3.204,3.203,3.204c1.768,0,3.203-1.434,3.203-3.204
@@ -82,7 +89,7 @@ const getColoredSvg = (color: string) => {
   </g>
   <g>
   </g>
-  </svg>`;
+  </svg></div>`;
 };
 
 export const unknownCarName = 'Unknown';
