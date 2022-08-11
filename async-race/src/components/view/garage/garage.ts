@@ -210,7 +210,6 @@ class Garage {
 
   async startCarEngine(id: number): Promise<CarRaceResult> {
     const carElements: CarElements = Garage.getCarBlockElements(id);
-    const imgDiv = carElements.block?.querySelector('.img-container');
     Garage.changeButtonsDisabled(id);
     const engineData: EngineData = await this.controller.ruleCarEngine(id, 'started');
     const animationTime = engineData.distance / engineData.velocity;
@@ -227,7 +226,6 @@ class Garage {
       driveRes = await this.controller.driveCarEngine(id, 'drive');
       if (!driveRes.success) {
         cancelAnimationFrame(this.storage.animations[id].id);
-        imgDiv?.append(createExplosionGif());
       } else {
         return Promise.resolve({ id, time: animationTime });
       }

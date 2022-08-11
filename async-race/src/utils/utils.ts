@@ -36,11 +36,10 @@ export const createExplosionGif = () => {
 };
 
 const getColoredSvg = (color: string) => {
-  return `<div class="img-container"><svg class="car__img" stroke="white" stroke-opacity="0.2" fill=${color} version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+  return `<svg class="car__img" stroke="white" stroke-opacity="0.2" fill=${color} version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="31.445px" height="31.445px"
   viewBox="0 0 31.445 31.445" style="enable-background:new 0 0 31.445 31.445;" xml:space="preserve"
   transform="scale(-1, 1)">
-  <img src="'../imgs/explosion.gif'">
   <g>
     <g>
       <path d="M7.592,16.86c-1.77,0-3.203,1.434-3.203,3.204s1.434,3.204,3.203,3.204c1.768,0,3.203-1.434,3.203-3.204
@@ -89,7 +88,7 @@ const getColoredSvg = (color: string) => {
   </g>
   <g>
   </g>
-  </svg></div>`;
+  </svg>`;
 };
 
 export const unknownCarName = 'Unknown';
