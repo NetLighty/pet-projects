@@ -76,7 +76,6 @@ class Winners {
       this.currentSort,
       this.currentOrder
     );
-    console.log(winnersData);
     const winnersTableBody = document.querySelector('.winners__table__body');
     if (winnersTableBody) {
       winnersTableBody.innerHTML = '';
@@ -136,17 +135,34 @@ class Winners {
   async changePage(page: number) {
     this.currentPage = page;
     await this.renderWinnersPage();
+    this.renderPageNumber();
   }
 
   async refreshWinners() {
     this.allWinners = await this.controller.getWinners();
     await this.renderWinnersPage();
     this.renderPaginationButtons();
+    this.renderPageNumber();
+    this.renderWinnersAmount();
   }
 
   async deleteWinner(id: number) {
     await this.controller.deleteWinner(id);
     await this.refreshWinners();
+  }
+
+  renderWinnersAmount() {
+    const winnersAmountElement = document.querySelector('.winners-amount');
+    if (winnersAmountElement) {
+      winnersAmountElement.textContent = `${this.allWinners.length}`;
+    }
+  }
+
+  renderPageNumber() {
+    const pageNumberElement = document.querySelector('.winners-page-number');
+    if (pageNumberElement) {
+      pageNumberElement.textContent = `${this.currentPage}`;
+    }
   }
 }
 

@@ -194,6 +194,18 @@ const createWinnersTable = () => {
 
 export const createWinnersView = () => {
   const winnersView = document.createElement('div');
+  const winnersAmountElement = document.createElement('h1');
+  const winnersAmountTextElement = document.createElement('span');
+  const winnersHeadersContainer = document.createElement('div');
+  winnersHeadersContainer.className = 'winners-headers-container';
+  winnersAmountTextElement.className = 'winners-amount';
+  winnersAmountTextElement.textContent = '0';
+  winnersAmountElement.innerHTML = 'Winners ( <span class="winners-amount">0</span> )</span>';
+  const pageNumberElement = document.createElement('h2');
+  const pageNumberTextElement = document.createElement('span');
+  pageNumberTextElement.className = ('page-number');
+  pageNumberTextElement.textContent = '1';
+  pageNumberElement.innerHTML = 'Page # <span class="winners-page-number">1</span>';
   const tableContainer = document.createElement('div');
   const winnersTable = createWinnersTable();
   tableContainer.append(winnersTable);
@@ -201,9 +213,13 @@ export const createWinnersView = () => {
   const winnersPagination = document.createElement('div');
   winnersView.className = 'winners hiden';
   winnersPagination.className = ('winners-pagination');
-  winnersView.append(tableContainer, winnersPagination);
+  winnersHeadersContainer.append(winnersAmountElement, pageNumberElement);
+  winnersView.append(winnersHeadersContainer, tableContainer, winnersPagination);
   return winnersView;
 };
+
+/* <h1>Garage ( <span class="cars-amount">0</span> ) <span class="alert-message">Hi, can you give me some more time pls?</span></h1>
+          <h2>Page # <span class="page-number">1</span></h2> */
 
 export const createWinnerTableRow = (winnerData: AllWinnerData) => {
   const row = document.createElement('tr');

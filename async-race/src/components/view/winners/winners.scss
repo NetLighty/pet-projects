@@ -1,5 +1,14 @@
 @import '../../../utils/variables.scss';
 
+.winners {
+  .winners-headers-container {
+    display: grid;
+    grid-template-columns: 20rem 20rem;
+    width: 40rem;
+    justify-items: center;
+    margin: 0 auto;
+  }
+}
 .winners-table-container {
   height: 51rem;
 }
