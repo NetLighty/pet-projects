@@ -232,7 +232,22 @@ class Garage {
     return Promise.reject(id);
   }
 
+  static setStartRaceButtonDisabled(status: boolean) {
+    const startRaceButton = document.querySelector('.start-race-button') as HTMLButtonElement | null;
+    if (startRaceButton) {
+      startRaceButton.disabled = status;
+    }
+  }
+
+  static setResetButtonDisabled(status: boolean) {
+    const resetButton = document.querySelector('.reset-button') as HTMLButtonElement | null;
+    if (resetButton) {
+      resetButton.disabled = status;
+    }
+  }
+
   async startRace() {
+    Garage.setStartRaceButtonDisabled(true);
     const responses: Promise<CarRaceResult>[] = [];
     this.carsInPage.forEach((car) => {
       responses.push(this.startCarEngine(car.id));
@@ -255,24 +270,34 @@ class Garage {
         });
       }
     }
+    Garage.setResetButtonDisabled(false);
   }
 
-  async stopCarEngine(id: number) {
+  async stopCarEngine(id: number): Promise<EngineData> {
     const carElements = Garage.getCarBlockElements(id);
+    let res: EngineData = {
+      velocity: 0,
+      distance: 0
+    };
     Garage.changeButtonsDisabled(id);
     if (carElements.img) {
-      await this.controller.ruleCarEngine(id, 'stopped');
+      res = await this.controller.ruleCarEngine(id, 'stopped');
       cancelAnimationFrame(this.storage.animations[id].id);
       carElements.img.style.transform = 'translateX(0) scale(-1, 1)';
     }
+    return res;
   }
 
   async resetCars() {
+    Garage.setResetButtonDisabled(true);
     const winnerMessage = document.querySelector('.winner-message');
+    const promises: Promise<EngineData>[] = [];
     this.carsInPage.forEach((car) => {
-      this.stopCarEngine(car.id);
+      promises.push(this.stopCarEngine(car.id));
     });
     winnerMessage?.remove();
+    await Promise.all(promises);
+    Garage.setStartRaceButtonDisabled(false);
   }
 }
 
