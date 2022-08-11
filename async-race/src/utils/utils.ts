@@ -218,9 +218,6 @@ export const createWinnersView = () => {
   return winnersView;
 };
 
-/* <h1>Garage ( <span class="cars-amount">0</span> ) <span class="alert-message">Hi, can you give me some more time pls?</span></h1>
-          <h2>Page # <span class="page-number">1</span></h2> */
-
 export const createWinnerTableRow = (winnerData: AllWinnerData) => {
   const row = document.createElement('tr');
   const idCell = document.createElement('td');
@@ -256,7 +253,7 @@ export function createCarBlockElement(carData: ICarDB): HTMLDivElement {
   <div class="car-block__body">
     <div class="engine-buttons">
       <button class="start-race-button">A</button>
-      <button class="stop-race-button">B</button>
+      <button class="stop-race-button" disabled>B</button>
     </div>
     <div class="race">
       ${getColoredSvg(carData.color)}

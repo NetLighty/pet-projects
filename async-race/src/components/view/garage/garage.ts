@@ -190,8 +190,26 @@ class Garage {
     return { block: carBlock, img: carImg, flag: flag };
   }
 
+  static changeButtonsDisabled(carId: number) {
+    const carElements: CarElements = Garage.getCarBlockElements(carId);
+    if (carElements.block) {
+      const startButton: HTMLButtonElement | null = carElements.block.querySelector('.start-race-button');
+      const stopButton: HTMLButtonElement | null = carElements.block.querySelector('.stop-race-button');
+      if (startButton && stopButton) {
+        if (stopButton.disabled) {
+          stopButton.disabled = false;
+          startButton.disabled = true;
+        } else {
+          stopButton.disabled = true;
+          startButton.disabled = false;
+        }
+      }
+    }
+  }
+
   async startCarEngine(id: number): Promise<CarRaceResult> {
     const carElements: CarElements = Garage.getCarBlockElements(id);
+    Garage.changeButtonsDisabled(id);
     const engineData: EngineData = await this.controller.ruleCarEngine(id, 'started');
     const animationTime = engineData.distance / engineData.velocity;
     let driveRes: DriveData = {
@@ -241,6 +259,7 @@ class Garage {
 
   async stopCarEngine(id: number) {
     const carElements = Garage.getCarBlockElements(id);
+    Garage.changeButtonsDisabled(id);
     if (carElements.img) {
       await this.controller.ruleCarEngine(id, 'stopped');
       cancelAnimationFrame(this.storage.animations[id].id);

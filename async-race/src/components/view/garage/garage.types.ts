@@ -7,6 +7,8 @@ export interface EngineData {
   distance: number;
 }
 
+export type ButtonTypes = 'start' | 'stop';
+
 export interface CarRaceResult {
   id: number;
   time: number;

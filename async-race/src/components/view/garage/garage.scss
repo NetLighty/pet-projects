@@ -55,6 +55,7 @@
     color: $text-primary;
     position: relative;
     background-color: $dark-grey;
+    border: .05rem rgba($border-primary, 0.1) solid;
     border-radius: 0.7rem;
     padding: .5rem .75rem;
     text-align: left;
@@ -68,6 +69,11 @@
   button:active {
     transition: transform 0.1s ease;
     transform: translate(0.05rem, 0.05rem);
+  }
+  button:disabled {
+    cursor: auto;
+    background-color: rgba($dark-grey, 0.5);
+    transform: scale(1);
   }
 }
 .pagination {
