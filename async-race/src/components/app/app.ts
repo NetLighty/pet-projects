@@ -11,6 +11,7 @@ class App {
   winners: Winners;
 
   constructor() {
+    renderPageTemplate();
     this.controller = new AppController();
     this.winners = new Winners(this.controller);
     this.garage = new Garage(this.controller, this.winners);
@@ -35,7 +36,6 @@ class App {
   }
 
   async start(): Promise<void> {
-    renderPageTemplate();
     const winnersButton = document.querySelector('.winners-button');
     const garageButton = document.querySelector('.garage-button');
     winnersButton?.addEventListener('click', () => App.showWinners());
