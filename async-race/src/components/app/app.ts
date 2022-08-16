@@ -15,19 +15,19 @@ class App {
     this.garage = new Garage(this.controller, this.winners);
   }
 
-  static getWinnersAndGarageBlocks() {
+  static getWinnersAndGarageBlocks(): {garage: Element | null, winners: Element | null} {
     const garage = document.querySelector('.garage');
     const winners = document.querySelector('.winners');
     return { garage, winners };
   }
 
-  static showGarage() {
+  static showGarage(): void {
     const winnerAndGarage = App.getWinnersAndGarageBlocks();
     winnerAndGarage.garage?.classList.remove('hiden');
     winnerAndGarage.winners?.classList.add('hiden');
   }
 
-  static showWinners() {
+  static showWinners(): void {
     const winnerAndGarage = App.getWinnersAndGarageBlocks();
     winnerAndGarage.garage?.classList.add('hiden');
     winnerAndGarage.winners?.classList.remove('hiden');
