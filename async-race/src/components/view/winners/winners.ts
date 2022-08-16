@@ -34,7 +34,7 @@ class Winners {
     this.initWinners();
   }
 
-  async initWinners() {
+  async initWinners(): Promise<void> {
     const winnersView = createWinnersView();
     const page = document.querySelector('.page');
     page?.append(winnersView);
@@ -50,14 +50,14 @@ class Winners {
     await this.refreshWinners();
   }
 
-  async getWinnersPage(page: number, sort: SortTypes, order: OrderTypes) {
+  async getWinnersPage(page: number, sort: SortTypes, order: OrderTypes): Promise<IWinner[]> {
     this.winnersOnPage = await this.controller.getWinners({
       _page: `${page}`, _limit: `${this.pageLimit}`, _sort: sort, _order: order
     });
     return this.winnersOnPage;
   }
 
-  async sortWinners(e: MouseEvent) {
+  async sortWinners(e: MouseEvent): Promise<void> {
     document.querySelector('.arrow')?.remove();
     const target = e.target as HTMLTableCellElement;
     const arrow = getArrow();
@@ -70,7 +70,7 @@ class Winners {
     await this.renderWinnersPage();
   }
 
-  async renderWinnersPage() {
+  async renderWinnersPage(): Promise<void> {
     const winnersData: IWinner[] = await this.getWinnersPage(
       this.currentPage,
       this.currentSort,
@@ -97,18 +97,18 @@ class Winners {
     }
   }
 
-  async createWinner(id: number, wins: number, time: number) {
+  async createWinner(id: number, wins: number, time: number): Promise<void> {
     await this.controller.createWinner({ id, wins, time });
     await this.refreshWinners();
   }
 
-  async updateWinner(id: number, wins: number, time: number, lastTime: number) {
+  async updateWinner(id: number, wins: number, time: number, lastTime: number): Promise<void> {
     const bestTime = time < lastTime ? time : lastTime;
     await this.controller.updateWinner({ id, wins, time: bestTime });
     await this.refreshWinners();
   }
 
-  async addWinnerInfo(winnerInfo: WinnerInfo) {
+  async addWinnerInfo(winnerInfo: WinnerInfo): Promise<void> {
     const isExist = this.allWinners.find((winner) => {
       return winner.id === winnerInfo.id;
     });
@@ -119,7 +119,7 @@ class Winners {
     }
   }
 
-  renderPaginationButtons() {
+  renderPaginationButtons(): void {
     const buttonsContainer = document.querySelector('.winners-pagination');
     const pagesNumber = this.allWinners.length / this.pageLimit;
     const buttons = getPaginationButtons(pagesNumber);
@@ -132,13 +132,13 @@ class Winners {
     }
   }
 
-  async changePage(page: number) {
+  async changePage(page: number): Promise<void> {
     this.currentPage = page;
     await this.renderWinnersPage();
     this.renderPageNumber();
   }
 
-  async refreshWinners() {
+  async refreshWinners(): Promise<void> {
     this.allWinners = await this.controller.getWinners();
     await this.renderWinnersPage();
     this.renderPaginationButtons();
@@ -146,19 +146,19 @@ class Winners {
     this.renderWinnersAmount();
   }
 
-  async deleteWinner(id: number) {
+  async deleteWinner(id: number): Promise<void> {
     await this.controller.deleteWinner(id);
     await this.refreshWinners();
   }
 
-  renderWinnersAmount() {
+  renderWinnersAmount(): void {
     const winnersAmountElement = document.querySelector('.winners-amount');
     if (winnersAmountElement) {
       winnersAmountElement.textContent = `${this.allWinners.length}`;
     }
   }
 
-  renderPageNumber() {
+  renderPageNumber(): void {
     const pageNumberElement = document.querySelector('.winners-page-number');
     if (pageNumberElement) {
       pageNumberElement.textContent = `${this.currentPage}`;
