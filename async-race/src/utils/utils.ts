@@ -17,7 +17,7 @@ export const carsDB: CarsDB = {
   HAVAL: ['Big Dog']
 };
 
-export const getArrow = () => {
+export const getArrow = (): HTMLDivElement => {
   const arrow = document.createElement('div');
   arrow.className = 'arrow down';
   arrow.innerHTML = `<svg data-name="1-Arrow Up"
@@ -28,14 +28,14 @@ export const getArrow = () => {
   return arrow;
 };
 
-export const createExplosionGif = () => {
+export const createExplosionGif = (): HTMLImageElement => {
   const explosionImg = document.createElement('img');
   explosionImg.className = 'explosion-gif';
   explosionImg.setAttribute('src', '../imgs/explosion.gif');
   return explosionImg;
 };
 
-const getColoredSvg = (color: string) => {
+const getColoredSvg = (color: string): string => {
   return `<svg class="car__img" stroke="white" stroke-opacity="0.2" fill=${color} version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="31.445px" height="31.445px"
   viewBox="0 0 31.445 31.445" style="enable-background:new 0 0 31.445 31.445;" xml:space="preserve"
@@ -127,7 +127,7 @@ export const carDriveAnimation = (
   car: HTMLImageElement,
   distance: number,
   animationDuration: number
-) => {
+): AnimationInfo => {
   let start: number | null = null;
   const resultDistance = distance + 1;
   const animationInfo: AnimationInfo = {};
@@ -154,7 +154,7 @@ const createPaginationButton = (numberOfPage: number): HTMLButtonElement => {
   return paginationButton;
 };
 
-export const getPaginationButtons = (pagesNumber: number) => {
+export const getPaginationButtons = (pagesNumber: number): HTMLButtonElement[] => {
   const buttons = [];
   for (let i = 0; i < pagesNumber; i += 1) {
     buttons.push(createPaginationButton(i + 1));
@@ -162,7 +162,7 @@ export const getPaginationButtons = (pagesNumber: number) => {
   return buttons;
 };
 
-const createWinnerMessage = (isFinished: boolean, name: string, time: number) => {
+const createWinnerMessage = (isFinished: boolean, name: string, time: number): HTMLDivElement => {
   const messageBlock = document.createElement('div');
   const messageText = document.createElement('span');
   messageBlock.className = 'winner-message';
@@ -172,7 +172,7 @@ const createWinnerMessage = (isFinished: boolean, name: string, time: number) =>
   return messageBlock;
 };
 
-const createWinnersTable = () => {
+const createWinnersTable = (): HTMLTableElement => {
   const table = document.createElement('table');
   const tableHead = document.createElement('thead');
   const headRow = document.createElement('tr');
@@ -198,7 +198,7 @@ const createWinnersTable = () => {
   return table;
 };
 
-export const createWinnersView = () => {
+export const createWinnersView = (): HTMLDivElement => {
   const winnersView = document.createElement('div');
   const winnersAmountElement = document.createElement('h1');
   const winnersAmountTextElement = document.createElement('span');
@@ -224,7 +224,7 @@ export const createWinnersView = () => {
   return winnersView;
 };
 
-export const createWinnerTableRow = (winnerData: AllWinnerData) => {
+export const createWinnerTableRow = (winnerData: AllWinnerData): HTMLTableRowElement => {
   const row = document.createElement('tr');
   const idCell = document.createElement('td');
   const carCell = document.createElement('td');
@@ -240,7 +240,7 @@ export const createWinnerTableRow = (winnerData: AllWinnerData) => {
   return row;
 };
 
-export const renderWinnerMessage = (isFinished: boolean, name: string, time: number) => {
+export const renderWinnerMessage = (isFinished: boolean, name: string, time: number): void => {
   const garage = document.querySelector('.garage');
   const message = createWinnerMessage(isFinished, name, time);
   garage?.append(message);
