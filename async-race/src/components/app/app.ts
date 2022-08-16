@@ -1,3 +1,4 @@
+import { renderPageTemplate } from '../../utils/utils';
 import AppController from '../controller/appController';
 import Garage from '../view/garage/garage';
 import Winners from '../view/winners/winners';
@@ -34,6 +35,7 @@ class App {
   }
 
   async start(): Promise<void> {
+    renderPageTemplate();
     const winnersButton = document.querySelector('.winners-button');
     const garageButton = document.querySelector('.garage-button');
     winnersButton?.addEventListener('click', () => App.showWinners());
