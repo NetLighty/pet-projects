@@ -1,5 +1,5 @@
 import {
-  carDriveAnimation, createCarBlockElement, createExplosionGif, generateCarsNumber,
+  carDriveAnimation, createCarBlockElement, generateCarsNumber,
   getDistanceBetweenElems,
   getPaginationButtons,
   getRandomCarName,
@@ -53,7 +53,7 @@ class Garage {
     this.initGarage();
   }
 
-  async initGarage() {
+  async initGarage(): Promise<void> {
     const updateButton = document.getElementById('update-button') as HTMLInputElement | null;
     const startRaceButton = document.querySelector('.start-race-button') as HTMLButtonElement | null;
     const resetButton = document.querySelector('.reset-button') as HTMLButtonElement | null;
@@ -64,20 +64,20 @@ class Garage {
     updateButton?.addEventListener('click', () => this.updateCar());
   }
 
-  async refreshGarage() {
+  async refreshGarage(): Promise<void> {
     this.allCars = await this.controller.getCars();
     await this.renderCarsPage(this.currentPage);
     this.renderCarsAmount();
     this.renderPaginationButtons();
   }
 
-  async changePage(page: number) {
+  async changePage(page: number): Promise<void> {
     this.currentPage = page;
     this.renderPageNumber();
     await this.renderCarsPage(page);
   }
 
-  renderPaginationButtons() {
+  renderPaginationButtons(): void {
     const buttonsContainer = document.querySelector('.pagination');
     const pagesNumber = this.allCars.length / this.pageLimit;
     const buttons = getPaginationButtons(pagesNumber);
@@ -90,7 +90,7 @@ class Garage {
     }
   }
 
-  async renderCarsPage(page: number) {
+  async renderCarsPage(page: number): Promise<void> {
     const carsData: ICarDB[] = await this.controller.getCars({ _page: `${page}`, _limit: `${this.pageLimit}` });
     this.carsInPage = carsData;
     const carBlocksContainer = document.querySelector('.cars-list');
@@ -104,7 +104,7 @@ class Garage {
     }
   }
 
-  setCarBlockListeners(carBlock: HTMLDivElement) {
+  setCarBlockListeners(carBlock: HTMLDivElement): void {
     const deleteButton = carBlock.querySelector('.delete');
     const selectButton = carBlock.querySelector('.select');
     const startRaceButton = carBlock.querySelector(startRaceButtonClass);
@@ -115,21 +115,21 @@ class Garage {
     stopRaceButton?.addEventListener('click', () => this.stopCarEngine(+carBlock.id));
   }
 
-  renderCarsAmount() {
+  renderCarsAmount(): void {
     const carsAmountElement = document.querySelector('.cars-amount');
     if (carsAmountElement) {
       carsAmountElement.textContent = `${this.allCars.length}`;
     }
   }
 
-  renderPageNumber() {
+  renderPageNumber(): void {
     const pageNumberElement = document.querySelector('.page-number');
     if (pageNumberElement) {
       pageNumberElement.textContent = `${this.currentPage}`;
     }
   }
 
-  async generateCars(n: number) {
+  async generateCars(n: number): Promise<void> {
     const responses = [];
     for (let i = 0; i < n; i += 1) {
       const randomColor = getRandomColor();
@@ -140,13 +140,13 @@ class Garage {
     await this.refreshGarage();
   }
 
-  async deleteCar(id: number) {
+  async deleteCar(id: number): Promise<void> {
     await this.controller.deleteCar(id);
     await this.winners.deleteWinner(id);
     await this.refreshGarage();
   }
 
-  async createCar() {
+  async createCar(): Promise<void> {
     const textInput = document.getElementById('text-create') as HTMLInputElement | null;
     const colorInput = document.getElementById('colorpicker-create') as HTMLInputElement | null;
     if (textInput && colorInput) {
@@ -156,7 +156,7 @@ class Garage {
     }
   }
 
-  selectCar(id: number) {
+  selectCar(id: number): void {
     const selectedCarBlock = document.getElementById(`${id}`);
     const pastSelectedCarBlock = document.getElementById(`${this.selectedCarId}`);
     const selectedCarName = selectedCarBlock?.querySelector('.car__name')?.textContent;
@@ -174,7 +174,7 @@ class Garage {
     this.selectedCarId = id;
   }
 
-  async updateCar() {
+  async updateCar(): Promise<void> {
     if (this.textUpdateInput && this.colorUpdateInput) {
       await this.controller.updateCar(this.selectedCarId, {
         name: this.textUpdateInput.value, color: this.colorUpdateInput.value
@@ -184,14 +184,14 @@ class Garage {
     await this.refreshGarage();
   }
 
-  static getCarBlockElements(id: number) {
+  static getCarBlockElements(id: number): CarElements {
     const carBlock = document.getElementById(`${id}`) as HTMLDivElement | null;
     const carImg = carBlock?.querySelector('.car__img') as HTMLImageElement | null;
     const flag = carBlock?.querySelector('.flag') as HTMLImageElement | null;
     return { block: carBlock, img: carImg, flag: flag };
   }
 
-  static changeButtonsDisabled(carId: number) {
+  static changeButtonsDisabled(carId: number): void {
     const carElements: CarElements = Garage.getCarBlockElements(carId);
     if (carElements.block) {
       const startButton: HTMLButtonElement | null = carElements.block.querySelector('.start-race-button');
@@ -233,21 +233,21 @@ class Garage {
     return Promise.reject(id);
   }
 
-  static setStartRaceButtonDisabled(status: boolean) {
+  static setStartRaceButtonDisabled(status: boolean): void {
     const startRaceButton = document.querySelector('.start-race-button') as HTMLButtonElement | null;
     if (startRaceButton) {
       startRaceButton.disabled = status;
     }
   }
 
-  static setResetButtonDisabled(status: boolean) {
+  static setResetButtonDisabled(status: boolean): void {
     const resetButton = document.querySelector('.reset-button') as HTMLButtonElement | null;
     if (resetButton) {
       resetButton.disabled = status;
     }
   }
 
-  async startRace() {
+  async startRace(): Promise<void> {
     Garage.setStartRaceButtonDisabled(true);
     const responses: Promise<CarRaceResult>[] = [];
     this.carsInPage.forEach((car) => {
@@ -289,7 +289,7 @@ class Garage {
     return res;
   }
 
-  async resetCars() {
+  async resetCars(): Promise<void> {
     Garage.setResetButtonDisabled(true);
     const winnerMessage = document.querySelector('.winner-message');
     const promises: Promise<EngineData>[] = [];
