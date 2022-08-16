@@ -72,7 +72,7 @@ class AppController {
     return winner.json();
   }
 
-  static async request(url: string, method: string, data?: fetchData) {
+  static async request(url: string, method: string, data?: fetchData): Promise<Response> {
     const res = await fetch(url, { method, body: JSON.stringify(data), headers: { 'Content-Type': 'application/json' } });
     return res;
   }
